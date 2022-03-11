@@ -1,0 +1,2654 @@
+[  1%] Building C object thirdparty/blake3/CMakeFiles/utilBlake3.dir/blake3_portable.c.o
+[  2%] Building C object thirdparty/blake3/CMakeFiles/utilBlake3.dir/blake3_dispatch.c.o
+[  3%] Building C object thirdparty/blake3/CMakeFiles/utilBlake3.dir/blake3.c.o
+[  4%] Building CXX object _deps/spdlog-build/CMakeFiles/spdlog.dir/src/spdlog.cpp.o
+[  5%] Building CXX object _deps/spdlog-build/CMakeFiles/spdlog.dir/src/stdout_sinks.cpp.o
+[  6%] Building C object thirdparty/blake3/CMakeFiles/utilBlake3.dir/blake3_avx2.c.o
+[  7%] Building C object thirdparty/blake3/CMakeFiles/utilBlake3.dir/blake3_sse2.c.o
+[  8%] Building C object thirdparty/blake3/CMakeFiles/utilBlake3.dir/blake3_sse41.c.o
+[ 10%] Building CXX object _deps/spdlog-build/CMakeFiles/spdlog.dir/src/color_sinks.cpp.o
+[ 11%] Building CXX object _deps/spdlog-build/CMakeFiles/spdlog.dir/src/file_sinks.cpp.o
+[ 12%] Building CXX object _deps/spdlog-build/CMakeFiles/spdlog.dir/src/cfg.cpp.o
+[ 13%] Building CXX object _deps/spdlog-build/CMakeFiles/spdlog.dir/src/async.cpp.o
+[ 14%] Building CXX object _deps/spdlog-build/CMakeFiles/spdlog.dir/src/fmt.cpp.o
+[ 15%] Building C object thirdparty/blake3/CMakeFiles/utilBlake3.dir/blake3_avx512.c.o
+[ 16%] Linking C static library libutilBlake3.a
+Warning: include-what-you-use reported diagnostics:
+
+/home/user/test/build/_deps/spdlog-src/src/file_sinks.cpp should add these lines:
+#include "spdlog/common.h"                    // for SPDLOG_API
+#include "spdlog/sinks/basic_file_sink.h"     // for basic_file_sink
+#include "spdlog/sinks/rotating_file_sink.h"  // for rotating_file_sink
+
+/home/user/test/build/_deps/spdlog-src/src/file_sinks.cpp should remove these lines:
+- #include <spdlog/sinks/base_sink-inl.h>  // lines 11-11
+- #include <spdlog/sinks/basic_file_sink-inl.h>  // lines 10-10
+- #include <spdlog/sinks/rotating_file_sink-inl.h>  // lines 18-18
+
+The full include-list for /home/user/test/build/_deps/spdlog-src/src/file_sinks.cpp:
+#include <spdlog/details/file_helper-inl.h>   // for file_helper::~file_helper
+#include <spdlog/details/null_mutex.h>        // for null_mutex
+#include <mutex>                              // for mutex
+#include "spdlog/common.h"                    // for SPDLOG_API
+#include "spdlog/sinks/basic_file_sink.h"     // for basic_file_sink
+#include "spdlog/sinks/rotating_file_sink.h"  // for rotating_file_sink
+---
+
+[ 16%] Built target utilBlake3
+Warning: include-what-you-use reported diagnostics:
+
+/home/user/test/build/_deps/spdlog-src/src/cfg.cpp should add these lines:
+
+/home/user/test/build/_deps/spdlog-src/src/cfg.cpp should remove these lines:
+- #include <spdlog/cfg/helpers-inl.h>  // lines 8-8
+
+The full include-list for /home/user/test/build/_deps/spdlog-src/src/cfg.cpp:
+---
+
+Warning: include-what-you-use reported diagnostics:
+
+/home/user/test/build/_deps/spdlog-src/include/spdlog/async.h should add these lines:
+#include <stddef.h>                          // for size_t
+#include <string>                            // for string
+#include <utility>                           // for move, forward
+#include "spdlog/details/thread_pool-inl.h"  // for thread_pool::thread_pool
+namespace spdlog { class logger; }
+
+/home/user/test/build/_deps/spdlog-src/include/spdlog/async.h should remove these lines:
+
+The full include-list for /home/user/test/build/_deps/spdlog-src/include/spdlog/async.h:
+#include <spdlog/async_logger.h>             // for async_overflow_policy
+#include <spdlog/details/registry.h>         // for registry
+#include <spdlog/details/thread_pool.h>      // for thread_pool
+#include <stddef.h>                          // for size_t
+#include <functional>                        // for function
+#include <memory>                            // for make_shared, shared_ptr
+#include <mutex>                             // for lock_guard, recursive_mutex
+#include <string>                            // for string
+#include <utility>                           // for move, forward
+#include "spdlog/details/thread_pool-inl.h"  // for thread_pool::thread_pool
+namespace spdlog { class logger; }
+---
+
+/home/user/test/build/_deps/spdlog-src/src/async.cpp should add these lines:
+#include "spdlog/common.h"                   // for SPDLOG_API
+#include "spdlog/details/mpmc_blocking_q.h"  // for mpmc_blocking_queue
+#include "spdlog/details/thread_pool.h"      // for async_msg
+
+/home/user/test/build/_deps/spdlog-src/src/async.cpp should remove these lines:
+- #include <spdlog/async_logger-inl.h>  // lines 9-9
+- #include <spdlog/details/periodic_worker-inl.h>  // lines 10-10
+- #include <spdlog/details/thread_pool-inl.h>  // lines 11-11
+
+The full include-list for /home/user/test/build/_deps/spdlog-src/src/async.cpp:
+#include <spdlog/async.h>
+#include "spdlog/common.h"                   // for SPDLOG_API
+#include "spdlog/details/mpmc_blocking_q.h"  // for mpmc_blocking_queue
+#include "spdlog/details/thread_pool.h"      // for async_msg
+---
+
+Warning: include-what-you-use reported diagnostics:
+
+/home/user/test/build/_deps/spdlog-src/src/color_sinks.cpp should add these lines:
+#include "spdlog/common.h"                   // for SPDLOG_API
+#include "spdlog/details/console_globals.h"  // for console_mutex, console_n...
+#include "spdlog/sinks/ansicolor_sink.h"     // for ansicolor_stderr_sink
+
+/home/user/test/build/_deps/spdlog-src/src/color_sinks.cpp should remove these lines:
+- #include <spdlog/async.h>  // lines 11-11
+- #include <spdlog/details/null_mutex.h>  // lines 10-10
+- #include <mutex>  // lines 8-8
+- #include "spdlog/sinks/ansicolor_sink-inl.h"  // lines 24-24
+- #include "spdlog/sinks/stdout_color_sinks-inl.h"  // lines 34-34
+
+The full include-list for /home/user/test/build/_deps/spdlog-src/src/color_sinks.cpp:
+#include "spdlog/common.h"                   // for SPDLOG_API
+#include "spdlog/details/console_globals.h"  // for console_mutex, console_n...
+#include "spdlog/sinks/ansicolor_sink.h"     // for ansicolor_stderr_sink
+---
+
+Warning: include-what-you-use reported diagnostics:
+
+/home/user/test/build/_deps/spdlog-src/src/stdout_sinks.cpp should add these lines:
+#include "spdlog/common.h"                   // for SPDLOG_API
+#include "spdlog/details/console_globals.h"  // for console_mutex, console_n...
+#include "spdlog/sinks/stdout_sinks.h"       // for stderr_sink, stdout_sink
+
+/home/user/test/build/_deps/spdlog-src/src/stdout_sinks.cpp should remove these lines:
+- #include <spdlog/async.h>  // lines 11-11
+- #include <spdlog/details/null_mutex.h>  // lines 10-10
+- #include <spdlog/sinks/stdout_sinks-inl.h>  // lines 12-12
+- #include <mutex>  // lines 8-8
+
+The full include-list for /home/user/test/build/_deps/spdlog-src/src/stdout_sinks.cpp:
+#include "spdlog/common.h"                   // for SPDLOG_API
+#include "spdlog/details/console_globals.h"  // for console_mutex, console_n...
+#include "spdlog/sinks/stdout_sinks.h"       // for stderr_sink, stdout_sink
+---
+
+Warning: include-what-you-use reported diagnostics:
+
+/home/user/test/build/_deps/spdlog-src/src/fmt.cpp should add these lines:
+#include <cstddef>                          // for size_t
+#include "format.h"                         // for FMT_API, FMT_NOEXCEPT
+#include "spdlog/fmt/bundled/format.h"      // for basic_data
+
+/home/user/test/build/_deps/spdlog-src/src/fmt.cpp should remove these lines:
+
+The full include-list for /home/user/test/build/_deps/spdlog-src/src/fmt.cpp:
+#include <spdlog/fmt/bundled/format-inl.h>  // for format_float, FMT_SNPRINTF
+#include <cstddef>                          // for size_t
+#include "format.h"                         // for FMT_API, FMT_NOEXCEPT
+#include "spdlog/fmt/bundled/format.h"      // for basic_data
+---
+
+Warning: include-what-you-use reported diagnostics:
+
+/home/user/test/build/_deps/spdlog-src/include/spdlog/spdlog-inl.h should add these lines:
+#include <stddef.h>                        // for size_t
+#include <chrono>                          // for seconds
+#include <functional>                      // for function
+#include <memory>                          // for shared_ptr, unique_ptr
+#include <string>                          // for string
+#include <utility>                         // for move
+#include "spdlog/details/registry-inl.h"   // for registry::instance, regist...
+#include "spdlog/details/registry.h"       // for registry
+#include "spdlog/formatter.h"              // for formatter
+#include "spdlog/logger-inl.h"             // for logger::dump_backtrace
+#include "spdlog/logger.h"                 // for logger
+#include "spdlog/pattern_formatter-inl.h"  // for pattern_formatter::pattern...
+
+/home/user/test/build/_deps/spdlog-src/include/spdlog/spdlog-inl.h should remove these lines:
+
+The full include-list for /home/user/test/build/_deps/spdlog-src/include/spdlog/spdlog-inl.h:
+#include <spdlog/common.h>                 // for SPDLOG_INLINE, level_enum
+#include <spdlog/pattern_formatter.h>      // for pattern_formatter
+#include <spdlog/spdlog.h>                 // for apply_all, default_logger
+#include <stddef.h>                        // for size_t
+#include <chrono>                          // for seconds
+#include <functional>                      // for function
+#include <memory>                          // for shared_ptr, unique_ptr
+#include <string>                          // for string
+#include <utility>                         // for move
+#include "spdlog/details/registry-inl.h"   // for registry::instance, regist...
+#include "spdlog/details/registry.h"       // for registry
+#include "spdlog/formatter.h"              // for formatter
+#include "spdlog/logger-inl.h"             // for logger::dump_backtrace
+#include "spdlog/logger.h"                 // for logger
+#include "spdlog/pattern_formatter-inl.h"  // for pattern_formatter::pattern...
+---
+
+/home/user/test/build/_deps/spdlog-src/src/spdlog.cpp should add these lines:
+#include "spdlog/common.h"              // for SPDLOG_API
+#include "spdlog/sinks/base_sink.h"     // for base_sink
+
+/home/user/test/build/_deps/spdlog-src/src/spdlog.cpp should remove these lines:
+- #include <spdlog/common-inl.h>  // lines 9-9
+- #include <spdlog/details/backtracer-inl.h>  // lines 10-10
+- #include <spdlog/details/log_msg-inl.h>  // lines 14-14
+- #include <spdlog/details/log_msg_buffer-inl.h>  // lines 15-15
+- #include <spdlog/details/os-inl.h>  // lines 12-12
+- #include <spdlog/details/registry-inl.h>  // lines 11-11
+- #include <spdlog/logger-inl.h>  // lines 16-16
+- #include <spdlog/pattern_formatter-inl.h>  // lines 13-13
+- #include <spdlog/sinks/base_sink-inl.h>  // lines 18-18
+- #include <spdlog/sinks/sink-inl.h>  // lines 17-17
+
+The full include-list for /home/user/test/build/_deps/spdlog-src/src/spdlog.cpp:
+#include <spdlog/spdlog-inl.h>
+#include <spdlog/details/null_mutex.h>  // for null_mutex
+#include <mutex>                        // for mutex
+#include "spdlog/common.h"              // for SPDLOG_API
+#include "spdlog/sinks/base_sink.h"     // for base_sink
+---
+
+[ 17%] Linking CXX static library libspdlogd.a
+[ 17%] Built target spdlog
+[ 18%] Building CXX object lib/common/CMakeFiles/wasmedgeCommon.dir/log.cpp.o
+[ 21%] Building CXX object lib/common/CMakeFiles/wasmedgeCommon.dir/hexstr.cpp.o
+[ 21%] Building CXX object lib/common/CMakeFiles/wasmedgeCommon.dir/errinfo.cpp.o
+Warning: include-what-you-use reported diagnostics:
+
+(/home/user/test/WasmEdge/include/common/hexstr.h has correct #includes/fwd-decls)
+
+/home/user/test/WasmEdge/lib/common/hexstr.cpp should add these lines:
+#include <spdlog/fmt/bundled/format.h>  // for format
+#include <iterator>                     // for operator!=, reverse_iterator
+
+/home/user/test/WasmEdge/lib/common/hexstr.cpp should remove these lines:
+- #include <spdlog/fmt/fmt.h>  // lines 7-7
+
+The full include-list for /home/user/test/WasmEdge/lib/common/hexstr.cpp:
+#include "common/hexstr.h"
+#include <spdlog/fmt/bundled/format.h>  // for format
+#include <algorithm>                    // for min, max
+#include <iterator>                     // for operator!=, reverse_iterator
+---
+
+Warning: include-what-you-use reported diagnostics:
+
+/home/user/test/WasmEdge/include/common/log.h should add these lines:
+
+/home/user/test/WasmEdge/include/common/log.h should remove these lines:
+- #include "spdlog/fmt/ostr.h"  // lines 17-17
+- #include "spdlog/spdlog.h"  // lines 18-18
+
+The full include-list for /home/user/test/WasmEdge/include/common/log.h:
+---
+
+/home/user/test/WasmEdge/lib/common/log.cpp should add these lines:
+#include "spdlog/common.h"  // for debug, err, info, warn
+#include "spdlog/spdlog.h"  // for set_level
+
+/home/user/test/WasmEdge/lib/common/log.cpp should remove these lines:
+
+The full include-list for /home/user/test/WasmEdge/lib/common/log.cpp:
+#include "common/log.h"
+#include "spdlog/common.h"  // for debug, err, info, warn
+#include "spdlog/spdlog.h"  // for set_level
+---
+
+Warning: include-what-you-use reported diagnostics:
+
+/home/user/test/WasmEdge/include/common/errinfo.h should add these lines:
+#include <filesystem>               // for path
+
+/home/user/test/WasmEdge/include/common/errinfo.h should remove these lines:
+- #include "common/enum_errcode.h"  // lines 18-18
+- #include "common/filesystem.h"  // lines 21-21
+
+The full include-list for /home/user/test/WasmEdge/include/common/errinfo.h:
+#include <cstdint>                  // for uint32_t, uint64_t, uint8_t
+#include <filesystem>               // for path
+#include <iosfwd>                   // for ostream
+#include <limits>                   // for numeric_limits
+#include <string>                   // for string, allocator
+#include <string_view>              // for string_view
+#include <vector>                   // for vector
+#include "common/enum_ast.h"        // for ASTNodeAttr, OpCode, ExternalType...
+#include "common/enum_configure.h"  // for Proposal
+#include "common/enum_errinfo.h"    // for MismatchCategory, IndexCategory
+#include "common/enum_types.h"      // for ValType, ExternalType, ValMut
+#include "common/types.h"           // for ValVariant
+---
+
+/home/user/test/WasmEdge/lib/common/errinfo.cpp should add these lines:
+#include <memory>                   // for allocator_traits<>::value_type
+#include <sstream>                  // for operator<<, basic_ostream, basic_...
+#include <utility>                  // for pair
+#include "common/dense_enum_map.h"  // for DenseEnumMap, operator!=, DenseEn...
+#include "common/spare_enum_map.h"  // for SpareEnumMap
+
+/home/user/test/WasmEdge/lib/common/errinfo.cpp should remove these lines:
+- #include "common/errcode.h"  // lines 6-6
+
+The full include-list for /home/user/test/WasmEdge/lib/common/errinfo.cpp:
+#include "common/errinfo.h"
+#include <memory>                   // for allocator_traits<>::value_type
+#include <sstream>                  // for operator<<, basic_ostream, basic_...
+#include <utility>                  // for pair
+#include "common/dense_enum_map.h"  // for DenseEnumMap, operator!=, DenseEn...
+#include "common/hexstr.h"          // for convertUIntToHexStr
+#include "common/spare_enum_map.h"  // for SpareEnumMap
+---
+
+[ 22%] Linking CXX static library libwasmedgeCommon.a
+[ 22%] Built target wasmedgeCommon
+[ 25%] Building CXX object lib/validator/CMakeFiles/wasmedgeValidator.dir/validator.cpp.o
+[ 25%] Building CXX object lib/validator/CMakeFiles/wasmedgeValidator.dir/formchecker.cpp.o
+[ 25%] Building CXX object lib/system/CMakeFiles/wasmedgeSystem.dir/fault.cpp.o
+[ 26%] Building CXX object lib/system/CMakeFiles/wasmedgeSystem.dir/mmap.cpp.o
+[ 27%] Building CXX object lib/system/CMakeFiles/wasmedgeSystem.dir/allocator.cpp.o
+[ 28%] Building CXX object lib/system/CMakeFiles/wasmedgeSystem.dir/path.cpp.o
+Warning: include-what-you-use reported diagnostics:
+
+/home/user/test/WasmEdge/include/system/path.h should add these lines:
+#include <filesystem>  // for path
+
+/home/user/test/WasmEdge/include/system/path.h should remove these lines:
+- #include "common/filesystem.h"  // lines 16-16
+
+The full include-list for /home/user/test/WasmEdge/include/system/path.h:
+#include <filesystem>  // for path
+---
+
+/home/user/test/WasmEdge/lib/system/path.cpp should add these lines:
+
+/home/user/test/WasmEdge/lib/system/path.cpp should remove these lines:
+- #include "common/defines.h"  // lines 7-7
+
+The full include-list for /home/user/test/WasmEdge/lib/system/path.cpp:
+#include "system/path.h"
+#include <pwd.h>            // for getpwuid, passwd
+#include <unistd.h>         // for getuid
+#include <string_view>      // for basic_string_view, operator""sv, string_v...
+#include "common/config.h"  // for HAVE_PWD_H
+---
+
+Warning: include-what-you-use reported diagnostics:
+
+(/home/user/test/WasmEdge/include/system/allocator.h has correct #includes/fwd-decls)
+
+/home/user/test/WasmEdge/lib/system/allocator.cpp should add these lines:
+#include <bits/mman-map-flags-generic.h>  // for MAP_NORESERVE
+
+/home/user/test/WasmEdge/lib/system/allocator.cpp should remove these lines:
+- #include "common/defines.h"  // lines 7-7
+
+The full include-list for /home/user/test/WasmEdge/lib/system/allocator.cpp:
+#include "system/allocator.h"
+#include <bits/mman-map-flags-generic.h>  // for MAP_NORESERVE
+#include <sys/mman.h>                     // for mmap, mprotect, munmap, PRO...
+#include "common/config.h"                // for HAVE_MMAP
+#include "common/errcode.h"               // for unlikely, assuming
+---
+
+Warning: include-what-you-use reported diagnostics:
+
+/home/user/test/WasmEdge/include/system/mmap.h should add these lines:
+#include <filesystem>  // for path
+
+/home/user/test/WasmEdge/include/system/mmap.h should remove these lines:
+- #include "common/filesystem.h"  // lines 17-17
+
+The full include-list for /home/user/test/WasmEdge/include/system/mmap.h:
+#include <filesystem>  // for path
+---
+
+/home/user/test/WasmEdge/lib/system/mmap.cpp should add these lines:
+
+/home/user/test/WasmEdge/lib/system/mmap.cpp should remove these lines:
+- #include "common/defines.h"  // lines 7-7
+
+The full include-list for /home/user/test/WasmEdge/lib/system/mmap.cpp:
+#include "system/mmap.h"
+#include <fcntl.h>          // for open, O_RDONLY
+#include <sys/mman.h>       // for MAP_FAILED, mmap, munmap, MAP_SHARED, PRO...
+#include <sys/stat.h>       // for fstat, stat
+#include <unistd.h>         // for close
+#include <cstdint>          // for uint64_t
+#include <memory>           // for make_unique, unique_ptr
+#include <utility>          // for exchange
+#include "common/config.h"  // for HAVE_MMAP
+---
+
+Warning: include-what-you-use reported diagnostics:
+
+/home/user/test/WasmEdge/include/system/fault.h should add these lines:
+#include "common/enum_errcode.h"  // for ErrCode
+
+/home/user/test/WasmEdge/include/system/fault.h should remove these lines:
+- #include "common/errcode.h"  // lines 17-17
+
+The full include-list for /home/user/test/WasmEdge/include/system/fault.h:
+#include <csetjmp>                // for jmp_buf, setjmp
+#include "common/enum_errcode.h"  // for ErrCode
+---
+
+/home/user/test/WasmEdge/lib/system/fault.cpp should add these lines:
+#include "common/errcode.h"  // for assuming, assumingUnreachable
+
+/home/user/test/WasmEdge/lib/system/fault.cpp should remove these lines:
+- #include "common/config.h"  // lines 6-6
+- #include "common/log.h"  // lines 8-8
+
+The full include-list for /home/user/test/WasmEdge/lib/system/fault.cpp:
+#include "system/fault.h"
+#include <atomic>            // for atomic_uint, __atomic_base
+#include <csetjmp>           // for longjmp
+#include <csignal>           // for sigaction, signal, SIGBUS, SIGFPE, SIGSEGV
+#include <cstdint>           // for uint8_t
+#include <utility>           // for exchange
+#include "common/defines.h"  // for WASMEDGE_OS_WINDOWS
+#include "common/errcode.h"  // for assuming, assumingUnreachable
+---
+
+[ 30%] Linking CXX static library libwasmedgeSystem.a
+[ 30%] Built target wasmedgeSystem
+[ 31%] Building CXX object lib/executor/CMakeFiles/wasmedgeExecutor.dir/instantiate/import.cpp.o
+[ 32%] Building CXX object lib/executor/CMakeFiles/wasmedgeExecutor.dir/instantiate/function.cpp.o
+[ 33%] Building CXX object lib/aot/CMakeFiles/wasmedgeAOT.dir/blake3.cpp.o
+[ 34%] Building CXX object lib/aot/CMakeFiles/wasmedgeAOT.dir/cache.cpp.o
+[ 35%] Building CXX object lib/host/wasi/CMakeFiles/wasmedgeHostModuleWasi.dir/clock-linux.cpp.o
+[ 36%] Building CXX object lib/loader/CMakeFiles/wasmedgeLoaderFileMgr.dir/ldmgr.cpp.o
+[ 37%] Building CXX object lib/aot/CMakeFiles/wasmedgeAOT.dir/compiler.cpp.o
+[ 38%] Building CXX object lib/loader/CMakeFiles/wasmedgeLoaderFileMgr.dir/filemgr.cpp.o
+[ 40%] Building CXX object lib/host/wasi/CMakeFiles/wasmedgeHostModuleWasi.dir/clock-macos.cpp.o
+[ 41%] Building CXX object lib/executor/CMakeFiles/wasmedgeExecutor.dir/instantiate/global.cpp.o
+[ 42%] Building CXX object lib/host/wasi/CMakeFiles/wasmedgeHostModuleWasi.dir/clock-win.cpp.o
+[ 43%] Building CXX object lib/loader/CMakeFiles/wasmedgeLoaderFileMgr.dir/shared_library.cpp.o
+[ 44%] Building CXX object lib/host/wasi/CMakeFiles/wasmedgeHostModuleWasi.dir/environ-linux.cpp.o
+[ 45%] Building CXX object lib/host/wasmedge_process/CMakeFiles/wasmedgeHostModuleWasmEdgeProcess.dir/processfunc.cpp.o
+[ 46%] Building CXX object lib/executor/CMakeFiles/wasmedgeExecutor.dir/instantiate/table.cpp.o
+[ 47%] Building CXX object lib/host/wasmedge_process/CMakeFiles/wasmedgeHostModuleWasmEdgeProcess.dir/processmodule.cpp.o
+[ 48%] Building CXX object lib/host/wasi/CMakeFiles/wasmedgeHostModuleWasi.dir/environ-macos.cpp.o
+[ 50%] Building CXX object lib/executor/CMakeFiles/wasmedgeExecutor.dir/instantiate/data.cpp.o
+[ 51%] Building CXX object lib/executor/CMakeFiles/wasmedgeExecutor.dir/instantiate/memory.cpp.o
+[ 52%] Building CXX object lib/host/wasi/CMakeFiles/wasmedgeHostModuleWasi.dir/environ-win.cpp.o
+[ 53%] Building CXX object lib/host/wasi/CMakeFiles/wasmedgeHostModuleWasi.dir/environ.cpp.o
+[ 54%] Building CXX object lib/executor/CMakeFiles/wasmedgeExecutor.dir/instantiate/export.cpp.o
+[ 55%] Building CXX object lib/executor/CMakeFiles/wasmedgeExecutor.dir/instantiate/elem.cpp.o
+[ 56%] Building CXX object lib/host/wasi/CMakeFiles/wasmedgeHostModuleWasi.dir/inode-linux.cpp.o
+[ 57%] Building CXX object lib/host/wasi/CMakeFiles/wasmedgeHostModuleWasi.dir/inode-macos.cpp.o
+[ 58%] Building CXX object lib/executor/CMakeFiles/wasmedgeExecutor.dir/engine/proxy.cpp.o
+[ 60%] Building CXX object lib/host/wasi/CMakeFiles/wasmedgeHostModuleWasi.dir/inode-win.cpp.o
+[ 61%] Building CXX object lib/executor/CMakeFiles/wasmedgeExecutor.dir/instantiate/module.cpp.o
+[ 62%] Building CXX object lib/executor/CMakeFiles/wasmedgeExecutor.dir/engine/controlInstr.cpp.o
+[ 63%] Building CXX object lib/host/wasi/CMakeFiles/wasmedgeHostModuleWasi.dir/vfs.cpp.o
+[ 64%] Building CXX object lib/executor/CMakeFiles/wasmedgeExecutor.dir/engine/tableInstr.cpp.o
+[ 65%] Building CXX object lib/host/wasi/CMakeFiles/wasmedgeHostModuleWasi.dir/vinode.cpp.o
+[ 66%] Building CXX object lib/host/wasi/CMakeFiles/wasmedgeHostModuleWasi.dir/wasimodule.cpp.o
+[ 67%] Building CXX object lib/host/wasi/CMakeFiles/wasmedgeHostModuleWasi.dir/wasifunc.cpp.o
+[ 68%] Building CXX object lib/executor/CMakeFiles/wasmedgeExecutor.dir/engine/memoryInstr.cpp.o
+[ 70%] Building CXX object lib/executor/CMakeFiles/wasmedgeExecutor.dir/engine/variableInstr.cpp.o
+[ 71%] Building CXX object lib/executor/CMakeFiles/wasmedgeExecutor.dir/engine/engine.cpp.o
+[ 72%] Building CXX object lib/executor/CMakeFiles/wasmedgeExecutor.dir/helper.cpp.o
+[ 73%] Building CXX object lib/host/wasi/CMakeFiles/wasmedgeHostModuleWasi.dir/win.cpp.o
+[ 74%] Building CXX object lib/executor/CMakeFiles/wasmedgeExecutor.dir/executor.cpp.o
+Warning: include-what-you-use reported diagnostics:
+
+/home/user/test/WasmEdge/include/validator/validator.h should add these lines:
+#include "ast/instruction.h"        // for InstrView
+#include "ast/type.h"               // for Limit, MemoryType, TableType (ptr...
+#include "common/enum_types.h"      // for ValType
+#include "common/errcode.h"         // for Expect
+#include "common/span.h"            // for Span
+namespace WasmEdge { namespace AST { class CodeSection; } }
+namespace WasmEdge { namespace AST { class CodeSegment; } }
+namespace WasmEdge { namespace AST { class DataSection; } }
+namespace WasmEdge { namespace AST { class DataSegment; } }
+namespace WasmEdge { namespace AST { class ElementSection; } }
+namespace WasmEdge { namespace AST { class ElementSegment; } }
+namespace WasmEdge { namespace AST { class ExportDesc; } }
+namespace WasmEdge { namespace AST { class ExportSection; } }
+namespace WasmEdge { namespace AST { class FunctionSection; } }
+namespace WasmEdge { namespace AST { class GlobalSection; } }
+namespace WasmEdge { namespace AST { class GlobalSegment; } }
+namespace WasmEdge { namespace AST { class ImportDesc; } }
+namespace WasmEdge { namespace AST { class ImportSection; } }
+namespace WasmEdge { namespace AST { class MemorySection; } }
+namespace WasmEdge { namespace AST { class Module; } }
+namespace WasmEdge { namespace AST { class StartSection; } }
+namespace WasmEdge { namespace AST { class TableSection; } }
+
+/home/user/test/WasmEdge/include/validator/validator.h should remove these lines:
+- #include <memory>  // lines 22-22
+- #include "ast/module.h"  // lines 17-17
+
+The full include-list for /home/user/test/WasmEdge/include/validator/validator.h:
+#include <cstdint>                  // for uint32_t
+#include "ast/instruction.h"        // for InstrView
+#include "ast/type.h"               // for Limit, MemoryType, TableType (ptr...
+#include "common/configure.h"       // for Configure
+#include "common/enum_types.h"      // for ValType
+#include "common/errcode.h"         // for Expect
+#include "common/span.h"            // for Span
+#include "validator/formchecker.h"  // for FormChecker
+namespace WasmEdge { namespace AST { class CodeSection; } }
+namespace WasmEdge { namespace AST { class CodeSegment; } }
+namespace WasmEdge { namespace AST { class DataSection; } }
+namespace WasmEdge { namespace AST { class DataSegment; } }
+namespace WasmEdge { namespace AST { class ElementSection; } }
+namespace WasmEdge { namespace AST { class ElementSegment; } }
+namespace WasmEdge { namespace AST { class ExportDesc; } }
+namespace WasmEdge { namespace AST { class ExportSection; } }
+namespace WasmEdge { namespace AST { class FunctionSection; } }
+namespace WasmEdge { namespace AST { class GlobalSection; } }
+namespace WasmEdge { namespace AST { class GlobalSegment; } }
+namespace WasmEdge { namespace AST { class ImportDesc; } }
+namespace WasmEdge { namespace AST { class ImportSection; } }
+namespace WasmEdge { namespace AST { class MemorySection; } }
+namespace WasmEdge { namespace AST { class Module; } }
+namespace WasmEdge { namespace AST { class StartSection; } }
+namespace WasmEdge { namespace AST { class TableSection; } }
+---
+
+/home/user/test/WasmEdge/lib/validator/validator.cpp should add these lines:
+#include <algorithm>                     // for max
+#include <iosfwd>                        // for streamsize
+#include <memory>                        // for allocator_traits<>::value_type
+#include <optional>                      // for optional
+#include <utility>                       // for pair
+#include "ast/description.h"             // for ImportDesc, ExportDesc
+#include "ast/expression.h"              // for Expression
+#include "ast/module.h"                  // for Module
+#include "ast/section.h"                 // for StartSection, CodeSection
+#include "ast/segment.h"                 // for ElementSegment, DataSegment
+#include "common/enum_ast.h"             // for ASTNodeAttr, OpCode
+#include "common/enum_configure.h"       // for Proposal
+#include "common/enum_errcode.h"         // for ErrCode
+#include "common/enum_errinfo.h"         // for ASTNodeAttr::Module, IndexCa...
+#include "common/types.h"                // for ToValType
+#include "experimental/expected.hpp"     // for expected
+#include "experimental/span.hpp"         // for span
+#include "spdlog/fmt/bundled/ostream.h"  // for formatbuf<>::int_type
+#include "spdlog/spdlog.h"               // for error
+
+/home/user/test/WasmEdge/lib/validator/validator.cpp should remove these lines:
+- #include <array>  // lines 9-9
+- #include "common/log.h"  // lines 7-7
+
+The full include-list for /home/user/test/WasmEdge/lib/validator/validator.cpp:
+#include "validator/validator.h"
+#include <algorithm>                     // for max
+#include <cstdint>                       // for uint32_t
+#include <iosfwd>                        // for streamsize
+#include <memory>                        // for allocator_traits<>::value_type
+#include <optional>                      // for optional
+#include <string>                        // for string, basic_string, hash
+#include <unordered_set>                 // for unordered_set
+#include <utility>                       // for pair
+#include <vector>                        // for vector
+#include "ast/description.h"             // for ImportDesc, ExportDesc
+#include "ast/expression.h"              // for Expression
+#include "ast/module.h"                  // for Module
+#include "ast/section.h"                 // for StartSection, CodeSection
+#include "ast/segment.h"                 // for ElementSegment, DataSegment
+#include "common/enum_ast.h"             // for ASTNodeAttr, OpCode
+#include "common/enum_configure.h"       // for Proposal
+#include "common/enum_errcode.h"         // for ErrCode
+#include "common/enum_errinfo.h"         // for ASTNodeAttr::Module, IndexCa...
+#include "common/errinfo.h"              // for operator<<, InfoAST, InfoFor...
+#include "common/types.h"                // for ToValType
+#include "experimental/expected.hpp"     // for expected
+#include "experimental/span.hpp"         // for span
+#include "spdlog/fmt/bundled/ostream.h"  // for formatbuf<>::int_type
+#include "spdlog/spdlog.h"               // for error
+---
+
+Warning: include-what-you-use reported diagnostics:
+
+/home/user/test/WasmEdge/include/validator/formchecker.h should add these lines:
+#include <algorithm>            // for max
+#include "ast/type.h"           // for FunctionType (ptr only), GlobalType (...
+#include "common/enum_ast.h"    // for OpCode, OpCode::Unreachable
+#include "common/enum_types.h"  // for RefType, ValMut, ValType, NumType
+namespace WasmEdge { namespace AST { class DataSegment; } }
+namespace WasmEdge { namespace AST { class ElementSegment; } }
+
+/home/user/test/WasmEdge/include/validator/formchecker.h should remove these lines:
+- #include "ast/module.h"  // lines 18-18
+
+The full include-list for /home/user/test/WasmEdge/include/validator/formchecker.h:
+#include <algorithm>            // for max
+#include <cstddef>              // for size_t
+#include <cstdint>              // for uint32_t, uint8_t
+#include <unordered_set>        // for unordered_set
+#include <utility>              // for pair, move
+#include <vector>               // for vector
+#include "ast/instruction.h"    // for InstrView, Instruction (ptr only)
+#include "ast/type.h"           // for FunctionType (ptr only), GlobalType (...
+#include "common/enum_ast.h"    // for OpCode, OpCode::Unreachable
+#include "common/enum_types.h"  // for RefType, ValMut, ValType, NumType
+#include "common/errcode.h"     // for Expect
+#include "common/span.h"        // for Span
+namespace WasmEdge { namespace AST { class DataSegment; } }
+namespace WasmEdge { namespace AST { class ElementSegment; } }
+---
+
+/home/user/test/WasmEdge/lib/validator/formchecker.cpp should add these lines:
+#include <iosfwd>                        // for streamsize
+#include <iterator>                      // for reverse_iterator, operator!=
+#include <memory>                        // for allocator_traits<>::value_type
+#include "ast/segment.h"                 // for DataSegment (ptr only), Elem...
+#include "common/enum_errcode.h"         // for ErrCode
+#include "common/enum_errinfo.h"         // for IndexCategory
+#include "common/int128.h"               // for uint128_t
+#include "common/types.h"                // for ToValType, BlockType, BlockT...
+#include "experimental/expected.hpp"     // for expected
+#include "experimental/span.hpp"         // for span
+#include "spdlog/fmt/bundled/ostream.h"  // for formatbuf<>::int_type
+#include "spdlog/spdlog.h"               // for error
+
+/home/user/test/WasmEdge/lib/validator/formchecker.cpp should remove these lines:
+- #include <array>  // lines 10-10
+- #include "common/log.h"  // lines 7-7
+
+The full include-list for /home/user/test/WasmEdge/lib/validator/formchecker.cpp:
+#include "validator/formchecker.h"
+#include <algorithm>                     // for max, equal
+#include <cstdint>                       // for uint32_t, int32_t, UINT32_C
+#include <iosfwd>                        // for streamsize
+#include <iterator>                      // for reverse_iterator, operator!=
+#include <memory>                        // for allocator_traits<>::value_type
+#include <tuple>                         // for tie, tuple
+#include "ast/segment.h"                 // for DataSegment (ptr only), Elem...
+#include "common/enum_errcode.h"         // for ErrCode
+#include "common/enum_errinfo.h"         // for IndexCategory
+#include "common/errinfo.h"              // for operator<<, InfoMismatch
+#include "common/int128.h"               // for uint128_t
+#include "common/types.h"                // for ToValType, BlockType, BlockT...
+#include "experimental/expected.hpp"     // for expected
+#include "experimental/span.hpp"         // for span
+#include "spdlog/fmt/bundled/ostream.h"  // for formatbuf<>::int_type
+#include "spdlog/spdlog.h"               // for error
+---
+
+Warning: include-what-you-use reported diagnostics:
+
+/home/user/test/WasmEdge/lib/host/wasi/clock-linux.cpp should add these lines:
+#include <errno.h>            // for errno
+#include <time.h>             // for clock_getres, clock_gettime, timespec
+#include "common/errcode.h"   // for unlikely
+#include "host/wasi/error.h"  // for WasiUnexpect, WasiExpect
+#include "wasi/api.hpp"       // for __wasi_errno_t, __wasi_timestamp_t, __w...
+
+/home/user/test/WasmEdge/lib/host/wasi/clock-linux.cpp should remove these lines:
+
+The full include-list for /home/user/test/WasmEdge/lib/host/wasi/clock-linux.cpp:
+#include <errno.h>            // for errno
+#include <time.h>             // for clock_getres, clock_gettime, timespec
+#include "common/defines.h"   // for WASMEDGE_OS_LINUX
+#include "common/errcode.h"   // for unlikely
+#include "host/wasi/clock.h"  // for Clock
+#include "host/wasi/error.h"  // for WasiUnexpect, WasiExpect
+#include "linux.h"            // for fromErrNo, fromTimespec, toClockId
+#include "wasi/api.hpp"       // for __wasi_errno_t, __wasi_timestamp_t, __w...
+---
+
+Warning: include-what-you-use reported diagnostics:
+
+(/home/user/test/WasmEdge/include/aot/blake3.h has correct #includes/fwd-decls)
+
+/home/user/test/WasmEdge/lib/aot/blake3.cpp should add these lines:
+#include "blake3.h"  // for blake3_hasher_finalize, blake3_hasher_init, blak...
+
+/home/user/test/WasmEdge/lib/aot/blake3.cpp should remove these lines:
+- #include "common/config.h"  // lines 6-6
+- #include "common/defines.h"  // lines 7-7
+
+The full include-list for /home/user/test/WasmEdge/lib/aot/blake3.cpp:
+#include "aot/blake3.h"
+#include "blake3.h"  // for blake3_hasher_finalize, blake3_hasher_init, blak...
+---
+
+Warning: include-what-you-use reported diagnostics:
+
+/home/user/test/WasmEdge/include/aot/cache.h should add these lines:
+#include <filesystem>        // for path
+
+/home/user/test/WasmEdge/include/aot/cache.h should remove these lines:
+- #include "common/filesystem.h"  // lines 17-17
+
+The full include-list for /home/user/test/WasmEdge/include/aot/cache.h:
+#include <filesystem>        // for path
+#include <string_view>       // for string_view
+#include "common/errcode.h"  // for Expect
+#include "common/span.h"     // for Span
+#include "common/types.h"    // for Byte
+---
+
+/home/user/test/WasmEdge/lib/aot/cache.cpp should add these lines:
+
+/home/user/test/WasmEdge/lib/aot/cache.cpp should remove these lines:
+- #include "common/defines.h"  // lines 8-8
+
+The full include-list for /home/user/test/WasmEdge/lib/aot/cache.cpp:
+#include "aot/cache.h"
+#include <array>            // for array
+#include <string>           // for string
+#include <system_error>     // for error_code
+#include "aot/blake3.h"     // for Blake3
+#include "common/config.h"  // for kCacheRoot
+#include "common/hexstr.h"  // for convertBytesToHexStr
+#include "system/path.h"    // for Path
+---
+
+Warning: include-what-you-use reported diagnostics:
+
+/home/user/test/WasmEdge/include/loader/filemgr.h should add these lines:
+#include <filesystem>             // for path
+#include "common/enum_errcode.h"  // for ErrCode, ErrCode::UnexpectedEnd
+#include "common/span.h"          // for Span
+
+/home/user/test/WasmEdge/include/loader/filemgr.h should remove these lines:
+
+The full include-list for /home/user/test/WasmEdge/include/loader/filemgr.h:
+#include <algorithm>              // for min
+#include <cstddef>                // for size_t
+#include <cstdint>                // for uint64_t, int32_t, int64_t, uint32_t
+#include <filesystem>             // for path
+#include <optional>               // for optional
+#include <string>                 // for string
+#include <vector>                 // for vector
+#include "common/enum_errcode.h"  // for ErrCode, ErrCode::UnexpectedEnd
+#include "common/errcode.h"       // for Expect
+#include "common/span.h"          // for Span
+#include "common/types.h"         // for Byte
+#include "system/mmap.h"          // for MMap
+---
+
+/home/user/test/WasmEdge/lib/loader/filemgr.cpp should add these lines:
+#include <cstring>                    // for memcpy
+#include <system_error>               // for error_code
+#include <utility>                    // for move
+#include "experimental/expected.hpp"  // for expected
+
+/home/user/test/WasmEdge/lib/loader/filemgr.cpp should remove these lines:
+- #include <iterator>  // lines 7-7
+
+The full include-list for /home/user/test/WasmEdge/lib/loader/filemgr.cpp:
+#include "loader/filemgr.h"
+#include <algorithm>                  // for equal, copy_n
+#include <cstring>                    // for memcpy
+#include <system_error>               // for error_code
+#include <utility>                    // for move
+#include "experimental/expected.hpp"  // for expected
+---
+
+Warning: include-what-you-use reported diagnostics:
+
+/home/user/test/WasmEdge/include/host/wasi/vfs.h should add these lines:
+
+/home/user/test/WasmEdge/include/host/wasi/vfs.h should remove these lines:
+- #include "common/filesystem.h"  // lines 6-6
+- #include "host/wasi/error.h"  // lines 7-7
+- namespace WasmEdge { namespace Host { namespace WASI { class VINode; } } }  // lines 15-15
+
+The full include-list for /home/user/test/WasmEdge/include/host/wasi/vfs.h:
+#include <cstdint>  // for uint8_t
+---
+
+/home/user/test/WasmEdge/lib/host/wasi/vfs.cpp should add these lines:
+#include <string_view>  // for string_view_literals
+
+/home/user/test/WasmEdge/lib/host/wasi/vfs.cpp should remove these lines:
+- #include "common/errcode.h"  // lines 5-5
+- #include "common/log.h"  // lines 6-6
+- #include "host/wasi/inode.h"  // lines 7-7
+- #include "host/wasi/vinode.h"  // lines 8-8
+
+The full include-list for /home/user/test/WasmEdge/lib/host/wasi/vfs.cpp:
+#include "host/wasi/vfs.h"
+#include <string_view>  // for string_view_literals
+---
+
+Warning: include-what-you-use reported diagnostics:
+
+/home/user/test/WasmEdge/lib/host/wasi/environ-linux.cpp should add these lines:
+#include <errno.h>              // for errno
+#include <sched.h>              // for sched_yield
+#include <csignal>              // for raise, SIGABRT, SIGALRM, SIGBUS, SIGCHLD
+#include "host/wasi/error.h"    // for WasiUnexpect, WasiExpect
+#include "wasi/api.hpp"         // for __wasi_errno_t, __WASI_ERRNO_NOTSUP
+
+/home/user/test/WasmEdge/lib/host/wasi/environ-linux.cpp should remove these lines:
+- #include "common/errcode.h"  // lines 7-7
+
+The full include-list for /home/user/test/WasmEdge/lib/host/wasi/environ-linux.cpp:
+#include <errno.h>              // for errno
+#include <sched.h>              // for sched_yield
+#include <csignal>              // for raise, SIGABRT, SIGALRM, SIGBUS, SIGCHLD
+#include "common/defines.h"     // for WASMEDGE_OS_LINUX
+#include "host/wasi/environ.h"  // for Environ
+#include "host/wasi/error.h"    // for WasiUnexpect, WasiExpect
+#include "linux.h"              // for fromErrNo
+#include "wasi/api.hpp"         // for __wasi_errno_t, __WASI_ERRNO_NOTSUP
+---
+
+Warning: include-what-you-use reported diagnostics:
+
+/home/user/test/WasmEdge/include/host/wasi/vinode.h should add these lines:
+#include "common/span.h"      // for Span
+#include "wasi/api.hpp"       // for __wasi_rights_t, __wasi_errno_t, operator&
+
+/home/user/test/WasmEdge/include/host/wasi/vinode.h should remove these lines:
+- #include "common/filesystem.h"  // lines 6-6
+
+The full include-list for /home/user/test/WasmEdge/include/host/wasi/vinode.h:
+#include <cstdint>            // for uint8_t, uint32_t, uint16_t, int32_t
+#include <functional>         // for reference_wrapper
+#include <memory>             // for shared_ptr, __shared_ptr_access, enable...
+#include <string>             // for string
+#include <string_view>        // for string_view
+#include <utility>            // for move
+#include <vector>             // for vector
+#include "common/span.h"      // for Span
+#include "host/wasi/error.h"  // for WasiExpect, WasiUnexpect
+#include "host/wasi/inode.h"  // for INode, Poller
+#include "wasi/api.hpp"       // for __wasi_rights_t, __wasi_errno_t, operator&
+namespace WasmEdge { namespace Host { namespace WASI { class VFS; } } }  // lines 22-22
+namespace WasmEdge { namespace Host { namespace WASI { class VPoller; } } }  // lines 23-23
+---
+
+/home/user/test/WasmEdge/lib/host/wasi/vinode.cpp should add these lines:
+#include "experimental/expected.hpp"  // for expected
+
+/home/user/test/WasmEdge/lib/host/wasi/vinode.cpp should remove these lines:
+- #include "common/log.h"  // lines 6-6
+- #include "host/wasi/environ.h"  // lines 7-7
+
+The full include-list for /home/user/test/WasmEdge/lib/host/wasi/vinode.cpp:
+#include "host/wasi/vinode.h"
+#include <algorithm>                  // for for_each
+#include <cstddef>                    // for size_t
+#include <numeric>                    // for accumulate
+#include <string>                     // for string
+#include "common/errcode.h"           // for unlikely
+#include "experimental/expected.hpp"  // for expected
+#include "host/wasi/vfs.h"            // for VFS, VFS::AllowEmpty, VFS::Read
+---
+
+Warning: include-what-you-use reported diagnostics:
+
+/home/user/test/WasmEdge/lib/host/wasi/inode-linux.cpp should add these lines:
+#include <bits/types/struct_iovec.h>          // for iovec
+#include <bits/types/struct_itimerspec.h>     // for itimerspec
+#include <dirent.h>                           // for dirent, closedir, fdope...
+#include <errno.h>                            // for errno
+#include <fcntl.h>                            // for fcntl, O_CLOEXEC, O_DSYNC
+#include <features.h>                         // for __GLIBC_PREREQ
+#include <netdb.h>                            // for addrinfo, freeaddrinfo
+#include <netinet/in.h>                       // for sockaddr_in, sockaddr_in6
+#include <stdio.h>                            // for renameat
+#include <sys/epoll.h>                        // for epoll_event, epoll_ctl
+#include <sys/ioctl.h>                        // for ioctl, FIONREAD, TIOCOUTQ
+#include <sys/socket.h>                       // for msghdr, sockaddr, bind
+#include <sys/stat.h>                         // for timespec, stat, UTIME_NOW
+#include <sys/timerfd.h>                      // for timerfd_create, timerfd...
+#include <sys/uio.h>                          // for preadv, pwritev, readv
+#include <time.h>                             // for timer_delete
+#include <unistd.h>                           // for lseek, unlinkat, close
+#include <boost/align/aligned_allocator.hpp>  // for aligned_allocator
+#include <functional>                         // for function
+#include <memory>                             // for unique_ptr, allocator_t...
+#include <optional>                           // for optional
+#include <unordered_map>                      // for _Node_iterator, unorder...
+#include <utility>                            // for pair, move
+#include "common/span.h"                      // for Span
+#include "experimental/expected.hpp"          // for expected
+#include "experimental/span.hpp"              // for span
+#include "host/wasi/error.h"                  // for WasiUnexpect, WasiExpect
+#include "wasi/api.hpp"                       // for __wasi_errno_t, operator&
+
+/home/user/test/WasmEdge/lib/host/wasi/inode-linux.cpp should remove these lines:
+
+The full include-list for /home/user/test/WasmEdge/lib/host/wasi/inode-linux.cpp:
+#include <bits/types/struct_iovec.h>          // for iovec
+#include <bits/types/struct_itimerspec.h>     // for itimerspec
+#include <dirent.h>                           // for dirent, closedir, fdope...
+#include <errno.h>                            // for errno
+#include <fcntl.h>                            // for fcntl, O_CLOEXEC, O_DSYNC
+#include <features.h>                         // for __GLIBC_PREREQ
+#include <netdb.h>                            // for addrinfo, freeaddrinfo
+#include <netinet/in.h>                       // for sockaddr_in, sockaddr_in6
+#include <stdio.h>                            // for renameat
+#include <sys/epoll.h>                        // for epoll_event, epoll_ctl
+#include <sys/ioctl.h>                        // for ioctl, FIONREAD, TIOCOUTQ
+#include <sys/socket.h>                       // for msghdr, sockaddr, bind
+#include <sys/stat.h>                         // for timespec, stat, UTIME_NOW
+#include <sys/timerfd.h>                      // for timerfd_create, timerfd...
+#include <sys/uio.h>                          // for preadv, pwritev, readv
+#include <time.h>                             // for timer_delete
+#include <unistd.h>                           // for lseek, unlinkat, close
+#include <algorithm>                          // for copy, max, min
+#include <boost/align/aligned_allocator.hpp>  // for aligned_allocator
+#include <cstdint>                            // for uint8_t, uint32_t, uint...
+#include <cstring>                            // for memcpy, memset, size_t
+#include <functional>                         // for function
+#include <memory>                             // for unique_ptr, allocator_t...
+#include <new>                                // for bad_alloc
+#include <optional>                           // for optional
+#include <string>                             // for string
+#include <string_view>                        // for string_view
+#include <unordered_map>                      // for _Node_iterator, unorder...
+#include <utility>                            // for pair, move
+#include <vector>                             // for vector, vector<>::iterator
+#include "common/defines.h"                   // for WASMEDGE_OS_LINUX
+#include "common/errcode.h"                   // for unlikely, likely, assuming
+#include "common/span.h"                      // for Span
+#include "experimental/expected.hpp"          // for expected
+#include "experimental/span.hpp"              // for span
+#include "host/wasi/environ.h"                // for kIOVMax, kSaDataLen
+#include "host/wasi/error.h"                  // for WasiUnexpect, WasiExpect
+#include "host/wasi/inode.h"                  // for INode, Poller::FdData
+#include "host/wasi/vfs.h"                    // for VFS, VFS::Write, VFS::Read
+#include "linux.h"                            // for fromErrNo, toTimespec
+#include "wasi/api.hpp"                       // for __wasi_errno_t, operator&
+---
+
+Warning: include-what-you-use reported diagnostics:
+
+/home/user/test/WasmEdge/include/host/wasi/environ.h should add these lines:
+#include "experimental/expected.hpp"  // for expected
+#include "experimental/span.hpp"      // for span, as_bytes, as_writable_bytes
+
+/home/user/test/WasmEdge/include/host/wasi/environ.h should remove these lines:
+- #include "common/defines.h"  // lines 6-6
+
+The full include-list for /home/user/test/WasmEdge/include/host/wasi/environ.h:
+#include <algorithm>                  // for copy_n, min, copy
+#include <array>                      // for array
+#include <cstdint>                    // for uint32_t, uint8_t, UINT32_C
+#include <memory>                     // for shared_ptr, __shared_ptr_access
+#include <mutex>                      // for unique_lock
+#include <random>                     // for default_random_engine, uniform_...
+#include <shared_mutex>               // for shared_lock, shared_mutex
+#include <string>                     // for string, basic_string
+#include <string_view>                // for string_view, operator""sv, basi...
+#include <unordered_map>              // for unordered_map, operator==, _Nod...
+#include <utility>                    // for move, pair
+#include <vector>                     // for vector
+#include "common/errcode.h"           // for unlikely
+#include "common/span.h"              // for Span
+#include "experimental/expected.hpp"  // for expected
+#include "experimental/span.hpp"      // for span, as_bytes, as_writable_bytes
+#include "host/wasi/clock.h"          // for Clock
+#include "host/wasi/error.h"          // for WasiUnexpect, WasiExpect
+#include "host/wasi/vfs.h"            // for VFS
+#include "host/wasi/vinode.h"         // for VINode, VPoller
+#include "wasi/api.hpp"               // for __wasi_fd_t, __wasi_errno_t
+namespace WasmEdge { namespace Host { namespace WASI { class EVPoller; } } }  // lines 37-37
+---
+
+/home/user/test/WasmEdge/lib/host/wasi/environ.cpp should add these lines:
+#include <ext/alloc_traits.h>  // for __alloc_traits<>::value_type
+#include "spdlog/spdlog.h"     // for error
+
+/home/user/test/WasmEdge/lib/host/wasi/environ.cpp should remove these lines:
+- #include "common/log.h"  // lines 6-6
+- #include "host/wasi/vfs.h"  // lines 7-7
+
+The full include-list for /home/user/test/WasmEdge/lib/host/wasi/environ.cpp:
+#include "host/wasi/environ.h"
+#include <ext/alloc_traits.h>  // for __alloc_traits<>::value_type
+#include "common/errcode.h"    // for unlikely
+#include "host/wasi/vinode.h"  // for VINode
+#include "spdlog/spdlog.h"     // for error
+---
+
+Warning: include-what-you-use reported diagnostics:
+
+/home/user/test/WasmEdge/include/loader/shared_library.h should add these lines:
+#include <filesystem>        // for path
+namespace WasmEdge { namespace AST { class AOTSection; } }
+
+/home/user/test/WasmEdge/include/loader/shared_library.h should remove these lines:
+- #include "ast/section.h"  // lines 17-17
+- #include "common/filesystem.h"  // lines 20-20
+
+The full include-list for /home/user/test/WasmEdge/include/loader/shared_library.h:
+#include <cstdint>           // for uintptr_t, uint64_t, uint8_t
+#include <filesystem>        // for path
+#include <memory>            // for enable_shared_from_this
+#include <vector>            // for vector
+#include "common/defines.h"  // for WASMEDGE_OS_WINDOWS
+#include "common/errcode.h"  // for Expect
+#include "common/symbol.h"   // for Symbol
+namespace WasmEdge { namespace AST { class AOTSection; } }
+---
+
+/home/user/test/WasmEdge/lib/loader/shared_library.cpp should add these lines:
+#include <iosfwd>                        // for streamsize
+#include "ast/section.h"                 // for AOTSection
+#include "common/enum_errcode.h"         // for ErrCode, ErrCode::MemoryOutO...
+#include "spdlog/fmt/bundled/ostream.h"  // for formatbuf<>::int_type
+#include "spdlog/spdlog.h"               // for error
+
+/home/user/test/WasmEdge/lib/loader/shared_library.cpp should remove these lines:
+- #include "common/log.h"  // lines 6-6
+
+The full include-list for /home/user/test/WasmEdge/lib/loader/shared_library.cpp:
+#include "loader/shared_library.h"
+#include <dlfcn.h>                       // for dlclose, dlerror, dlopen, dlsym
+#include <algorithm>                     // for copy, max
+#include <cerrno>                        // for errno
+#include <cstdint>                       // for uint64_t, uintptr_t, uint8_t
+#include <cstring>                       // for strerror
+#include <iosfwd>                        // for streamsize
+#include <tuple>                         // for get
+#include <utility>                       // for pair
+#include "ast/section.h"                 // for AOTSection
+#include "common/enum_errcode.h"         // for ErrCode, ErrCode::MemoryOutO...
+#include "spdlog/fmt/bundled/ostream.h"  // for formatbuf<>::int_type
+#include "spdlog/spdlog.h"               // for error
+#include "system/allocator.h"            // for Allocator
+---
+
+Warning: include-what-you-use reported diagnostics:
+
+/home/user/test/WasmEdge/include/loader/ldmgr.h should add these lines:
+#include <filesystem>        // for path
+#include "common/errcode.h"  // for Expect
+namespace WasmEdge { namespace Loader { class SharedLibrary; } }
+
+/home/user/test/WasmEdge/include/loader/ldmgr.h should remove these lines:
+- #include "loader/shared_library.h"  // lines 18-18
+
+The full include-list for /home/user/test/WasmEdge/include/loader/ldmgr.h:
+#include <cstdint>           // for uint32_t
+#include <filesystem>        // for path
+#include <memory>            // for shared_ptr, __shared_ptr_access
+#include <vector>            // for vector
+#include "common/errcode.h"  // for Expect
+#include "common/types.h"    // for Byte
+namespace WasmEdge { namespace Loader { class SharedLibrary; } }
+---
+
+/home/user/test/WasmEdge/lib/loader/ldmgr.cpp should add these lines:
+#include <iosfwd>                        // for streamsize
+#include "common/enum_errcode.h"         // for ErrCode, ErrCode::IllegalGra...
+#include "common/symbol.h"               // for Symbol
+#include "experimental/expected.hpp"     // for expected
+#include "loader/shared_library.h"       // for SharedLibrary
+#include "spdlog/fmt/bundled/ostream.h"  // for formatbuf<>::int_type
+#include "spdlog/spdlog.h"               // for error
+
+/home/user/test/WasmEdge/lib/loader/ldmgr.cpp should remove these lines:
+- #include "common/log.h"  // lines 6-6
+
+The full include-list for /home/user/test/WasmEdge/lib/loader/ldmgr.cpp:
+#include "loader/ldmgr.h"
+#include <cstdint>                       // for uint32_t, uint8_t
+#include <iosfwd>                        // for streamsize
+#include "common/enum_errcode.h"         // for ErrCode, ErrCode::IllegalGra...
+#include "common/symbol.h"               // for Symbol
+#include "experimental/expected.hpp"     // for expected
+#include "loader/shared_library.h"       // for SharedLibrary
+#include "spdlog/fmt/bundled/ostream.h"  // for formatbuf<>::int_type
+#include "spdlog/spdlog.h"               // for error
+---
+
+Warning: include-what-you-use reported diagnostics:
+
+/home/user/test/WasmEdge/include/host/wasmedge_process/processfunc.h should add these lines:
+#include <algorithm>                            // for max
+#include "common/errcode.h"                     // for Expect
+namespace WasmEdge { namespace Host { class WasmEdgeProcessEnvironment; } }
+namespace WasmEdge { namespace Runtime { namespace Instance { class MemoryInstance; } } }
+
+/home/user/test/WasmEdge/include/host/wasmedge_process/processfunc.h should remove these lines:
+- #include "common/defines.h"  // lines 6-6
+
+The full include-list for /home/user/test/WasmEdge/include/host/wasmedge_process/processfunc.h:
+#include <algorithm>                            // for max
+#include <cstdint>                              // for uint32_t
+#include "common/errcode.h"                     // for Expect
+#include "host/wasmedge_process/processbase.h"  // for WasmEdgeProcess
+namespace WasmEdge { namespace Host { class WasmEdgeProcessEnvironment; } }
+namespace WasmEdge { namespace Runtime { namespace Instance { class MemoryInstance; } } }
+---
+
+/home/user/test/WasmEdge/lib/host/wasmedge_process/processfunc.cpp should add these lines:
+#include <features.h>                          // for __GLIBC_PREREQ
+#include <stdlib.h>                            // for NULL, WEXITSTATUS
+#include <iterator>                            // for back_insert_iterator
+#include <string>                              // for string, basic_string
+#include <unordered_map>                       // for unordered_map, _Node_i...
+#include <unordered_set>                       // for unordered_set, unorder...
+#include <utility>                             // for move, pair
+#include <vector>                              // for vector
+#include "common/defines.h"                    // for WASMEDGE_OS_LINUX, WAS...
+#include "common/enum_errcode.h"               // for ErrCode, ErrCode::Exec...
+#include "host/wasmedge_process/processenv.h"  // for WasmEdgeProcessEnviron...
+#include "runtime/instance/memory.h"           // for MemoryInstance
+#include "spdlog/spdlog.h"                     // for error
+
+/home/user/test/WasmEdge/lib/host/wasmedge_process/processfunc.cpp should remove these lines:
+- #include <fcntl.h>  // lines 8-8
+- #include <sys/stat.h>  // lines 12-12
+- #include <sys/types.h>  // lines 14-14
+
+The full include-list for /home/user/test/WasmEdge/lib/host/wasmedge_process/processfunc.cpp:
+#include "host/wasmedge_process/processfunc.h"
+#include <errno.h>                             // for EACCES, EINVAL, ENOENT
+#include <features.h>                          // for __GLIBC_PREREQ
+#include <limits.h>                            // for PIPE_BUF
+#include <signal.h>                            // for kill, pid_t, SIGKILL
+#include <stdlib.h>                            // for NULL, WEXITSTATUS
+#include <sys/select.h>                        // for select, FD_ISSET, FD_SET
+#include <sys/time.h>                          // for timeval, gettimeofday
+#include <sys/wait.h>                          // for waitpid, WNOHANG
+#include <unistd.h>                            // for close, read, dup2, pipe
+#include <iterator>                            // for back_insert_iterator
+#include <string>                              // for string, basic_string
+#include <unordered_map>                       // for unordered_map, _Node_i...
+#include <unordered_set>                       // for unordered_set, unorder...
+#include <utility>                             // for move, pair
+#include <vector>                              // for vector
+#include "common/defines.h"                    // for WASMEDGE_OS_LINUX, WAS...
+#include "common/enum_errcode.h"               // for ErrCode, ErrCode::Exec...
+#include "host/wasmedge_process/processenv.h"  // for WasmEdgeProcessEnviron...
+#include "runtime/instance/memory.h"           // for MemoryInstance
+#include "spdlog/spdlog.h"                     // for error
+---
+
+Warning: include-what-you-use reported diagnostics:
+
+(/home/user/test/WasmEdge/include/host/wasmedge_process/processmodule.h has correct #includes/fwd-decls)
+
+/home/user/test/WasmEdge/lib/host/wasmedge_process/processmodule.cpp should add these lines:
+#include <string_view>                          // for string_view
+#include "runtime/hostfunc.h"                   // for HostFunctionBase
+
+/home/user/test/WasmEdge/lib/host/wasmedge_process/processmodule.cpp should remove these lines:
+
+The full include-list for /home/user/test/WasmEdge/lib/host/wasmedge_process/processmodule.cpp:
+#include "host/wasmedge_process/processmodule.h"
+#include <memory>                               // for make_unique
+#include <string_view>                          // for string_view
+#include "host/wasmedge_process/processfunc.h"  // for WasmEdgeProcessAddArg
+#include "runtime/hostfunc.h"                   // for HostFunctionBase
+---
+
+Warning: include-what-you-use reported diagnostics:
+
+/home/user/test/WasmEdge/lib/executor/instantiate/table.cpp should add these lines:
+#include <algorithm>                  // for max
+#include "ast/section.h"              // for TableSection
+#include "common/errcode.h"           // for Expect
+#include "common/span.h"              // for Span
+#include "experimental/span.hpp"      // for span
+#include "runtime/instance/module.h"  // for ModuleInstance
+#include "runtime/storemgr.h"         // for StoreManager
+namespace WasmEdge { namespace Runtime { namespace Instance { class TableInstance; } } }
+
+/home/user/test/WasmEdge/lib/executor/instantiate/table.cpp should remove these lines:
+- #include <cstdint>  // lines 6-6
+
+The full include-list for /home/user/test/WasmEdge/lib/executor/instantiate/table.cpp:
+#include <algorithm>                  // for max
+#include "ast/section.h"              // for TableSection
+#include "common/errcode.h"           // for Expect
+#include "common/span.h"              // for Span
+#include "executor/executor.h"        // for Executor, Executor::Instantiate...
+#include "experimental/span.hpp"      // for span
+#include "runtime/instance/module.h"  // for ModuleInstance
+#include "runtime/storemgr.h"         // for StoreManager
+namespace WasmEdge { namespace Runtime { namespace Instance { class TableInstance; } } }
+---
+
+Warning: include-what-you-use reported diagnostics:
+
+/home/user/test/WasmEdge/lib/executor/instantiate/function.cpp should add these lines:
+#include <algorithm>                  // for max
+#include "ast/expression.h"           // for Expression
+#include "ast/section.h"              // for CodeSection, FunctionSection
+#include "ast/segment.h"              // for CodeSegment
+#include "common/errcode.h"           // for Expect
+#include "common/symbol.h"            // for Symbol
+#include "experimental/span.hpp"      // for span
+#include "runtime/instance/module.h"  // for ModuleInstance
+#include "runtime/storemgr.h"         // for StoreManager
+namespace WasmEdge { namespace Runtime { namespace Instance { class FunctionInstance; } } }
+
+/home/user/test/WasmEdge/lib/executor/instantiate/function.cpp should remove these lines:
+
+The full include-list for /home/user/test/WasmEdge/lib/executor/instantiate/function.cpp:
+#include <algorithm>                  // for max
+#include <cstdint>                    // for uint32_t
+#include <utility>                    // for move
+#include "ast/expression.h"           // for Expression
+#include "ast/section.h"              // for CodeSection, FunctionSection
+#include "ast/segment.h"              // for CodeSegment
+#include "common/errcode.h"           // for Expect
+#include "common/symbol.h"            // for Symbol
+#include "executor/executor.h"        // for Executor, Executor::Instantiate...
+#include "experimental/span.hpp"      // for span
+#include "runtime/instance/module.h"  // for ModuleInstance
+#include "runtime/storemgr.h"         // for StoreManager
+namespace WasmEdge { namespace Runtime { namespace Instance { class FunctionInstance; } } }
+---
+
+Warning: include-what-you-use reported diagnostics:
+
+/home/user/test/WasmEdge/lib/executor/instantiate/export.cpp should add these lines:
+#include "ast/description.h"          // for ExportDesc
+#include "ast/section.h"              // for ExportSection
+#include "common/enum_types.h"        // for ExternalType, ExternalType::Fun...
+#include "common/errcode.h"           // for Expect
+#include "common/span.h"              // for Span
+#include "experimental/span.hpp"      // for span
+#include "runtime/instance/module.h"  // for ModuleInstance
+
+/home/user/test/WasmEdge/lib/executor/instantiate/export.cpp should remove these lines:
+
+The full include-list for /home/user/test/WasmEdge/lib/executor/instantiate/export.cpp:
+#include <cstdint>                    // for uint32_t
+#include <string_view>                // for string_view
+#include "ast/description.h"          // for ExportDesc
+#include "ast/section.h"              // for ExportSection
+#include "common/enum_types.h"        // for ExternalType, ExternalType::Fun...
+#include "common/errcode.h"           // for Expect
+#include "common/span.h"              // for Span
+#include "executor/executor.h"        // for Executor
+#include "experimental/span.hpp"      // for span
+#include "runtime/instance/module.h"  // for ModuleInstance
+---
+
+Warning: include-what-you-use reported diagnostics:
+
+/home/user/test/WasmEdge/lib/executor/instantiate/memory.cpp should add these lines:
+#include <algorithm>                  // for max
+#include <vector>                     // for vector
+#include "ast/section.h"              // for MemorySection
+#include "common/configure.h"         // for Configure, RuntimeConfigure
+#include "common/errcode.h"           // for Expect
+#include "common/span.h"              // for Span
+#include "experimental/span.hpp"      // for span
+#include "runtime/instance/module.h"  // for ModuleInstance
+#include "runtime/storemgr.h"         // for StoreManager
+namespace WasmEdge { namespace Runtime { namespace Instance { class MemoryInstance; } } }
+
+/home/user/test/WasmEdge/lib/executor/instantiate/memory.cpp should remove these lines:
+
+The full include-list for /home/user/test/WasmEdge/lib/executor/instantiate/memory.cpp:
+#include <algorithm>                  // for max
+#include <cstdint>                    // for uint8_t
+#include <vector>                     // for vector
+#include "ast/section.h"              // for MemorySection
+#include "common/configure.h"         // for Configure, RuntimeConfigure
+#include "common/errcode.h"           // for Expect
+#include "common/span.h"              // for Span
+#include "executor/executor.h"        // for Executor, Executor::Instantiate...
+#include "experimental/span.hpp"      // for span
+#include "runtime/instance/module.h"  // for ModuleInstance
+#include "runtime/storemgr.h"         // for StoreManager
+namespace WasmEdge { namespace Runtime { namespace Instance { class MemoryInstance; } } }
+---
+
+Warning: include-what-you-use reported diagnostics:
+
+/home/user/test/WasmEdge/lib/executor/instantiate/global.cpp should add these lines:
+#include <algorithm>                     // for max
+#include <iosfwd>                        // for streamsize
+#include <vector>                        // for vector
+#include "ast/expression.h"              // for Expression
+#include "ast/section.h"                 // for GlobalSection
+#include "ast/segment.h"                 // for GlobalSegment
+#include "common/enum_ast.h"             // for ASTNodeAttr, ASTNodeAttr::Ex...
+#include "common/errcode.h"              // for Expect, Unexpect
+#include "common/errinfo.h"              // for operator<<, InfoAST
+#include "common/span.h"                 // for Span
+#include "common/types.h"                // for ValVariant
+#include "experimental/expected.hpp"     // for expected
+#include "experimental/span.hpp"         // for span
+#include "runtime/instance/global.h"     // for GlobalInstance
+#include "runtime/instance/module.h"     // for ModuleInstance
+#include "runtime/stackmgr.h"            // for StackManager
+#include "runtime/storemgr.h"            // for StoreManager
+#include "spdlog/fmt/bundled/ostream.h"  // for formatbuf<>::int_type
+#include "spdlog/spdlog.h"               // for error
+
+/home/user/test/WasmEdge/lib/executor/instantiate/global.cpp should remove these lines:
+
+The full include-list for /home/user/test/WasmEdge/lib/executor/instantiate/global.cpp:
+#include <algorithm>                     // for max
+#include <cstdint>                       // for uint32_t
+#include <iosfwd>                        // for streamsize
+#include <vector>                        // for vector
+#include "ast/expression.h"              // for Expression
+#include "ast/section.h"                 // for GlobalSection
+#include "ast/segment.h"                 // for GlobalSegment
+#include "common/enum_ast.h"             // for ASTNodeAttr, ASTNodeAttr::Ex...
+#include "common/errcode.h"              // for Expect, Unexpect
+#include "common/errinfo.h"              // for operator<<, InfoAST
+#include "common/span.h"                 // for Span
+#include "common/types.h"                // for ValVariant
+#include "executor/executor.h"           // for Executor, Executor::Instanti...
+#include "experimental/expected.hpp"     // for expected
+#include "experimental/span.hpp"         // for span
+#include "runtime/instance/global.h"     // for GlobalInstance
+#include "runtime/instance/module.h"     // for ModuleInstance
+#include "runtime/stackmgr.h"            // for StackManager
+#include "runtime/storemgr.h"            // for StoreManager
+#include "spdlog/fmt/bundled/ostream.h"  // for formatbuf<>::int_type
+#include "spdlog/spdlog.h"               // for error
+---
+
+Warning: include-what-you-use reported diagnostics:
+
+/home/user/test/WasmEdge/lib/executor/engine/variableInstr.cpp should add these lines:
+#include <algorithm>                  // for max
+#include "common/errcode.h"           // for Expect, assuming
+#include "common/types.h"             // for ValVariant
+#include "runtime/instance/global.h"  // for GlobalInstance
+#include "runtime/stackmgr.h"         // for StackManager, StackManager::Value
+
+/home/user/test/WasmEdge/lib/executor/engine/variableInstr.cpp should remove these lines:
+
+The full include-list for /home/user/test/WasmEdge/lib/executor/engine/variableInstr.cpp:
+#include <algorithm>                  // for max
+#include <cstdint>                    // for uint32_t
+#include "common/errcode.h"           // for Expect, assuming
+#include "common/types.h"             // for ValVariant
+#include "executor/executor.h"        // for Executor
+#include "runtime/instance/global.h"  // for GlobalInstance
+#include "runtime/stackmgr.h"         // for StackManager, StackManager::Value
+---
+
+Warning: include-what-you-use reported diagnostics:
+
+/home/user/test/WasmEdge/lib/executor/helper.cpp should add these lines:
+#include <algorithm>                     // for max
+#include <atomic>                        // for atomic_uint32_t, atomic_stor...
+#include <iosfwd>                        // for streamsize
+#include "ast/instruction.h"             // for InstrView
+#include "ast/type.h"                    // for FunctionType
+#include "common/enum_errcode.h"         // for ErrCode, ErrCode::Interrupted
+#include "common/errcode.h"              // for unlikely, Unexpect, Expect
+#include "common/span.h"                 // for Span
+#include "common/statistics.h"           // for Statistics
+#include "common/symbol.h"               // for Symbol
+#include "common/types.h"                // for ValVariant, ValueFromType
+#include "common/variant.h"              // for Variant
+#include "experimental/expected.hpp"     // for expected
+#include "experimental/span.hpp"         // for span<>::iterator, span
+#include "runtime/hostfunc.h"            // for HostFunctionBase
+#include "runtime/instance/function.h"   // for FunctionInstance
+#include "runtime/instance/memory.h"     // for MemoryInstance
+#include "runtime/instance/module.h"     // for ModuleInstance
+#include "runtime/stackmgr.h"            // for StackManager
+#include "spdlog/fmt/bundled/ostream.h"  // for formatbuf<>::int_type
+#include "spdlog/spdlog.h"               // for error
+namespace WasmEdge { namespace Runtime { class StoreManager; } }
+namespace WasmEdge { namespace Runtime { namespace Instance { class DataInstance; } } }
+namespace WasmEdge { namespace Runtime { namespace Instance { class ElementInstance; } } }
+namespace WasmEdge { namespace Runtime { namespace Instance { class GlobalInstance; } } }
+namespace WasmEdge { namespace Runtime { namespace Instance { class TableInstance; } } }
+
+/home/user/test/WasmEdge/lib/executor/helper.cpp should remove these lines:
+- #include "common/log.h"  // lines 6-6
+
+The full include-list for /home/user/test/WasmEdge/lib/executor/helper.cpp:
+#include <algorithm>                     // for max
+#include <atomic>                        // for atomic_uint32_t, atomic_stor...
+#include <cstdint>                       // for uint32_t, uint8_t, UINT32_C
+#include <iosfwd>                        // for streamsize
+#include <numeric>                       // for accumulate
+#include <utility>                       // for move, pair
+#include <vector>                        // for vector
+#include "ast/instruction.h"             // for InstrView
+#include "ast/type.h"                    // for FunctionType
+#include "common/enum_errcode.h"         // for ErrCode, ErrCode::Interrupted
+#include "common/errcode.h"              // for unlikely, Unexpect, Expect
+#include "common/span.h"                 // for Span
+#include "common/statistics.h"           // for Statistics
+#include "common/symbol.h"               // for Symbol
+#include "common/types.h"                // for ValVariant, ValueFromType
+#include "common/variant.h"              // for Variant
+#include "executor/executor.h"           // for Executor, Executor::Executio...
+#include "experimental/expected.hpp"     // for expected
+#include "experimental/span.hpp"         // for span<>::iterator, span
+#include "runtime/hostfunc.h"            // for HostFunctionBase
+#include "runtime/instance/function.h"   // for FunctionInstance
+#include "runtime/instance/memory.h"     // for MemoryInstance
+#include "runtime/instance/module.h"     // for ModuleInstance
+#include "runtime/stackmgr.h"            // for StackManager
+#include "spdlog/fmt/bundled/ostream.h"  // for formatbuf<>::int_type
+#include "spdlog/spdlog.h"               // for error
+#include "system/fault.h"                // for Fault, PREPARE_FAULT
+namespace WasmEdge { namespace Runtime { class StoreManager; } }
+namespace WasmEdge { namespace Runtime { namespace Instance { class DataInstance; } } }
+namespace WasmEdge { namespace Runtime { namespace Instance { class ElementInstance; } } }
+namespace WasmEdge { namespace Runtime { namespace Instance { class GlobalInstance; } } }
+namespace WasmEdge { namespace Runtime { namespace Instance { class TableInstance; } } }
+---
+
+Warning: include-what-you-use reported diagnostics:
+
+/home/user/test/WasmEdge/lib/executor/engine/memoryInstr.cpp should add these lines:
+#include <algorithm>                     // for max
+#include <cstdint>                       // for uint32_t, uint8_t
+#include <iosfwd>                        // for streamsize
+#include "ast/instruction.h"             // for Instruction
+#include "common/errcode.h"              // for Unexpect, Expect
+#include "common/errinfo.h"              // for operator<<, InfoInstruction
+#include "experimental/expected.hpp"     // for expected
+#include "runtime/instance/data.h"       // for DataInstance
+#include "runtime/instance/memory.h"     // for MemoryInstance
+#include "runtime/stackmgr.h"            // for StackManager, StackManager::...
+#include "spdlog/fmt/bundled/ostream.h"  // for formatbuf<>::int_type
+#include "spdlog/spdlog.h"               // for error
+
+/home/user/test/WasmEdge/lib/executor/engine/memoryInstr.cpp should remove these lines:
+
+The full include-list for /home/user/test/WasmEdge/lib/executor/engine/memoryInstr.cpp:
+#include <algorithm>                     // for max
+#include <cstdint>                       // for uint32_t, uint8_t
+#include <iosfwd>                        // for streamsize
+#include "ast/instruction.h"             // for Instruction
+#include "common/errcode.h"              // for Unexpect, Expect
+#include "common/errinfo.h"              // for operator<<, InfoInstruction
+#include "executor/executor.h"           // for Executor
+#include "experimental/expected.hpp"     // for expected
+#include "runtime/instance/data.h"       // for DataInstance
+#include "runtime/instance/memory.h"     // for MemoryInstance
+#include "runtime/stackmgr.h"            // for StackManager, StackManager::...
+#include "spdlog/fmt/bundled/ostream.h"  // for formatbuf<>::int_type
+#include "spdlog/spdlog.h"               // for error
+---
+
+Warning: include-what-you-use reported diagnostics:
+
+/home/user/test/WasmEdge/lib/executor/instantiate/elem.cpp should add these lines:
+#include <algorithm>                     // for max
+#include <iosfwd>                        // for streamsize
+#include "ast/expression.h"              // for Expression
+#include "ast/section.h"                 // for ElementSection
+#include "ast/segment.h"                 // for ElementSegment, ElementSegme...
+#include "common/configure.h"            // for Configure
+#include "common/enum_ast.h"             // for ASTNodeAttr
+#include "common/enum_configure.h"       // for ASTNodeAttr::Seg_Element
+#include "common/enum_errcode.h"         // for ErrCode
+#include "common/errcode.h"              // for Unexpect, Expect, assuming
+#include "common/span.h"                 // for Span
+#include "common/types.h"                // for RefVariant, UnknownRef
+#include "experimental/expected.hpp"     // for expected
+#include "experimental/span.hpp"         // for span
+#include "runtime/instance/elem.h"       // for ElementInstance
+#include "runtime/instance/module.h"     // for ModuleInstance
+#include "runtime/instance/table.h"      // for TableInstance
+#include "runtime/stackmgr.h"            // for StackManager, StackManager::...
+#include "runtime/storemgr.h"            // for StoreManager
+#include "spdlog/fmt/bundled/ostream.h"  // for formatbuf<>::int_type
+#include "spdlog/spdlog.h"               // for error
+
+/home/user/test/WasmEdge/lib/executor/instantiate/elem.cpp should remove these lines:
+- #include "common/log.h"  // lines 7-7
+
+The full include-list for /home/user/test/WasmEdge/lib/executor/instantiate/elem.cpp:
+#include <algorithm>                     // for max
+#include <cstdint>                       // for uint32_t
+#include <iosfwd>                        // for streamsize
+#include <vector>                        // for vector
+#include "ast/expression.h"              // for Expression
+#include "ast/section.h"                 // for ElementSection
+#include "ast/segment.h"                 // for ElementSegment, ElementSegme...
+#include "common/configure.h"            // for Configure
+#include "common/enum_ast.h"             // for ASTNodeAttr
+#include "common/enum_configure.h"       // for ASTNodeAttr::Seg_Element
+#include "common/enum_errcode.h"         // for ErrCode
+#include "common/errcode.h"              // for Unexpect, Expect, assuming
+#include "common/errinfo.h"              // for operator<<, InfoAST
+#include "common/span.h"                 // for Span
+#include "common/types.h"                // for RefVariant, UnknownRef
+#include "executor/executor.h"           // for Executor, Executor::Instanti...
+#include "experimental/expected.hpp"     // for expected
+#include "experimental/span.hpp"         // for span
+#include "runtime/instance/elem.h"       // for ElementInstance
+#include "runtime/instance/module.h"     // for ModuleInstance
+#include "runtime/instance/table.h"      // for TableInstance
+#include "runtime/stackmgr.h"            // for StackManager, StackManager::...
+#include "runtime/storemgr.h"            // for StoreManager
+#include "spdlog/fmt/bundled/ostream.h"  // for formatbuf<>::int_type
+#include "spdlog/spdlog.h"               // for error
+---
+
+Warning: include-what-you-use reported diagnostics:
+
+/home/user/test/WasmEdge/lib/executor/engine/tableInstr.cpp should add these lines:
+#include <algorithm>                     // for max
+#include <cstdint>                       // for uint32_t, int32_t, INT32_C
+#include <iosfwd>                        // for streamsize
+#include "ast/instruction.h"             // for Instruction
+#include "common/enum_types.h"           // for ValType
+#include "common/errcode.h"              // for Unexpect, Expect
+#include "common/errinfo.h"              // for operator<<, InfoInstruction
+#include "common/types.h"                // for UnknownRef, ValVariant, ValT...
+#include "common/variant.h"              // for Variant
+#include "experimental/expected.hpp"     // for expected
+#include "runtime/instance/elem.h"       // for ElementInstance
+#include "runtime/instance/table.h"      // for TableInstance
+#include "runtime/stackmgr.h"            // for StackManager, StackManager::...
+#include "spdlog/fmt/bundled/ostream.h"  // for formatbuf<>::int_type
+#include "spdlog/spdlog.h"               // for error
+
+/home/user/test/WasmEdge/lib/executor/engine/tableInstr.cpp should remove these lines:
+
+The full include-list for /home/user/test/WasmEdge/lib/executor/engine/tableInstr.cpp:
+#include <algorithm>                     // for max
+#include <cstdint>                       // for uint32_t, int32_t, INT32_C
+#include <iosfwd>                        // for streamsize
+#include "ast/instruction.h"             // for Instruction
+#include "common/enum_types.h"           // for ValType
+#include "common/errcode.h"              // for Unexpect, Expect
+#include "common/errinfo.h"              // for operator<<, InfoInstruction
+#include "common/types.h"                // for UnknownRef, ValVariant, ValT...
+#include "common/variant.h"              // for Variant
+#include "executor/executor.h"           // for Executor
+#include "experimental/expected.hpp"     // for expected
+#include "runtime/instance/elem.h"       // for ElementInstance
+#include "runtime/instance/table.h"      // for TableInstance
+#include "runtime/stackmgr.h"            // for StackManager, StackManager::...
+#include "spdlog/fmt/bundled/ostream.h"  // for formatbuf<>::int_type
+#include "spdlog/spdlog.h"               // for error
+---
+
+Warning: include-what-you-use reported diagnostics:
+
+/home/user/test/WasmEdge/lib/executor/instantiate/module.cpp should add these lines:
+#include <algorithm>                     // for max
+#include <iosfwd>                        // for streamsize
+#include <optional>                      // for optional
+#include "ast/instruction.h"             // for InstrView
+#include "ast/module.h"                  // for Module
+#include "ast/section.h"                 // for StartSection, CodeSection (p...
+#include "common/enum_ast.h"             // for ASTNodeAttr
+#include "common/enum_errcode.h"         // for ASTNodeAttr::Module, ErrCode
+#include "common/errcode.h"              // for Unexpect, Expect, unlikely
+#include "common/span.h"                 // for Span
+#include "experimental/expected.hpp"     // for expected
+#include "experimental/span.hpp"         // for span
+#include "runtime/instance/function.h"   // for FunctionInstance
+#include "runtime/instance/module.h"     // for ModuleInstance
+#include "runtime/stackmgr.h"            // for StackManager
+#include "runtime/storemgr.h"            // for StoreManager
+#include "spdlog/fmt/bundled/ostream.h"  // for formatbuf<>::int_type
+#include "spdlog/spdlog.h"               // for error
+
+/home/user/test/WasmEdge/lib/executor/instantiate/module.cpp should remove these lines:
+- #include "common/log.h"  // lines 7-7
+
+The full include-list for /home/user/test/WasmEdge/lib/executor/instantiate/module.cpp:
+#include <algorithm>                     // for max
+#include <cstdint>                       // for uint32_t
+#include <iosfwd>                        // for streamsize
+#include <optional>                      // for optional
+#include <string_view>                   // for string_view
+#include "ast/instruction.h"             // for InstrView
+#include "ast/module.h"                  // for Module
+#include "ast/section.h"                 // for StartSection, CodeSection (p...
+#include "common/enum_ast.h"             // for ASTNodeAttr
+#include "common/enum_errcode.h"         // for ASTNodeAttr::Module, ErrCode
+#include "common/errcode.h"              // for Unexpect, Expect, unlikely
+#include "common/errinfo.h"              // for operator<<, InfoAST
+#include "common/span.h"                 // for Span
+#include "executor/executor.h"           // for Executor, Executor::Instanti...
+#include "experimental/expected.hpp"     // for expected
+#include "experimental/span.hpp"         // for span
+#include "runtime/instance/function.h"   // for FunctionInstance
+#include "runtime/instance/module.h"     // for ModuleInstance
+#include "runtime/stackmgr.h"            // for StackManager
+#include "runtime/storemgr.h"            // for StoreManager
+#include "spdlog/fmt/bundled/ostream.h"  // for formatbuf<>::int_type
+#include "spdlog/spdlog.h"               // for error
+---
+
+Warning: include-what-you-use reported diagnostics:
+
+/home/user/test/WasmEdge/lib/executor/instantiate/import.cpp should add these lines:
+#include <iosfwd>                        // for streamsize
+#include "ast/description.h"             // for ImportDesc
+#include "ast/section.h"                 // for ImportSection
+#include "ast/type.h"                    // for Limit, TableType, operator!=
+#include "common/enum_ast.h"             // for ASTNodeAttr
+#include "common/enum_errcode.h"         // for ErrCode, ExternalType::Function
+#include "common/enum_types.h"           // for ExternalType
+#include "common/errcode.h"              // for Expect, likely, Unexpect
+#include "common/span.h"                 // for Span
+#include "experimental/expected.hpp"     // for expected
+#include "experimental/span.hpp"         // for span
+#include "runtime/instance/function.h"   // for FunctionInstance
+#include "runtime/instance/global.h"     // for GlobalInstance
+#include "runtime/instance/memory.h"     // for MemoryInstance
+#include "runtime/instance/module.h"     // for ModuleInstance
+#include "runtime/instance/table.h"      // for TableInstance
+#include "runtime/storemgr.h"            // for StoreManager
+#include "spdlog/fmt/bundled/ostream.h"  // for formatbuf<>::int_type
+#include "spdlog/spdlog.h"               // for error
+
+/home/user/test/WasmEdge/lib/executor/instantiate/import.cpp should remove these lines:
+- #include "common/log.h"  // lines 7-7
+
+The full include-list for /home/user/test/WasmEdge/lib/executor/instantiate/import.cpp:
+#include <cstdint>                       // for uint32_t
+#include <iosfwd>                        // for streamsize
+#include <string_view>                   // for string_view
+#include <utility>                       // for forward
+#include "ast/description.h"             // for ImportDesc
+#include "ast/section.h"                 // for ImportSection
+#include "ast/type.h"                    // for Limit, TableType, operator!=
+#include "common/enum_ast.h"             // for ASTNodeAttr
+#include "common/enum_errcode.h"         // for ErrCode, ExternalType::Function
+#include "common/enum_types.h"           // for ExternalType
+#include "common/errcode.h"              // for Expect, likely, Unexpect
+#include "common/errinfo.h"              // for operator<<, InfoAST, InfoLin...
+#include "common/span.h"                 // for Span
+#include "executor/executor.h"           // for Executor
+#include "experimental/expected.hpp"     // for expected
+#include "experimental/span.hpp"         // for span
+#include "runtime/instance/function.h"   // for FunctionInstance
+#include "runtime/instance/global.h"     // for GlobalInstance
+#include "runtime/instance/memory.h"     // for MemoryInstance
+#include "runtime/instance/module.h"     // for ModuleInstance
+#include "runtime/instance/table.h"      // for TableInstance
+#include "runtime/storemgr.h"            // for StoreManager
+#include "spdlog/fmt/bundled/ostream.h"  // for formatbuf<>::int_type
+#include "spdlog/spdlog.h"               // for error
+---
+
+Warning: include-what-you-use reported diagnostics:
+
+/home/user/test/WasmEdge/lib/executor/engine/proxy.cpp should add these lines:
+#include <algorithm>                    // for max
+#include <vector>                       // for vector
+#include "ast/instruction.h"            // for InstrView
+#include "ast/module.h"                 // for Module, Module::Intrinsics
+#include "ast/type.h"                   // for FunctionType, operator!=
+#include "common/defines.h"             // for WASMEDGE_OS_WINDOWS
+#include "common/enum_errcode.h"        // for ErrCode, ErrCode::IndirectCal...
+#include "common/errcode.h"             // for Unexpect, unlikely, Expect
+#include "common/symbol.h"              // for Symbol
+#include "common/types.h"               // for ValVariant, RefVariant, isNul...
+#include "common/variant.h"             // for Variant
+#include "experimental/expected.hpp"    // for expected
+#include "experimental/span.hpp"        // for span
+#include "runtime/instance/data.h"      // for DataInstance
+#include "runtime/instance/elem.h"      // for ElementInstance
+#include "runtime/instance/function.h"  // for FunctionInstance
+#include "runtime/instance/memory.h"    // for MemoryInstance
+#include "runtime/instance/module.h"    // for ModuleInstance
+#include "runtime/instance/table.h"     // for TableInstance
+#include "runtime/stackmgr.h"           // for StackManager
+#include "runtime/storemgr.h"           // for StoreManager
+
+/home/user/test/WasmEdge/lib/executor/engine/proxy.cpp should remove these lines:
+
+The full include-list for /home/user/test/WasmEdge/lib/executor/engine/proxy.cpp:
+#include <algorithm>                    // for max
+#include <cstdint>                      // for uint32_t, uint8_t
+#include <vector>                       // for vector
+#include "ast/instruction.h"            // for InstrView
+#include "ast/module.h"                 // for Module, Module::Intrinsics
+#include "ast/type.h"                   // for FunctionType, operator!=
+#include "common/defines.h"             // for WASMEDGE_OS_WINDOWS
+#include "common/enum_errcode.h"        // for ErrCode, ErrCode::IndirectCal...
+#include "common/errcode.h"             // for Unexpect, unlikely, Expect
+#include "common/symbol.h"              // for Symbol
+#include "common/types.h"               // for ValVariant, RefVariant, isNul...
+#include "common/variant.h"             // for Variant
+#include "executor/executor.h"          // for Executor, Executor::Execution...
+#include "experimental/expected.hpp"    // for expected
+#include "experimental/span.hpp"        // for span
+#include "runtime/instance/data.h"      // for DataInstance
+#include "runtime/instance/elem.h"      // for ElementInstance
+#include "runtime/instance/function.h"  // for FunctionInstance
+#include "runtime/instance/memory.h"    // for MemoryInstance
+#include "runtime/instance/module.h"    // for ModuleInstance
+#include "runtime/instance/table.h"     // for TableInstance
+#include "runtime/stackmgr.h"           // for StackManager
+#include "runtime/storemgr.h"           // for StoreManager
+#include "system/fault.h"               // for Fault
+---
+
+Warning: include-what-you-use reported diagnostics:
+
+/home/user/test/WasmEdge/lib/executor/instantiate/data.cpp should add these lines:
+#include <algorithm>                     // for max
+#include <iosfwd>                        // for streamsize
+#include "ast/expression.h"              // for Expression
+#include "ast/section.h"                 // for DataSection
+#include "ast/segment.h"                 // for DataSegment, DataSegment::Da...
+#include "common/configure.h"            // for Configure
+#include "common/enum_ast.h"             // for ASTNodeAttr
+#include "common/enum_configure.h"       // for ASTNodeAttr::Seg_Data, ErrCo...
+#include "common/enum_errcode.h"         // for ErrCode
+#include "common/errcode.h"              // for Unexpect, Expect, assuming
+#include "common/span.h"                 // for Span
+#include "experimental/expected.hpp"     // for expected
+#include "experimental/span.hpp"         // for span
+#include "runtime/instance/data.h"       // for DataInstance
+#include "runtime/instance/memory.h"     // for MemoryInstance
+#include "runtime/instance/module.h"     // for ModuleInstance
+#include "runtime/stackmgr.h"            // for StackManager, StackManager::...
+#include "runtime/storemgr.h"            // for StoreManager
+#include "spdlog/fmt/bundled/ostream.h"  // for formatbuf<>::int_type
+#include "spdlog/spdlog.h"               // for error
+
+/home/user/test/WasmEdge/lib/executor/instantiate/data.cpp should remove these lines:
+- #include "common/log.h"  // lines 7-7
+
+The full include-list for /home/user/test/WasmEdge/lib/executor/instantiate/data.cpp:
+#include <algorithm>                     // for max
+#include <cstdint>                       // for uint32_t
+#include <iosfwd>                        // for streamsize
+#include "ast/expression.h"              // for Expression
+#include "ast/section.h"                 // for DataSection
+#include "ast/segment.h"                 // for DataSegment, DataSegment::Da...
+#include "common/configure.h"            // for Configure
+#include "common/enum_ast.h"             // for ASTNodeAttr
+#include "common/enum_configure.h"       // for ASTNodeAttr::Seg_Data, ErrCo...
+#include "common/enum_errcode.h"         // for ErrCode
+#include "common/errcode.h"              // for Unexpect, Expect, assuming
+#include "common/errinfo.h"              // for operator<<, InfoAST
+#include "common/span.h"                 // for Span
+#include "executor/executor.h"           // for Executor, Executor::Instanti...
+#include "experimental/expected.hpp"     // for expected
+#include "experimental/span.hpp"         // for span
+#include "runtime/instance/data.h"       // for DataInstance
+#include "runtime/instance/memory.h"     // for MemoryInstance
+#include "runtime/instance/module.h"     // for ModuleInstance
+#include "runtime/stackmgr.h"            // for StackManager, StackManager::...
+#include "runtime/storemgr.h"            // for StoreManager
+#include "spdlog/fmt/bundled/ostream.h"  // for formatbuf<>::int_type
+#include "spdlog/spdlog.h"               // for error
+---
+
+Warning: include-what-you-use reported diagnostics:
+
+/home/user/test/WasmEdge/lib/executor/engine/controlInstr.cpp should add these lines:
+#include <iosfwd>                        // for streamsize
+#include "ast/instruction.h"             // for Instruction, Instruction::Ju...
+#include "ast/type.h"                    // for FunctionType, operator!=
+#include "common/enum_ast.h"             // for OpCode
+#include "common/enum_errcode.h"         // for ErrCode, ErrCode::IndirectCa...
+#include "common/enum_types.h"           // for ValType
+#include "common/errcode.h"              // for Unexpect, Expect, operator<<
+#include "common/errinfo.h"              // for operator<<, InfoInstruction
+#include "common/statistics.h"           // for Statistics
+#include "common/types.h"                // for ValVariant, ValTypeFromType
+#include "common/variant.h"              // for Variant
+#include "experimental/expected.hpp"     // for expected
+#include "experimental/span.hpp"         // for span
+#include "runtime/instance/function.h"   // for FunctionInstance
+#include "runtime/instance/module.h"     // for ModuleInstance
+#include "runtime/instance/table.h"      // for TableInstance
+#include "runtime/stackmgr.h"            // for StackManager, StackManager::...
+#include "runtime/storemgr.h"            // for StoreManager
+#include "spdlog/fmt/bundled/ostream.h"  // for formatbuf<>::int_type
+#include "spdlog/spdlog.h"               // for error
+
+/home/user/test/WasmEdge/lib/executor/engine/controlInstr.cpp should remove these lines:
+
+The full include-list for /home/user/test/WasmEdge/lib/executor/engine/controlInstr.cpp:
+#include <cstdint>                       // for uint32_t
+#include <iosfwd>                        // for streamsize
+#include "ast/instruction.h"             // for Instruction, Instruction::Ju...
+#include "ast/type.h"                    // for FunctionType, operator!=
+#include "common/enum_ast.h"             // for OpCode
+#include "common/enum_errcode.h"         // for ErrCode, ErrCode::IndirectCa...
+#include "common/enum_types.h"           // for ValType
+#include "common/errcode.h"              // for Unexpect, Expect, operator<<
+#include "common/errinfo.h"              // for operator<<, InfoInstruction
+#include "common/statistics.h"           // for Statistics
+#include "common/types.h"                // for ValVariant, ValTypeFromType
+#include "common/variant.h"              // for Variant
+#include "executor/executor.h"           // for Executor
+#include "experimental/expected.hpp"     // for expected
+#include "experimental/span.hpp"         // for span
+#include "runtime/instance/function.h"   // for FunctionInstance
+#include "runtime/instance/module.h"     // for ModuleInstance
+#include "runtime/instance/table.h"      // for TableInstance
+#include "runtime/stackmgr.h"            // for StackManager, StackManager::...
+#include "runtime/storemgr.h"            // for StoreManager
+#include "spdlog/fmt/bundled/ostream.h"  // for formatbuf<>::int_type
+#include "spdlog/spdlog.h"               // for error
+---
+
+Warning: include-what-you-use reported diagnostics:
+
+/home/user/test/WasmEdge/include/executor/executor.h should add these lines:
+#include "ast/instruction.h"            // for Instruction (ptr only), Instr...
+#include "common/enum_types.h"          // for ValType
+#include "common/span.h"                // for Span
+#include "common/types.h"               // for ValVariant, RefVariant
+#include "runtime/instance/function.h"  // for FunctionInstance
+namespace WasmEdge { namespace AST { class CodeSection; } }
+namespace WasmEdge { namespace AST { class DataSection; } }
+namespace WasmEdge { namespace AST { class ElementSection; } }
+namespace WasmEdge { namespace AST { class ExportSection; } }
+namespace WasmEdge { namespace AST { class FunctionSection; } }
+namespace WasmEdge { namespace AST { class GlobalSection; } }
+namespace WasmEdge { namespace AST { class ImportSection; } }
+namespace WasmEdge { namespace AST { class MemorySection; } }
+namespace WasmEdge { namespace AST { class TableSection; } }
+namespace WasmEdge { namespace Runtime { class StackManager; } }
+namespace WasmEdge { namespace Runtime { class StoreManager; } }
+namespace WasmEdge { namespace Runtime { namespace Instance { class DataInstance; } } }
+namespace WasmEdge { namespace Runtime { namespace Instance { class ElementInstance; } } }
+namespace WasmEdge { namespace Runtime { namespace Instance { class GlobalInstance; } } }
+namespace WasmEdge { namespace Runtime { namespace Instance { class MemoryInstance; } } }
+namespace WasmEdge { namespace Runtime { namespace Instance { class ModuleInstance; } } }
+namespace WasmEdge { namespace Runtime { namespace Instance { class TableInstance; } } }
+
+/home/user/test/WasmEdge/include/executor/executor.h should remove these lines:
+- #include "common/defines.h"  // lines 19-19
+- #include "engine/binary_numeric.ipp"  // lines 644-644
+- #include "engine/cast_numeric.ipp"  // lines 645-645
+- #include "engine/memory.ipp"  // lines 646-646
+- #include "engine/relation_numeric.ipp"  // lines 647-647
+- #include "engine/unary_numeric.ipp"  // lines 648-648
+- #include "runtime/stackmgr.h"  // lines 23-23
+- #include "runtime/storemgr.h"  // lines 24-24
+
+The full include-list for /home/user/test/WasmEdge/include/executor/executor.h:
+#include <atomic>                       // for atomic_uint32_t, atomic_uint64_t
+#include <csignal>                      // for size_t
+#include <cstdint>                      // for uint32_t, uint8_t, uint64_t
+#include <string_view>                  // for string_view
+#include <type_traits>                  // for enable_if_t
+#include <utility>                      // for pair
+#include <vector>                       // for vector
+#include "ast/instruction.h"            // for Instruction (ptr only), Instr...
+#include "ast/module.h"                 // for Module, Module::IntrinsicsTable
+#include "common/configure.h"           // for Configure, StatisticsConfigure
+#include "common/enum_types.h"          // for ValType
+#include "common/errcode.h"             // for Expect, assuming
+#include "common/span.h"                // for Span
+#include "common/statistics.h"          // for Statistics
+#include "common/types.h"               // for ValVariant, RefVariant
+#include "runtime/importobj.h"          // for ImportObject
+#include "runtime/instance/function.h"  // for FunctionInstance
+namespace WasmEdge { namespace AST { class CodeSection; } }
+namespace WasmEdge { namespace AST { class DataSection; } }
+namespace WasmEdge { namespace AST { class ElementSection; } }
+namespace WasmEdge { namespace AST { class ExportSection; } }
+namespace WasmEdge { namespace AST { class FunctionSection; } }
+namespace WasmEdge { namespace AST { class GlobalSection; } }
+namespace WasmEdge { namespace AST { class ImportSection; } }
+namespace WasmEdge { namespace AST { class MemorySection; } }
+namespace WasmEdge { namespace AST { class TableSection; } }
+namespace WasmEdge { namespace Executor { template <typename FuncPtr> struct Executor::ProxyHelper; } }  // lines 598-598
+namespace WasmEdge { namespace Runtime { class StackManager; } }
+namespace WasmEdge { namespace Runtime { class StoreManager; } }
+namespace WasmEdge { namespace Runtime { namespace Instance { class DataInstance; } } }
+namespace WasmEdge { namespace Runtime { namespace Instance { class ElementInstance; } } }
+namespace WasmEdge { namespace Runtime { namespace Instance { class GlobalInstance; } } }
+namespace WasmEdge { namespace Runtime { namespace Instance { class MemoryInstance; } } }
+namespace WasmEdge { namespace Runtime { namespace Instance { class ModuleInstance; } } }
+namespace WasmEdge { namespace Runtime { namespace Instance { class TableInstance; } } }
+---
+
+/home/user/test/WasmEdge/lib/executor/executor.cpp should add these lines:
+#include <ext/alloc_traits.h>            // for __alloc_traits<>::value_type
+#include <algorithm>                     // for max, equal
+#include <iosfwd>                        // for streamsize
+#include <map>                           // for operator!=, _Rb_tree_const_i...
+#include <memory>                        // for unique_ptr
+#include <string>                        // for basic_string
+#include "ast/type.h"                    // for FunctionType
+#include "common/enum_errcode.h"         // for ErrCode
+#include "experimental/expected.hpp"     // for expected
+#include "runtime/instance/module.h"     // for ModuleInstance
+#include "runtime/stackmgr.h"            // for StackManager
+#include "runtime/storemgr.h"            // for StoreManager
+#include "spdlog/fmt/bundled/ostream.h"  // for formatbuf<>::int_type
+#include "spdlog/spdlog.h"               // for error
+
+/home/user/test/WasmEdge/lib/executor/executor.cpp should remove these lines:
+- #include "common/log.h"  // lines 7-7
+
+The full include-list for /home/user/test/WasmEdge/lib/executor/executor.cpp:
+#include "executor/executor.h"
+#include <ext/alloc_traits.h>            // for __alloc_traits<>::value_type
+#include <algorithm>                     // for max, equal
+#include <iosfwd>                        // for streamsize
+#include <map>                           // for operator!=, _Rb_tree_const_i...
+#include <memory>                        // for unique_ptr
+#include <string>                        // for basic_string
+#include "ast/type.h"                    // for FunctionType
+#include "common/enum_errcode.h"         // for ErrCode
+#include "common/errinfo.h"              // for operator<<, InfoRegistering
+#include "experimental/expected.hpp"     // for expected
+#include "runtime/instance/module.h"     // for ModuleInstance
+#include "runtime/stackmgr.h"            // for StackManager
+#include "runtime/storemgr.h"            // for StoreManager
+#include "spdlog/fmt/bundled/ostream.h"  // for formatbuf<>::int_type
+#include "spdlog/spdlog.h"               // for error
+---
+
+[ 75%] Linking CXX static library libwasmedgeValidator.a
+Error running 'include-what-you-use': /home/user/.cache/yay/include-what-you-use/src/include-what-you-use-0.17/iwyu.cc:1977: Assertion failed: TODO(csilvers): for objc and clang lang extensions
+Subprocess aborted
+make[2]: *** [lib/executor/CMakeFiles/wasmedgeExecutor.dir/build.make:272: lib/executor/CMakeFiles/wasmedgeExecutor.dir/engine/engine.cpp.o] Error 1
+make[2]: *** Waiting for unfinished jobs....
+[ 75%] Built target wasmedgeValidator
+Warning: include-what-you-use reported diagnostics:
+
+/home/user/test/WasmEdge/include/host/wasi/wasifunc.h should add these lines:
+#include <algorithm>             // for max
+#include "common/errcode.h"      // for Expect
+namespace WasmEdge { namespace Host { namespace WASI { class Environ; } } }
+namespace WasmEdge { namespace Runtime { namespace Instance { class MemoryInstance; } } }
+
+/home/user/test/WasmEdge/include/host/wasi/wasifunc.h should remove these lines:
+
+The full include-list for /home/user/test/WasmEdge/include/host/wasi/wasifunc.h:
+#include <algorithm>             // for max
+#include <cstdint>               // for uint32_t, int32_t, uint64_t, int64_t
+#include "common/errcode.h"      // for Expect
+#include "host/wasi/wasibase.h"  // for Wasi
+namespace WasmEdge { namespace Host { namespace WASI { class Environ; } } }
+namespace WasmEdge { namespace Runtime { namespace Instance { class MemoryInstance; } } }
+---
+
+/home/user/test/WasmEdge/lib/host/wasi/wasifunc.cpp should add these lines:
+#include <string_view>                // for string_view
+#include "common/enum_errcode.h"      // for ErrCode, ErrCode::Terminated
+#include "common/span.h"              // for Span
+#include "experimental/expected.hpp"  // for expected
+#include "experimental/span.hpp"      // for span
+#include "host/wasi/error.h"          // for WasiExpect, WasiUnexpect
+#include "wasi/api.hpp"               // for __wasi_errno_t, operator|, __WA...
+
+/home/user/test/WasmEdge/lib/host/wasi/wasifunc.cpp should remove these lines:
+- #include "common/filesystem.h"  // lines 5-5
+- #include "common/log.h"  // lines 6-6
+
+The full include-list for /home/user/test/WasmEdge/lib/host/wasi/wasifunc.cpp:
+#include "host/wasi/wasifunc.h"
+#include <algorithm>                  // for transform
+#include <array>                      // for array, array<>::value_type
+#include <limits>                     // for numeric_limits
+#include <numeric>                    // for accumulate
+#include <string_view>                // for string_view
+#include <type_traits>                // for underlying_type_t
+#include <vector>                     // for vector
+#include "common/enum_errcode.h"      // for ErrCode, ErrCode::Terminated
+#include "common/span.h"              // for Span
+#include "experimental/expected.hpp"  // for expected
+#include "experimental/span.hpp"      // for span
+#include "host/wasi/environ.h"        // for Environ, kIOVMax, EVPoller
+#include "host/wasi/error.h"          // for WasiExpect, WasiUnexpect
+#include "runtime/instance/memory.h"  // for MemoryInstance
+#include "wasi/api.hpp"               // for __wasi_errno_t, operator|, __WA...
+---
+
+[ 76%] Linking CXX static library libwasmedgeLoaderFileMgr.a
+[ 76%] Built target wasmedgeLoaderFileMgr
+[ 77%] Building CXX object lib/loader/CMakeFiles/wasmedgeLoader.dir/ast/module.cpp.o
+[ 78%] Building CXX object lib/loader/CMakeFiles/wasmedgeLoader.dir/ast/description.cpp.o
+[ 80%] Building CXX object lib/loader/CMakeFiles/wasmedgeLoader.dir/ast/section.cpp.o
+[ 81%] Building CXX object lib/loader/CMakeFiles/wasmedgeLoader.dir/ast/type.cpp.o
+[ 82%] Building CXX object lib/loader/CMakeFiles/wasmedgeLoader.dir/ast/segment.cpp.o
+[ 83%] Building CXX object lib/loader/CMakeFiles/wasmedgeLoader.dir/ast/expression.cpp.o
+[ 84%] Building CXX object lib/loader/CMakeFiles/wasmedgeLoader.dir/ast/instruction.cpp.o
+[ 85%] Building CXX object lib/loader/CMakeFiles/wasmedgeLoader.dir/loader.cpp.o
+Warning: include-what-you-use reported diagnostics:
+
+(/home/user/test/WasmEdge/include/host/wasi/wasimodule.h has correct #includes/fwd-decls)
+
+/home/user/test/WasmEdge/lib/host/wasi/wasimodule.cpp should add these lines:
+#include <string_view>           // for string_view
+#include "runtime/hostfunc.h"    // for HostFunctionBase
+
+/home/user/test/WasmEdge/lib/host/wasi/wasimodule.cpp should remove these lines:
+
+The full include-list for /home/user/test/WasmEdge/lib/host/wasi/wasimodule.cpp:
+#include "host/wasi/wasimodule.h"
+#include <memory>                // for make_unique
+#include <string_view>           // for string_view
+#include "host/wasi/wasifunc.h"  // for WasiArgsGet, WasiArgsSizesGet, WasiC...
+#include "runtime/hostfunc.h"    // for HostFunctionBase
+---
+
+[ 86%] Linking CXX static library libwasmedgeHostModuleWasmEdgeProcess.a
+[ 86%] Built target wasmedgeHostModuleWasmEdgeProcess
+Warning: include-what-you-use reported diagnostics:
+
+/home/user/test/WasmEdge/include/aot/compiler.h should add these lines:
+#include <filesystem>          // for path
+#include "common/types.h"      // for Byte
+namespace WasmEdge { namespace AST { class CodeSection; } }
+namespace WasmEdge { namespace AST { class DataSection; } }
+namespace WasmEdge { namespace AST { class ElementSection; } }
+namespace WasmEdge { namespace AST { class ExportSection; } }
+namespace WasmEdge { namespace AST { class FunctionSection; } }
+namespace WasmEdge { namespace AST { class GlobalSection; } }
+namespace WasmEdge { namespace AST { class ImportSection; } }
+namespace WasmEdge { namespace AST { class MemorySection; } }
+namespace WasmEdge { namespace AST { class Module; } }
+namespace WasmEdge { namespace AST { class TableSection; } }
+namespace WasmEdge { namespace AST { class TypeSection; } }
+
+/home/user/test/WasmEdge/include/aot/compiler.h should remove these lines:
+- #include "ast/module.h"  // lines 16-16
+- #include "common/filesystem.h"  // lines 19-19
+
+The full include-list for /home/user/test/WasmEdge/include/aot/compiler.h:
+#include <filesystem>          // for path
+#include <mutex>               // for mutex
+#include "common/configure.h"  // for Configure
+#include "common/errcode.h"    // for Expect
+#include "common/span.h"       // for Span
+#include "common/types.h"      // for Byte
+namespace WasmEdge { namespace AOT { struct Compiler::CompileContext; } }  // lines 35-35
+namespace WasmEdge { namespace AST { class CodeSection; } }
+namespace WasmEdge { namespace AST { class DataSection; } }
+namespace WasmEdge { namespace AST { class ElementSection; } }
+namespace WasmEdge { namespace AST { class ExportSection; } }
+namespace WasmEdge { namespace AST { class FunctionSection; } }
+namespace WasmEdge { namespace AST { class GlobalSection; } }
+namespace WasmEdge { namespace AST { class ImportSection; } }
+namespace WasmEdge { namespace AST { class MemorySection; } }
+namespace WasmEdge { namespace AST { class Module; } }
+namespace WasmEdge { namespace AST { class TableSection; } }
+namespace WasmEdge { namespace AST { class TypeSection; } }
+---
+
+/home/user/test/WasmEdge/lib/aot/compiler.cpp should add these lines:
+#include <llvm/ADT/APFloat.h>                       // for APFloat
+#include <llvm/ADT/APInt.h>                         // for APInt
+#include <llvm/ADT/FloatingPointMode.h>             // for RoundingMode, Rou...
+#include <llvm/ADT/None.h>                          // for None
+#include <llvm/ADT/STLExtras.h>                     // for concat_iterator
+#include <llvm/ADT/SmallString.h>                   // for SmallString
+#include <llvm/ADT/StringMap.h>                     // for StringMap, String...
+#include <llvm/ADT/StringMapEntry.h>                // for StringMapEntry
+#include <llvm/ADT/StringRef.h>                     // for StringRef, operat...
+#include <llvm/ADT/Triple.h>                        // for Triple
+#include <llvm/ADT/Twine.h>                         // for Twine
+#include <llvm/ADT/iterator.h>                      // for iterator_facade_base
+#include <llvm/ADT/iterator_range.h>                // for iterator_range
+#include <llvm/Analysis/CGSCCPassManager.h>         // for CGSCCAnalysisManager
+#include <llvm/Analysis/LoopAnalysisManager.h>      // for LoopAnalysisManager
+#include <llvm/Analysis/TargetTransformInfo.h>      // for createTargetTrans...
+#include <llvm/Config/llvm-config-64.h>             // for LLVM_VERSION_MAJOR
+#include <llvm/IR/Argument.h>                       // for Argument
+#include <llvm/IR/Attributes.h>                     // for Attribute, Attrib...
+#include <llvm/IR/BasicBlock.h>                     // for BasicBlock
+#include <llvm/IR/Constant.h>                       // for Constant
+#include <llvm/IR/Constants.h>                      // for ConstantInt, Unde...
+#include <llvm/IR/DerivedTypes.h>                   // for IntegerType, Vect...
+#include <llvm/IR/FPEnv.h>                          // for ExceptionBehavior
+#include <llvm/IR/Function.h>                       // for Function
+#include <llvm/IR/GlobalAlias.h>                    // for GlobalAlias
+#include <llvm/IR/GlobalValue.h>                    // for GlobalValue, Glob...
+#include <llvm/IR/GlobalVariable.h>                 // for GlobalVariable
+#include <llvm/IR/InstrTypes.h>                     // for CmpInst, CmpInst:...
+#include <llvm/IR/Instructions.h>                   // for CallInst, LoadInst
+#include <llvm/IR/Intrinsics.h>                     // for IndependentIntrin...
+#include <llvm/IR/LLVMContext.h>                    // for LLVMContext
+#include <llvm/IR/Metadata.h>                       // for MDNode, MDTuple
+#include <llvm/IR/Module.h>                         // for Module
+#include <llvm/IR/PassManager.h>                    // for FunctionAnalysisM...
+#include <llvm/IR/Type.h>                           // for Type
+#include <llvm/IR/Value.h>                          // for Value
+#include <llvm/Object/SymbolicFile.h>               // for content_iterator
+#include <llvm/Pass.h>                              // for ImmutablePass
+#include <llvm/Support/AtomicOrdering.h>            // for AtomicOrdering
+#include <llvm/Support/Casting.h>                   // for cast
+#include <llvm/Support/CodeGen.h>                   // for Model, Level, Agg...
+#include <llvm/Support/Error.h>                     // for Expected, consume...
+#include <llvm/Support/ErrorOr.h>                   // for ErrorOr
+#include <llvm/Support/MemoryBuffer.h>              // for MemoryBuffer
+#include <llvm/Support/TypeSize.h>                  // for ElementCount
+#include <llvm/Support/raw_ostream.h>               // for raw_fd_ostream
+#include <llvm/Target/TargetOptions.h>              // for TargetOptions
+#include <initializer_list>                         // for initializer_list
+#include <llvm/IR/IntrinsicEnums.inc>               // for trunc, ceil, ctpop
+#include <tuple>                                    // for tuple, get
+#include <type_traits>                              // for add_const<>::type
+#include <unordered_map>                            // for unordered_map
+#include <utility>                                  // for pair, move, tuple...
+#include <vector>                                   // for vector
+#include "ast/description.h"                        // for ImportDesc
+#include "ast/expression.h"                         // for Expression
+#include "ast/instruction.h"                        // for Instruction, Inst...
+#include "ast/module.h"                             // for Module, Module::I...
+#include "ast/section.h"                            // for CodeSection, Data...
+#include "ast/segment.h"                            // for CodeSegment, Glob...
+#include "ast/type.h"                               // for FunctionType, ope...
+#include "common/enum_ast.h"                        // for OpCode
+#include "common/enum_errcode.h"                    // for ErrCode
+#include "common/enum_types.h"                      // for ValType, ErrCode:...
+#include "common/int128.h"                          // for uint128_t
+#include "experimental/expected.hpp"                // for expected
+#include "experimental/span.hpp"                    // for span
+#include "llvm/IR/Attributes.h"                     // for Attribute::NoAlias
+#include "llvm/IR/LLVMContext.h"                    // for LLVMContext::MD_i...
+#include "spdlog/spdlog.h"                          // for error, info
+
+/home/user/test/WasmEdge/lib/aot/compiler.cpp should remove these lines:
+- #include <llvm/IR/IntrinsicsAArch64.h>  // lines 47-47
+- #include <cinttypes>  // lines 14-14
+- #include "common/filesystem.h"  // lines 8-8
+- #include "common/log.h"  // lines 9-9
+- namespace { class FunctionCompiler; }  // lines 127-127
+
+The full include-list for /home/user/test/WasmEdge/lib/aot/compiler.cpp:
+#include "aot/compiler.h"
+#include <lld/Common/Driver.h>                      // for link
+#include <llvm/ADT/APFloat.h>                       // for APFloat
+#include <llvm/ADT/APInt.h>                         // for APInt
+#include <llvm/ADT/FloatingPointMode.h>             // for RoundingMode, Rou...
+#include <llvm/ADT/None.h>                          // for None
+#include <llvm/ADT/STLExtras.h>                     // for concat_iterator
+#include <llvm/ADT/SmallString.h>                   // for SmallString
+#include <llvm/ADT/StringMap.h>                     // for StringMap, String...
+#include <llvm/ADT/StringMapEntry.h>                // for StringMapEntry
+#include <llvm/ADT/StringRef.h>                     // for StringRef, operat...
+#include <llvm/ADT/Triple.h>                        // for Triple
+#include <llvm/ADT/Twine.h>                         // for Twine
+#include <llvm/ADT/iterator.h>                      // for iterator_facade_base
+#include <llvm/ADT/iterator_range.h>                // for iterator_range
+#include <llvm/Analysis/AliasAnalysis.h>            // for AAManager
+#include <llvm/Analysis/CGSCCPassManager.h>         // for CGSCCAnalysisManager
+#include <llvm/Analysis/LoopAnalysisManager.h>      // for LoopAnalysisManager
+#include <llvm/Analysis/TargetLibraryInfo.h>        // for TargetLibraryInfo...
+#include <llvm/Analysis/TargetTransformInfo.h>      // for createTargetTrans...
+#include <llvm/Config/llvm-config-64.h>             // for LLVM_VERSION_MAJOR
+#include <llvm/IR/Argument.h>                       // for Argument
+#include <llvm/IR/Attributes.h>                     // for Attribute, Attrib...
+#include <llvm/IR/BasicBlock.h>                     // for BasicBlock
+#include <llvm/IR/Constant.h>                       // for Constant
+#include <llvm/IR/Constants.h>                      // for ConstantInt, Unde...
+#include <llvm/IR/DerivedTypes.h>                   // for IntegerType, Vect...
+#include <llvm/IR/FPEnv.h>                          // for ExceptionBehavior
+#include <llvm/IR/Function.h>                       // for Function
+#include <llvm/IR/GlobalAlias.h>                    // for GlobalAlias
+#include <llvm/IR/GlobalValue.h>                    // for GlobalValue, Glob...
+#include <llvm/IR/GlobalVariable.h>                 // for GlobalVariable
+#include <llvm/IR/IRBuilder.h>                      // for IRBuilder
+#include <llvm/IR/InstrTypes.h>                     // for CmpInst, CmpInst:...
+#include <llvm/IR/Instructions.h>                   // for CallInst, LoadInst
+#include <llvm/IR/Intrinsics.h>                     // for IndependentIntrin...
+#include <llvm/IR/IntrinsicsX86.h>                  // for x86_sse2_pmadd_wd
+#include <llvm/IR/LLVMContext.h>                    // for LLVMContext
+#include <llvm/IR/LegacyPassManager.h>              // for PassManager
+#include <llvm/IR/Metadata.h>                       // for MDNode, MDTuple
+#include <llvm/IR/Module.h>                         // for Module
+#include <llvm/IR/PassManager.h>                    // for FunctionAnalysisM...
+#include <llvm/IR/Type.h>                           // for Type
+#include <llvm/IR/Value.h>                          // for Value
+#include <llvm/IR/Verifier.h>                       // for verifyModule
+#include <llvm/MC/SubtargetFeature.h>               // for SubtargetFeatures
+#include <llvm/Object/ObjectFile.h>                 // for SectionRef, Objec...
+#include <llvm/Object/SymbolicFile.h>               // for content_iterator
+#include <llvm/Pass.h>                              // for ImmutablePass
+#include <llvm/Passes/PassBuilder.h>                // for PassBuilder, Pass...
+#include <llvm/Support/Alignment.h>                 // for MaybeAlign, Align
+#include <llvm/Support/AtomicOrdering.h>            // for AtomicOrdering
+#include <llvm/Support/Casting.h>                   // for cast
+#include <llvm/Support/CodeGen.h>                   // for Model, Level, Agg...
+#include <llvm/Support/Error.h>                     // for Expected, consume...
+#include <llvm/Support/ErrorOr.h>                   // for ErrorOr
+#include <llvm/Support/FileSystem.h>                // for openFileForWrite
+#include <llvm/Support/Host.h>                      // for getHostCPUFeatures
+#include <llvm/Support/MemoryBuffer.h>              // for MemoryBuffer
+#include <llvm/Support/TargetRegistry.h>            // for Target, TargetReg...
+#include <llvm/Support/TargetSelect.h>              // for InitializeNativeT...
+#include <llvm/Support/TypeSize.h>                  // for ElementCount
+#include <llvm/Support/raw_ostream.h>               // for raw_fd_ostream
+#include <llvm/Target/TargetMachine.h>              // for TargetMachine
+#include <llvm/Target/TargetOptions.h>              // for TargetOptions
+#include <llvm/Transforms/IPO/AlwaysInliner.h>      // for AlwaysInlinerPass
+#include <llvm/Transforms/Utils/BasicBlockUtils.h>  // for EliminateUnreacha...
+#include <algorithm>                                // for max, copy, min
+#include <array>                                    // for array
+#include <charconv>                                 // for from_chars
+#include <cstdint>                                  // for uint64_t, uint32_t
+#include <cstdlib>                                  // for size_t
+#include <initializer_list>                         // for initializer_list
+#include <limits>                                   // for numeric_limits
+#include <llvm/IR/IntrinsicEnums.inc>               // for trunc, ceil, ctpop
+#include <memory>                                   // for unique_ptr, alloc...
+#include <numeric>                                  // for iota
+#include <string>                                   // for string, operator+
+#include <string_view>                              // for operator""sv, bas...
+#include <system_error>                             // for error_code
+#include <tuple>                                    // for tuple, get
+#include <type_traits>                              // for add_const<>::type
+#include <unordered_map>                            // for unordered_map
+#include <utility>                                  // for pair, move, tuple...
+#include <vector>                                   // for vector
+#include "aot/version.h"                            // for kBinaryVersion
+#include "ast/description.h"                        // for ImportDesc
+#include "ast/expression.h"                         // for Expression
+#include "ast/instruction.h"                        // for Instruction, Inst...
+#include "ast/module.h"                             // for Module, Module::I...
+#include "ast/section.h"                            // for CodeSection, Data...
+#include "ast/segment.h"                            // for CodeSegment, Glob...
+#include "ast/type.h"                               // for FunctionType, ope...
+#include "common/defines.h"                         // for WASMEDGE_OS_WINDOWS
+#include "common/enum_ast.h"                        // for OpCode
+#include "common/enum_errcode.h"                    // for ErrCode
+#include "common/enum_types.h"                      // for ValType, ErrCode:...
+#include "common/int128.h"                          // for uint128_t
+#include "experimental/expected.hpp"                // for expected
+#include "experimental/span.hpp"                    // for span
+#include "llvm/IR/Attributes.h"                     // for Attribute::NoAlias
+#include "llvm/IR/LLVMContext.h"                    // for LLVMContext::MD_i...
+#include "spdlog/spdlog.h"                          // for error, info
+namespace { struct FunctionCompiler::Control; }  // lines 535-535
+---
+
+Warning: include-what-you-use reported diagnostics:
+
+/home/user/test/WasmEdge/lib/loader/ast/description.cpp should add these lines:
+#include <string>                     // for basic_string
+#include "ast/description.h"          // for ImportDesc, ExportDesc
+#include "ast/type.h"                 // for GlobalType
+#include "common/configure.h"         // for Configure
+#include "common/enum_ast.h"          // for ASTNodeAttr
+#include "common/enum_configure.h"    // for ASTNodeAttr::Desc_Import, ASTNo...
+#include "common/enum_errcode.h"      // for ErrCode
+#include "common/enum_types.h"        // for ExternalType, ValMut
+#include "common/errcode.h"           // for Expect, Unexpect, unlikely
+#include "experimental/expected.hpp"  // for expected
+#include "loader/filemgr.h"           // for FileMgr
+
+/home/user/test/WasmEdge/lib/loader/ast/description.cpp should remove these lines:
+
+The full include-list for /home/user/test/WasmEdge/lib/loader/ast/description.cpp:
+#include <string>                     // for basic_string
+#include "ast/description.h"          // for ImportDesc, ExportDesc
+#include "ast/type.h"                 // for GlobalType
+#include "common/configure.h"         // for Configure
+#include "common/enum_ast.h"          // for ASTNodeAttr
+#include "common/enum_configure.h"    // for ASTNodeAttr::Desc_Import, ASTNo...
+#include "common/enum_errcode.h"      // for ErrCode
+#include "common/enum_types.h"        // for ExternalType, ValMut
+#include "common/errcode.h"           // for Expect, Unexpect, unlikely
+#include "experimental/expected.hpp"  // for expected
+#include "loader/filemgr.h"           // for FileMgr
+#include "loader/loader.h"            // for Loader
+---
+
+make[1]: *** [CMakeFiles/Makefile2:672: lib/executor/CMakeFiles/wasmedgeExecutor.dir/all] Error 2
+make[1]: *** Waiting for unfinished jobs....
+Warning: include-what-you-use reported diagnostics:
+
+/home/user/test/WasmEdge/lib/loader/ast/expression.cpp should add these lines:
+#include <cstdint>                       // for uint64_t
+#include <iosfwd>                        // for streamsize
+#include <optional>                      // for optional
+#include "ast/expression.h"              // for Expression
+#include "ast/instruction.h"             // for InstrVec
+#include "common/enum_ast.h"             // for ASTNodeAttr, ASTNodeAttr::Ex...
+#include "common/errcode.h"              // for Unexpect, Expect
+#include "common/errinfo.h"              // for operator<<, InfoAST
+#include "experimental/expected.hpp"     // for expected
+#include "spdlog/fmt/bundled/ostream.h"  // for formatbuf<>::int_type
+#include "spdlog/spdlog.h"               // for error
+
+/home/user/test/WasmEdge/lib/loader/ast/expression.cpp should remove these lines:
+
+The full include-list for /home/user/test/WasmEdge/lib/loader/ast/expression.cpp:
+#include <cstdint>                       // for uint64_t
+#include <iosfwd>                        // for streamsize
+#include <optional>                      // for optional
+#include <utility>                       // for move
+#include "ast/expression.h"              // for Expression
+#include "ast/instruction.h"             // for InstrVec
+#include "common/enum_ast.h"             // for ASTNodeAttr, ASTNodeAttr::Ex...
+#include "common/errcode.h"              // for Unexpect, Expect
+#include "common/errinfo.h"              // for operator<<, InfoAST
+#include "experimental/expected.hpp"     // for expected
+#include "loader/loader.h"               // for Loader
+#include "spdlog/fmt/bundled/ostream.h"  // for formatbuf<>::int_type
+#include "spdlog/spdlog.h"               // for error
+---
+
+Warning: include-what-you-use reported diagnostics:
+
+/home/user/test/WasmEdge/lib/loader/ast/type.cpp should add these lines:
+#include <algorithm>                     // for max
+#include <iosfwd>                        // for streamsize
+#include <vector>                        // for vector
+#include "ast/type.h"                    // for Limit, FunctionType, GlobalType
+#include "common/configure.h"            // for Configure
+#include "common/enum_ast.h"             // for ASTNodeAttr
+#include "common/enum_configure.h"       // for ASTNodeAttr::Type_Function
+#include "common/enum_errcode.h"         // for ErrCode
+#include "common/enum_types.h"           // for ValType, ValMut, RefType
+#include "common/errcode.h"              // for Expect, Unexpect, unlikely
+#include "common/errinfo.h"              // for operator<<, InfoAST
+#include "experimental/expected.hpp"     // for expected
+#include "loader/filemgr.h"              // for FileMgr
+#include "spdlog/fmt/bundled/ostream.h"  // for formatbuf<>::int_type
+#include "spdlog/spdlog.h"               // for error
+
+/home/user/test/WasmEdge/lib/loader/ast/type.cpp should remove these lines:
+
+The full include-list for /home/user/test/WasmEdge/lib/loader/ast/type.cpp:
+#include <algorithm>                     // for max
+#include <cstdint>                       // for uint32_t
+#include <iosfwd>                        // for streamsize
+#include <vector>                        // for vector
+#include "ast/type.h"                    // for Limit, FunctionType, GlobalType
+#include "common/configure.h"            // for Configure
+#include "common/enum_ast.h"             // for ASTNodeAttr
+#include "common/enum_configure.h"       // for ASTNodeAttr::Type_Function
+#include "common/enum_errcode.h"         // for ErrCode
+#include "common/enum_types.h"           // for ValType, ValMut, RefType
+#include "common/errcode.h"              // for Expect, Unexpect, unlikely
+#include "common/errinfo.h"              // for operator<<, InfoAST
+#include "experimental/expected.hpp"     // for expected
+#include "loader/filemgr.h"              // for FileMgr
+#include "loader/loader.h"               // for Loader
+#include "spdlog/fmt/bundled/ostream.h"  // for formatbuf<>::int_type
+#include "spdlog/spdlog.h"               // for error
+---
+
+Warning: include-what-you-use reported diagnostics:
+
+/home/user/test/WasmEdge/lib/loader/ast/instruction.cpp should add these lines:
+#include <algorithm>                  // for max
+#include <limits>                     // for numeric_limits
+#include <memory>                     // for allocator_traits<>::value_type
+#include <optional>                   // for optional
+#include "ast/instruction.h"          // for Instruction, InstrVec, Instruct...
+#include "common/configure.h"         // for Configure
+#include "common/enum_ast.h"          // for OpCode, ASTNodeAttr
+#include "common/enum_configure.h"    // for ASTNodeAttr::Instruction, Proposal
+#include "common/enum_errcode.h"      // for ErrCode
+#include "common/enum_types.h"        // for ValType, RefType
+#include "common/errcode.h"           // for unlikely, Unexpect, Expect
+#include "common/int128.h"            // for uint128_t
+#include "experimental/expected.hpp"  // for expected
+#include "experimental/span.hpp"      // for span
+#include "loader/filemgr.h"           // for FileMgr
+
+/home/user/test/WasmEdge/lib/loader/ast/instruction.cpp should remove these lines:
+
+The full include-list for /home/user/test/WasmEdge/lib/loader/ast/instruction.cpp:
+#include <algorithm>                  // for max
+#include <cstdint>                    // for uint32_t, uint64_t, uint8_t
+#include <limits>                     // for numeric_limits
+#include <memory>                     // for allocator_traits<>::value_type
+#include <optional>                   // for optional
+#include <utility>                    // for pair, make_pair
+#include <vector>                     // for vector
+#include "ast/instruction.h"          // for Instruction, InstrVec, Instruct...
+#include "common/configure.h"         // for Configure
+#include "common/enum_ast.h"          // for OpCode, ASTNodeAttr
+#include "common/enum_configure.h"    // for ASTNodeAttr::Instruction, Proposal
+#include "common/enum_errcode.h"      // for ErrCode
+#include "common/enum_types.h"        // for ValType, RefType
+#include "common/errcode.h"           // for unlikely, Unexpect, Expect
+#include "common/int128.h"            // for uint128_t
+#include "experimental/expected.hpp"  // for expected
+#include "experimental/span.hpp"      // for span
+#include "loader/filemgr.h"           // for FileMgr
+#include "loader/loader.h"            // for Loader
+---
+
+Warning: include-what-you-use reported diagnostics:
+
+/home/user/test/WasmEdge/lib/loader/ast/segment.cpp should add these lines:
+#include <algorithm>                     // for max
+#include <iosfwd>                        // for streamsize
+#include <memory>                        // for allocator_traits<>::value_type
+#include <vector>                        // for vector
+#include "ast/expression.h"              // for Expression
+#include "ast/instruction.h"             // for InstrVec, Instruction
+#include "ast/segment.h"                 // for ElementSegment, DataSegment
+#include "common/configure.h"            // for Configure
+#include "common/enum_ast.h"             // for ASTNodeAttr, OpCode
+#include "common/enum_configure.h"       // for ASTNodeAttr::Seg_Element
+#include "common/enum_errcode.h"         // for ErrCode
+#include "common/enum_types.h"           // for ValType, RefType
+#include "common/errcode.h"              // for unlikely, Expect, Unexpect
+#include "common/errinfo.h"              // for operator<<, InfoAST
+#include "common/types.h"                // for Byte
+#include "experimental/expected.hpp"     // for expected
+#include "loader/filemgr.h"              // for FileMgr
+#include "spdlog/fmt/bundled/ostream.h"  // for formatbuf<>::int_type
+#include "spdlog/spdlog.h"               // for error
+
+/home/user/test/WasmEdge/lib/loader/ast/segment.cpp should remove these lines:
+
+The full include-list for /home/user/test/WasmEdge/lib/loader/ast/segment.cpp:
+#include <algorithm>                     // for max
+#include <cstdint>                       // for uint32_t, uint64_t, UINT32_MAX
+#include <iosfwd>                        // for streamsize
+#include <memory>                        // for allocator_traits<>::value_type
+#include <utility>                       // for pair, move, make_pair
+#include <vector>                        // for vector
+#include "ast/expression.h"              // for Expression
+#include "ast/instruction.h"             // for InstrVec, Instruction
+#include "ast/segment.h"                 // for ElementSegment, DataSegment
+#include "common/configure.h"            // for Configure
+#include "common/enum_ast.h"             // for ASTNodeAttr, OpCode
+#include "common/enum_configure.h"       // for ASTNodeAttr::Seg_Element
+#include "common/enum_errcode.h"         // for ErrCode
+#include "common/enum_types.h"           // for ValType, RefType
+#include "common/errcode.h"              // for unlikely, Expect, Unexpect
+#include "common/errinfo.h"              // for operator<<, InfoAST
+#include "common/types.h"                // for Byte
+#include "experimental/expected.hpp"     // for expected
+#include "loader/filemgr.h"              // for FileMgr
+#include "loader/loader.h"               // for Loader
+#include "spdlog/fmt/bundled/ostream.h"  // for formatbuf<>::int_type
+#include "spdlog/spdlog.h"               // for error
+---
+
+Warning: include-what-you-use reported diagnostics:
+
+/home/user/test/WasmEdge/lib/loader/ast/module.cpp should add these lines:
+#include <algorithm>                     // for copy, equal, max
+#include <iosfwd>                        // for streamsize
+#include <optional>                      // for optional
+#include "ast/description.h"             // for ImportDesc
+#include "ast/module.h"                  // for Module, Module::IntrinsicsTable
+#include "ast/section.h"                 // for CustomSection, CodeSection
+#include "ast/type.h"                    // for FunctionType, FunctionType::...
+#include "common/configure.h"            // for Configure
+#include "common/enum_ast.h"             // for ASTNodeAttr
+#include "common/enum_configure.h"       // for ASTNodeAttr::Module, Proposal
+#include "common/enum_errcode.h"         // for ErrCode
+#include "common/enum_types.h"           // for ExternalType
+#include "common/errcode.h"              // for Unexpect, Expect, unlikely
+#include "common/errinfo.h"              // for operator<<, InfoAST
+#include "common/symbol.h"               // for Symbol
+#include "common/types.h"                // for Byte
+#include "experimental/expected.hpp"     // for expected
+#include "loader/filemgr.h"              // for FileMgr
+#include "loader/ldmgr.h"                // for LDMgr
+#include "loader/shared_library.h"       // for SharedLibrary
+#include "spdlog/fmt/bundled/ostream.h"  // for formatbuf<>::int_type
+#include "spdlog/spdlog.h"               // for error
+
+/home/user/test/WasmEdge/lib/loader/ast/module.cpp should remove these lines:
+
+The full include-list for /home/user/test/WasmEdge/lib/loader/ast/module.cpp:
+#include <algorithm>                     // for copy, equal, max
+#include <bitset>                        // for bitset
+#include <cstddef>                       // for size_t
+#include <cstdint>                       // for uint8_t, uint32_t
+#include <iosfwd>                        // for streamsize
+#include <memory>                        // for unique_ptr, allocator, __sha...
+#include <optional>                      // for optional
+#include <string>                        // for operator+, string, to_string
+#include <utility>                       // for move
+#include <vector>                        // for vector, operator!=
+#include "ast/description.h"             // for ImportDesc
+#include "ast/module.h"                  // for Module, Module::IntrinsicsTable
+#include "ast/section.h"                 // for CustomSection, CodeSection
+#include "ast/type.h"                    // for FunctionType, FunctionType::...
+#include "common/configure.h"            // for Configure
+#include "common/enum_ast.h"             // for ASTNodeAttr
+#include "common/enum_configure.h"       // for ASTNodeAttr::Module, Proposal
+#include "common/enum_errcode.h"         // for ErrCode
+#include "common/enum_types.h"           // for ExternalType
+#include "common/errcode.h"              // for Unexpect, Expect, unlikely
+#include "common/errinfo.h"              // for operator<<, InfoAST
+#include "common/symbol.h"               // for Symbol
+#include "common/types.h"                // for Byte
+#include "experimental/expected.hpp"     // for expected
+#include "loader/filemgr.h"              // for FileMgr
+#include "loader/ldmgr.h"                // for LDMgr
+#include "loader/loader.h"               // for Loader
+#include "loader/shared_library.h"       // for SharedLibrary
+#include "spdlog/fmt/bundled/ostream.h"  // for formatbuf<>::int_type
+#include "spdlog/spdlog.h"               // for error
+---
+
+Warning: include-what-you-use reported diagnostics:
+
+/home/user/test/WasmEdge/lib/loader/ast/section.cpp should add these lines:
+#include <stddef.h>                      // for size_t
+#include <algorithm>                     // for max, copy
+#include <iosfwd>                        // for streamsize
+#include <string>                        // for basic_string
+#include <vector>                        // for vector<>::iterator, vector
+#include "ast/section.h"                 // for AOTSection, CustomSection
+#include "common/enum_ast.h"             // for ASTNodeAttr
+#include "common/enum_errcode.h"         // for ErrCode, ErrCode::MalformedS...
+#include "common/errcode.h"              // for operator<<, Unexpect, unlikely
+#include "common/errinfo.h"              // for operator<<, InfoLoading
+#include "common/types.h"                // for Byte
+#include "experimental/expected.hpp"     // for expected
+#include "loader/filemgr.h"              // for FileMgr
+#include "spdlog/fmt/bundled/ostream.h"  // for formatbuf<>::int_type
+#include "spdlog/spdlog.h"               // for error
+namespace WasmEdge { namespace AST { class CodeSegment; } }
+namespace WasmEdge { namespace AST { class DataSegment; } }
+namespace WasmEdge { namespace AST { class ElementSegment; } }
+namespace WasmEdge { namespace AST { class ExportDesc; } }
+namespace WasmEdge { namespace AST { class FunctionType; } }
+namespace WasmEdge { namespace AST { class GlobalSegment; } }
+namespace WasmEdge { namespace AST { class ImportDesc; } }
+namespace WasmEdge { namespace AST { class MemoryType; } }
+namespace WasmEdge { namespace AST { class TableType; } }
+
+/home/user/test/WasmEdge/lib/loader/ast/section.cpp should remove these lines:
+
+The full include-list for /home/user/test/WasmEdge/lib/loader/ast/section.cpp:
+#include <stddef.h>                      // for size_t
+#include <algorithm>                     // for max, copy
+#include <cstdint>                       // for uint32_t, UINT8_C, uint8_t
+#include <iosfwd>                        // for streamsize
+#include <string>                        // for basic_string
+#include <tuple>                         // for get
+#include <utility>                       // for move, __tuple_element_t
+#include <vector>                        // for vector<>::iterator, vector
+#include "aot/version.h"                 // for kBinaryVersion
+#include "ast/section.h"                 // for AOTSection, CustomSection
+#include "common/defines.h"              // for WASMEDGE_OS_LINUX
+#include "common/enum_ast.h"             // for ASTNodeAttr
+#include "common/enum_errcode.h"         // for ErrCode, ErrCode::MalformedS...
+#include "common/errcode.h"              // for operator<<, Unexpect, unlikely
+#include "common/errinfo.h"              // for operator<<, InfoLoading
+#include "common/types.h"                // for Byte
+#include "experimental/expected.hpp"     // for expected
+#include "loader/filemgr.h"              // for FileMgr
+#include "loader/loader.h"               // for Loader
+#include "spdlog/fmt/bundled/ostream.h"  // for formatbuf<>::int_type
+#include "spdlog/spdlog.h"               // for error
+namespace WasmEdge { namespace AST { class CodeSegment; } }
+namespace WasmEdge { namespace AST { class DataSegment; } }
+namespace WasmEdge { namespace AST { class ElementSegment; } }
+namespace WasmEdge { namespace AST { class ExportDesc; } }
+namespace WasmEdge { namespace AST { class FunctionType; } }
+namespace WasmEdge { namespace AST { class GlobalSegment; } }
+namespace WasmEdge { namespace AST { class ImportDesc; } }
+namespace WasmEdge { namespace AST { class MemoryType; } }
+namespace WasmEdge { namespace AST { class TableType; } }
+---
+
+Warning: include-what-you-use reported diagnostics:
+
+/home/user/test/WasmEdge/include/loader/loader.h should add these lines:
+#include <filesystem>                    // for path
+#include <iosfwd>                        // for streamsize
+#include "ast/instruction.h"             // for InstrVec, Instruction (ptr o...
+#include "common/enum_ast.h"             // for ASTNodeAttr, OpCode
+#include "common/enum_configure.h"       // for ASTNodeAttr::Sec_Code, ASTNo...
+#include "common/enum_errcode.h"         // for ErrCode
+#include "common/enum_types.h"           // for RefType, ValType
+#include "common/errcode.h"              // for Expect, Unexpect, operator<<
+#include "common/span.h"                 // for Span
+#include "common/types.h"                // for Byte
+#include "experimental/expected.hpp"     // for expected
+#include "spdlog/fmt/bundled/ostream.h"  // for formatbuf<>::int_type
+#include "spdlog/spdlog.h"               // for error
+namespace WasmEdge { namespace AST { class AOTSection; } }
+namespace WasmEdge { namespace AST { class CodeSection; } }
+namespace WasmEdge { namespace AST { class CodeSegment; } }
+namespace WasmEdge { namespace AST { class CustomSection; } }
+namespace WasmEdge { namespace AST { class DataCountSection; } }
+namespace WasmEdge { namespace AST { class DataSection; } }
+namespace WasmEdge { namespace AST { class DataSegment; } }
+namespace WasmEdge { namespace AST { class ElementSection; } }
+namespace WasmEdge { namespace AST { class ElementSegment; } }
+namespace WasmEdge { namespace AST { class ExportDesc; } }
+namespace WasmEdge { namespace AST { class ExportSection; } }
+namespace WasmEdge { namespace AST { class Expression; } }
+namespace WasmEdge { namespace AST { class FunctionSection; } }
+namespace WasmEdge { namespace AST { class FunctionType; } }
+namespace WasmEdge { namespace AST { class GlobalSection; } }
+namespace WasmEdge { namespace AST { class GlobalSegment; } }
+namespace WasmEdge { namespace AST { class GlobalType; } }
+namespace WasmEdge { namespace AST { class ImportDesc; } }
+namespace WasmEdge { namespace AST { class ImportSection; } }
+namespace WasmEdge { namespace AST { class Limit; } }
+namespace WasmEdge { namespace AST { class MemorySection; } }
+namespace WasmEdge { namespace AST { class MemoryType; } }
+namespace WasmEdge { namespace AST { class StartSection; } }
+namespace WasmEdge { namespace AST { class TableSection; } }
+namespace WasmEdge { namespace AST { class TableType; } }
+namespace WasmEdge { namespace AST { class TypeSection; } }
+
+/home/user/test/WasmEdge/include/loader/loader.h should remove these lines:
+- #include "common/log.h"  // lines 20-20
+
+The full include-list for /home/user/test/WasmEdge/include/loader/loader.h:
+#include <cstdint>                       // for uint64_t, uint32_t, uint8_t
+#include <filesystem>                    // for path
+#include <iosfwd>                        // for streamsize
+#include <memory>                        // for unique_ptr
+#include <mutex>                         // for recursive_mutex
+#include <optional>                      // for optional, nullopt
+#include <vector>                        // for vector
+#include "ast/instruction.h"             // for InstrVec, Instruction (ptr o...
+#include "ast/module.h"                  // for Module, Module::IntrinsicsTable
+#include "common/configure.h"            // for Configure
+#include "common/enum_ast.h"             // for ASTNodeAttr, OpCode
+#include "common/enum_configure.h"       // for ASTNodeAttr::Sec_Code, ASTNo...
+#include "common/enum_errcode.h"         // for ErrCode
+#include "common/enum_types.h"           // for RefType, ValType
+#include "common/errcode.h"              // for Expect, Unexpect, operator<<
+#include "common/errinfo.h"              // for InfoAST, operator<<, InfoLoa...
+#include "common/span.h"                 // for Span
+#include "common/types.h"                // for Byte
+#include "experimental/expected.hpp"     // for expected
+#include "loader/filemgr.h"              // for FileMgr
+#include "loader/ldmgr.h"                // for LDMgr
+#include "spdlog/fmt/bundled/ostream.h"  // for formatbuf<>::int_type
+#include "spdlog/spdlog.h"               // for error
+namespace WasmEdge { namespace AST { class AOTSection; } }
+namespace WasmEdge { namespace AST { class CodeSection; } }
+namespace WasmEdge { namespace AST { class CodeSegment; } }
+namespace WasmEdge { namespace AST { class CustomSection; } }
+namespace WasmEdge { namespace AST { class DataCountSection; } }
+namespace WasmEdge { namespace AST { class DataSection; } }
+namespace WasmEdge { namespace AST { class DataSegment; } }
+namespace WasmEdge { namespace AST { class ElementSection; } }
+namespace WasmEdge { namespace AST { class ElementSegment; } }
+namespace WasmEdge { namespace AST { class ExportDesc; } }
+namespace WasmEdge { namespace AST { class ExportSection; } }
+namespace WasmEdge { namespace AST { class Expression; } }
+namespace WasmEdge { namespace AST { class FunctionSection; } }
+namespace WasmEdge { namespace AST { class FunctionType; } }
+namespace WasmEdge { namespace AST { class GlobalSection; } }
+namespace WasmEdge { namespace AST { class GlobalSegment; } }
+namespace WasmEdge { namespace AST { class GlobalType; } }
+namespace WasmEdge { namespace AST { class ImportDesc; } }
+namespace WasmEdge { namespace AST { class ImportSection; } }
+namespace WasmEdge { namespace AST { class Limit; } }
+namespace WasmEdge { namespace AST { class MemorySection; } }
+namespace WasmEdge { namespace AST { class MemoryType; } }
+namespace WasmEdge { namespace AST { class StartSection; } }
+namespace WasmEdge { namespace AST { class TableSection; } }
+namespace WasmEdge { namespace AST { class TableType; } }
+namespace WasmEdge { namespace AST { class TypeSection; } }
+---
+
+/home/user/test/WasmEdge/lib/loader/loader.cpp should add these lines:
+#include "common/symbol.h"  // for Symbol
+
+/home/user/test/WasmEdge/lib/loader/loader.cpp should remove these lines:
+
+The full include-list for /home/user/test/WasmEdge/lib/loader/loader.cpp:
+#include "loader/loader.h"
+#include <algorithm>        // for min
+#include <cstddef>          // for size_t
+#include <fstream>          // for streamsize, ifstream, operator|, ios, bas...
+#include <limits>           // for numeric_limits
+#include <string_view>      // for string_view_literals
+#include <system_error>     // for error_code
+#include <utility>          // for move
+#include "aot/version.h"    // for kBinaryVersion
+#include "common/symbol.h"  // for Symbol
+---
+
+[ 87%] Linking CXX static library libwasmedgeLoader.a
+[ 87%] Built target wasmedgeLoader
+[ 88%] Linking CXX static library libwasmedgeHostModuleWasi.a
+[ 88%] Built target wasmedgeHostModuleWasi
+[ 90%] Linking CXX static library libwasmedgeAOT.a
+[ 90%] Built target wasmedgeAOT
+make: *** [Makefile:156: all] Error 2

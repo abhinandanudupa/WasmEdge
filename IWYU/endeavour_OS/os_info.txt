@@ -1,0 +1,2 @@
+Linux user-x360 5.15.27-1-lts #1 SMP Tue, 08 Mar 2022 HH:MM:SS +0000 x86_64 GNU/Linux
+EndeavourOS; Build ID: 2021.08.27

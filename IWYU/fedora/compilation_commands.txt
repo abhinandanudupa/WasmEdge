@@ -1,0 +1,33 @@
+# installed packages
+clang.x86_64                                      13.0.0-3.fc35                        @updates                                          
+clang-devel.x86_64                                13.0.0-3.fc35                        @updates                                          
+clang-libs.x86_64                                 13.0.0-3.fc35                        @updates                                          
+clang-resource-filesystem.x86_64                  13.0.0-3.fc35                        @updates                                          
+clang-tools-extra.x86_64                          13.0.0-3.fc35                        @updates                                          
+clang12-devel.x86_64                              12.0.1-3.fc35                        @fedora                                           
+clang12-libs.x86_64                               12.0.1-3.fc35                        @fedora                                           
+clang12-resource-filesystem.x86_64                12.0.1-3.fc35                        @fedora                                           
+firewalld.noarch                                  1.0.3-1.fc35                         @updates                                          
+firewalld-filesystem.noarch                       1.0.3-1.fc35                         @updates                                          
+lld.x86_64                                        13.0.0-2.fc35                        @updates                                          
+lld-devel.x86_64                                  13.0.0-2.fc35                        @updates                                          
+lld-libs.x86_64                                   13.0.0-2.fc35                        @updates                                          
+lldpad.x86_64                                     1.1.0-4.git85e5583.fc35              @fedora                                           
+llvm.x86_64                                       13.0.0-4.fc35                        @updates                                          
+llvm-devel.x86_64                                 13.0.0-4.fc35                        @updates                                          
+llvm-libs.x86_64                                  13.0.0-4.fc35                        @updates                                          
+llvm-static.x86_64                                13.0.0-4.fc35                        @updates                                          
+llvm-test.x86_64                                  13.0.0-4.fc35                        @updates                                          
+llvm-test-suite.noarch                            13.0.0-1.fc35                        @updates                                          
+llvm12.x86_64                                     12.0.1-2.fc35                        @fedora                                           
+llvm12-devel.x86_64                               12.0.1-2.fc35                        @fedora                                           
+llvm12-libs.x86_64                                12.0.1-2.fc35                        @fedora                                           
+llvm12-static.x86_64                              12.0.1-2.fc35                        @fedora
+
+# IWYU
+Downloaded latest release: https://github.com/include-what-you-use/include-what-you-use/releases/tag/0.17
+And installed using:
+cmake -G "Unix Makefiles" ../include-what-you-use-0.17
+make -j
+sudo make install
+

@@ -1,0 +1,106 @@
+[  6%] Building CXX object _deps/spdlog-build/CMakeFiles/spdlog.dir/src/file_sinks.cpp.o
+[  6%] Building C object thirdparty/blake3/CMakeFiles/utilBlake3.dir/blake3_avx2.c.o
+[  6%] Building C object thirdparty/blake3/CMakeFiles/utilBlake3.dir/blake3_dispatch.c.o
+[  6%] Building C object thirdparty/blake3/CMakeFiles/utilBlake3.dir/blake3.c.o
+[  6%] Building CXX object _deps/spdlog-build/CMakeFiles/spdlog.dir/src/color_sinks.cpp.o
+[  6%] Building C object thirdparty/blake3/CMakeFiles/utilBlake3.dir/blake3_portable.c.o
+[  7%] Building CXX object _deps/spdlog-build/CMakeFiles/spdlog.dir/src/stdout_sinks.cpp.o
+[  8%] Building CXX object _deps/spdlog-build/CMakeFiles/spdlog.dir/src/spdlog.cpp.o
+[ 10%] Building C object thirdparty/blake3/CMakeFiles/utilBlake3.dir/blake3_sse2.c.o
+[ 11%] Building CXX object _deps/spdlog-build/CMakeFiles/spdlog.dir/src/async.cpp.o
+[ 13%] Building C object thirdparty/blake3/CMakeFiles/utilBlake3.dir/blake3_sse41.c.o
+[ 13%] Building CXX object _deps/spdlog-build/CMakeFiles/spdlog.dir/src/cfg.cpp.o
+[ 14%] Building CXX object _deps/spdlog-build/CMakeFiles/spdlog.dir/src/fmt.cpp.o
+[ 15%] Building C object thirdparty/blake3/CMakeFiles/utilBlake3.dir/blake3_avx512.c.o
+[ 16%] Linking C static library libutilBlake3.a
+[ 16%] Built target utilBlake3
+[ 17%] Linking CXX static library libspdlogd.a
+[ 17%] Built target spdlog
+[ 21%] Building CXX object lib/common/CMakeFiles/wasmedgeCommon.dir/hexstr.cpp.o
+[ 21%] Building CXX object lib/common/CMakeFiles/wasmedgeCommon.dir/log.cpp.o
+[ 21%] Building CXX object lib/common/CMakeFiles/wasmedgeCommon.dir/errinfo.cpp.o
+[ 22%] Linking CXX static library libwasmedgeCommon.a
+[ 22%] Built target wasmedgeCommon
+[ 24%] Building CXX object lib/validator/CMakeFiles/wasmedgeValidator.dir/validator.cpp.o
+[ 24%] Building CXX object lib/system/CMakeFiles/wasmedgeSystem.dir/fault.cpp.o
+[ 27%] Building CXX object lib/system/CMakeFiles/wasmedgeSystem.dir/mmap.cpp.o
+[ 27%] Building CXX object lib/system/CMakeFiles/wasmedgeSystem.dir/allocator.cpp.o
+[ 28%] Building CXX object lib/system/CMakeFiles/wasmedgeSystem.dir/path.cpp.o
+[ 27%] Building CXX object lib/validator/CMakeFiles/wasmedgeValidator.dir/formchecker.cpp.o
+[ 30%] Linking CXX static library libwasmedgeSystem.a
+[ 30%] Built target wasmedgeSystem
+[ 32%] Building CXX object lib/loader/CMakeFiles/wasmedgeLoaderFileMgr.dir/filemgr.cpp.o
+[ 33%] Building CXX object lib/host/wasi/CMakeFiles/wasmedgeHostModuleWasi.dir/clock-linux.cpp.o
+[ 33%] Building CXX object lib/host/wasmedge_process/CMakeFiles/wasmedgeHostModuleWasmEdgeProcess.dir/processfunc.cpp.o
+[ 34%] Building CXX object lib/executor/CMakeFiles/wasmedgeExecutor.dir/instantiate/import.cpp.o
+[ 35%] Building CXX object lib/loader/CMakeFiles/wasmedgeLoaderFileMgr.dir/ldmgr.cpp.o
+[ 36%] Building CXX object lib/aot/CMakeFiles/wasmedgeAOT.dir/compiler.cpp.o
+[ 37%] Building CXX object lib/aot/CMakeFiles/wasmedgeAOT.dir/cache.cpp.o
+[ 38%] Building CXX object lib/aot/CMakeFiles/wasmedgeAOT.dir/blake3.cpp.o
+[ 41%] Building CXX object lib/host/wasi/CMakeFiles/wasmedgeHostModuleWasi.dir/clock-macos.cpp.o
+[ 41%] Building CXX object lib/host/wasmedge_process/CMakeFiles/wasmedgeHostModuleWasmEdgeProcess.dir/processmodule.cpp.o
+[ 42%] Building CXX object lib/loader/CMakeFiles/wasmedgeLoaderFileMgr.dir/shared_library.cpp.o
+[ 43%] Building CXX object lib/executor/CMakeFiles/wasmedgeExecutor.dir/instantiate/function.cpp.o
+[ 44%] Building CXX object lib/host/wasi/CMakeFiles/wasmedgeHostModuleWasi.dir/clock-win.cpp.o
+[ 45%] Building CXX object lib/executor/CMakeFiles/wasmedgeExecutor.dir/instantiate/global.cpp.o
+[ 46%] Building CXX object lib/host/wasi/CMakeFiles/wasmedgeHostModuleWasi.dir/environ-linux.cpp.o
+[ 47%] Building CXX object lib/executor/CMakeFiles/wasmedgeExecutor.dir/instantiate/table.cpp.o
+[ 48%] Building CXX object lib/host/wasi/CMakeFiles/wasmedgeHostModuleWasi.dir/environ-macos.cpp.o
+[ 50%] Building CXX object lib/executor/CMakeFiles/wasmedgeExecutor.dir/instantiate/memory.cpp.o
+[ 51%] Building CXX object lib/host/wasi/CMakeFiles/wasmedgeHostModuleWasi.dir/environ-win.cpp.o
+[ 52%] Building CXX object lib/executor/CMakeFiles/wasmedgeExecutor.dir/instantiate/elem.cpp.o
+[ 53%] Building CXX object lib/host/wasi/CMakeFiles/wasmedgeHostModuleWasi.dir/environ.cpp.o
+[ 54%] Building CXX object lib/executor/CMakeFiles/wasmedgeExecutor.dir/instantiate/data.cpp.o
+[ 55%] Building CXX object lib/executor/CMakeFiles/wasmedgeExecutor.dir/instantiate/export.cpp.o
+[ 56%] Building CXX object lib/host/wasi/CMakeFiles/wasmedgeHostModuleWasi.dir/inode-linux.cpp.o
+[ 57%] Building CXX object lib/executor/CMakeFiles/wasmedgeExecutor.dir/engine/proxy.cpp.o
+[ 58%] Building CXX object lib/executor/CMakeFiles/wasmedgeExecutor.dir/instantiate/module.cpp.o
+[ 60%] Building CXX object lib/host/wasi/CMakeFiles/wasmedgeHostModuleWasi.dir/inode-macos.cpp.o
+[ 61%] Building CXX object lib/host/wasi/CMakeFiles/wasmedgeHostModuleWasi.dir/inode-win.cpp.o
+[ 62%] Building CXX object lib/executor/CMakeFiles/wasmedgeExecutor.dir/engine/controlInstr.cpp.o
+[ 63%] Building CXX object lib/host/wasi/CMakeFiles/wasmedgeHostModuleWasi.dir/vfs.cpp.o
+[ 64%] Building CXX object lib/executor/CMakeFiles/wasmedgeExecutor.dir/engine/tableInstr.cpp.o
+[ 65%] Building CXX object lib/executor/CMakeFiles/wasmedgeExecutor.dir/engine/memoryInstr.cpp.o
+[ 66%] Building CXX object lib/host/wasi/CMakeFiles/wasmedgeHostModuleWasi.dir/vinode.cpp.o
+[ 67%] Building CXX object lib/executor/CMakeFiles/wasmedgeExecutor.dir/engine/variableInstr.cpp.o
+[ 68%] Building CXX object lib/host/wasi/CMakeFiles/wasmedgeHostModuleWasi.dir/wasifunc.cpp.o
+[ 70%] Building CXX object lib/host/wasi/CMakeFiles/wasmedgeHostModuleWasi.dir/wasimodule.cpp.o
+[ 71%] Building CXX object lib/executor/CMakeFiles/wasmedgeExecutor.dir/engine/engine.cpp.o
+[ 72%] Building CXX object lib/host/wasi/CMakeFiles/wasmedgeHostModuleWasi.dir/win.cpp.o
+[ 73%] Building CXX object lib/executor/CMakeFiles/wasmedgeExecutor.dir/helper.cpp.o
+[ 74%] Building CXX object lib/executor/CMakeFiles/wasmedgeExecutor.dir/executor.cpp.o
+[ 75%] Linking CXX static library libwasmedgeValidator.a
+[ 75%] Built target wasmedgeValidator
+[ 76%] Linking CXX static library libwasmedgeLoaderFileMgr.a
+[ 76%] Built target wasmedgeLoaderFileMgr
+[ 77%] Building CXX object lib/loader/CMakeFiles/wasmedgeLoader.dir/ast/module.cpp.o
+[ 78%] Building CXX object lib/loader/CMakeFiles/wasmedgeLoader.dir/ast/section.cpp.o
+[ 80%] Building CXX object lib/loader/CMakeFiles/wasmedgeLoader.dir/ast/description.cpp.o
+[ 81%] Building CXX object lib/loader/CMakeFiles/wasmedgeLoader.dir/ast/segment.cpp.o
+[ 82%] Building CXX object lib/loader/CMakeFiles/wasmedgeLoader.dir/ast/type.cpp.o
+[ 83%] Building CXX object lib/loader/CMakeFiles/wasmedgeLoader.dir/ast/expression.cpp.o
+[ 84%] Building CXX object lib/loader/CMakeFiles/wasmedgeLoader.dir/ast/instruction.cpp.o
+[ 85%] Building CXX object lib/loader/CMakeFiles/wasmedgeLoader.dir/loader.cpp.o
+[ 86%] Linking CXX static library libwasmedgeHostModuleWasmEdgeProcess.a
+[ 86%] Built target wasmedgeHostModuleWasmEdgeProcess
+[ 87%] Linking CXX static library libwasmedgeExecutor.a
+[ 87%] Built target wasmedgeExecutor
+[ 88%] Linking CXX static library libwasmedgeHostModuleWasi.a
+[ 88%] Built target wasmedgeHostModuleWasi
+[ 90%] Linking CXX static library libwasmedgeLoader.a
+[ 90%] Built target wasmedgeLoader
+[ 91%] Building CXX object lib/vm/CMakeFiles/wasmedgeVM.dir/vm.cpp.o
+[ 92%] Linking CXX static library libwasmedgeAOT.a
+[ 92%] Built target wasmedgeAOT
+[ 93%] Building CXX object tools/wasmedge/CMakeFiles/wasmedgec.dir/wasmedgec.cpp.o
+[ 94%] Linking CXX executable wasmedgec
+[ 95%] Linking CXX static library libwasmedgeVM.a
+[ 95%] Built target wasmedgeVM
+[ 97%] Building CXX object lib/api/CMakeFiles/wasmedgeCAPI.dir/wasmedge.cpp.o
+[ 97%] Building CXX object tools/wasmedge/CMakeFiles/wasmedge.dir/wasmedger.cpp.o
+[ 97%] Built target wasmedgec
+[ 98%] Linking CXX executable wasmedge
+[ 98%] Built target wasmedgeCAPI
+[100%] Linking CXX shared library libwasmedge_c.so
+[100%] Built target wasmedge
+[100%] Built target wasmedge_c_shared
