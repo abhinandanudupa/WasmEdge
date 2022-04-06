@@ -1,0 +1,157 @@
+name: Build and scan WasmEdge with IWYU on multiple platforms
+
+concurrency:
+  group: build-${{ github.head_ref }}
+  cancel-in-progress: true
+
+on:
+  push:
+    branches:
+      - master
+    paths-ignore:
+      - "docs/**"
+      - "bindings/**"
+      - "rpm/**"
+      - "**/*.md"
+  pull_request:
+    branches:
+      - master
+      - "proposal/**"
+    paths-ignore:
+      - "docs/**"
+      - "bindings/**"
+      - "rpm/**"
+      - "**/*.md"
+
+jobs:
+  # get_version_v2:
+  #   name: Retrieve version information
+  #   runs-on: ubuntu-latest
+  #   outputs:
+  #     version: ${{ steps.prep.outputs.version }}
+  #   steps:
+  #   - uses: actions/checkout@v2
+  #     with:
+  #       fetch-depth: 0
+  #   - name: Get version
+  #     id: prep
+  #     run: |
+  #       # Retrieve annotated tags. Details: https://github.com/actions/checkout/issues/290
+  #       git fetch --tags --force
+  #       echo ::set-output name=version::$(git describe --match "[0-9].[0-9]*" --tag)
+
+  # build_fedora:
+  #   name: Fedora 35
+  #   needs: get_version_v2
+  #   runs-on: ubuntu-latest
+  #   container:
+  #     image: fedora:latest
+
+  #   steps:
+  #   - name: Install requirment
+  #     run: |
+  #       dnf update -y
+  #       dnf install -y cmake ninja-build boost llvm llvm-devel lld-devel clang git file rpm-build dpkg-dev clang-devel
+  #       curl -L -O https://github.com/include-what-you-use/include-what-you-use/archive/refs/tags/0.17.zip
+  #       unzip  0.17.zip
+  #       mkdir build && cd build
+  #       cmake -G "Unix Makefiles" ../include-what-you-use-0.17
+  #       make -j
+  #       make install
+  #       cd ..
+
+  #   - uses: actions/checkout@v2
+  #     with:
+  #       fetch-depth: 0
+
+  #   - name: Build and scan WasmEdge with Debug mode
+  #     run: |
+  #       cmake -Bbuild -GNinja -DCMAKE_BUILD_TYPE=Debug -DWASMEDGE_BUILD_TESTS=ON -DCMAKE_CXX_INCLUDE_WHAT_YOU_USE=include-what-you-use .
+  #       cmake --build build > iwyu_fedora.log
+
+  #   - uses: actions/upload-artifact@v3
+  #     with:
+  #       name: iwyu_fedora.log
+  #       path: iwyu_fedora.log
+
+  # build_macos:
+  #   name: macOS
+  #   runs-on: macos-latest
+  #   needs: get_version_v2
+
+  #   steps:
+  #   - uses: actions/checkout@v2
+  #     with:
+  #       fetch-depth: 0
+
+  #   - name: Build and scan WasmEdge with IWYU
+  #     run: |
+  #       brew install ninja boost cmake llvm
+
+  #       export PATH="/usr/local/opt/llvm/bin:$PATH"
+  #       export LDFLAGS="-L/usr/local/opt/llvm/lib -Wl,-rpath,/usr/local/opt/llvm/lib"
+  #       export CPPFLAGS="-I/usr/local/opt/llvm/include"
+  #       export CC=clang
+  #       export CXX=clang++
+
+  #       cd ../../
+  #       curl -L -O https://github.com/include-what-you-use/include-what-you-use/archive/refs/tags/0.17.zip
+  #       unzip  0.17.zip
+  #       mkdir build && cd build
+  #       cmake -G "Unix Makefiles" ../include-what-you-use-0.17
+  #       make -j install
+  #       cd ../WasmEdge/WasmEdge
+
+  #       cmake -Bbuild -GNinja -DWASMEDGE_BUILD_TESTS=ON -DCMAKE_CXX_INCLUDE_WHAT_YOU_USE=include-what-you-use -DCMAKE_BUILD_TYPE=Debug .
+  #       cmake --build build > iwyu_macOS.log
+
+  #   - uses: actions/upload-artifact@v3
+  #     with:
+  #       name: iwyu_macOS.log
+  #       path: iwyu_macOS.log
+
+  build_windows:
+    name: Windows 10
+    runs-on: windows-latest
+    needs: get_version_v2
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Install dependency
+        uses: crazy-max/ghaction-chocolatey@v1
+        with:
+          args: install cmake ninja vswhere
+
+      - uses: GuillaumeFalourd/setup-windows10-sdk-action@v1
+        with:
+          sdk-version: 19041
+
+      - name: Build WasmEdge
+        run: |
+          $vsPath = (vswhere -latest -property installationPath)
+          Import-Module (Join-Path $vsPath "Common7\Tools\Microsoft.VisualStudio.DevShell.dll")
+          Enter-VsDevShell -VsInstallPath $vsPath -SkipAutomaticLocation -DevCmdArguments "-arch=x64 -host_arch=x64 -winsdk=10.0.19041.0"
+          $llvm = "LLVM-13.0.1-win64.zip"
+          curl -sLO https://github.com/WasmEdge/llvm-windows/releases/download/llvmorg-13.0.1/LLVM-13.0.1-win64.zip -o $llvm
+          Expand-Archive -Path $llvm
+          $llvm_dir = "$pwd\\LLVM-13.0.1-win64\\LLVM-13.0.1-win64\\lib\\cmake\\llvm"
+          $clang_dir = "$pwd\\LLVM-13.0.1-win64\\LLVM-13.0.1-win64\\lib\\cmake\\clang"
+          $Env:CC = "clang-cl"
+          $Env:CXX = "clang-cl"
+
+          git clone -b 0.17 https://github.com/include-what-you-use/include-what-you-use.git
+          cd include-what-you-use
+          mkdir build
+          cd build
+          cmake -Thost=x64 -DCMAKE_BUILD_TYPE=Release "-DLLVM_DIR=$llvm_dir" "-DClang_DIR=$clang_dir" ../
+          cmake --build . --target INSTALL --config Release
+
+          cmake -Bbuild -GNinja -DCMAKE_SYSTEM_VERSION=10.0.19041.0 -DCMAKE_MSVC_RUNTIME_LIBRARY=MultiThreadedDLL "-DLLVM_DIR=$llvm_dir" "-DClang_DIR=$clang_dir" -DCMAKE_CXX_INCLUDE_WHAT_YOU_USE=include-what-you-use -DWASMEDGE_BUILD_TESTS=ON -DWASMEDGE_BUILD_PACKAGE="ZIP" .
+          cmake --build build > iwyu_Windows.log
+
+      - uses: actions/upload-artifact@v3
+        with:
+          name: iwyu_Windows.log
+          path: iwyu_Windows.log
