@@ -118,16 +118,14 @@ jobs:
           Import-Module (Join-Path $vsPath "Common7\Tools\Microsoft.VisualStudio.DevShell.dll")
           Enter-VsDevShell -VsInstallPath $vsPath -SkipAutomaticLocation -DevCmdArguments "-arch=x64 -host_arch=x64 -winsdk=10.0.19041.0"
           $llvm = "LLVM-13.0.1-win64.zip"
-          cd "D:/"
           curl -sLO https://github.com/abhinandanudupa/llvm-windows/releases/download/llvmorg-13.0.1/LLVM-13.0.1-win64.zip -o $llvm
           Expand-Archive -Path $llvm
-          $llvm_dir = "D:/LLVM-13.0.1-win64/LLVM-13.0.1-win64/lib/cmake/llvm"
-          $clang_dir = "D:/LLVM-13.0.1-win64/LLVM-13.0.1-win64/lib/cmake/clang"
+          $llvm_dir = "\\LLVM-13.0.1-win64\\LLVM-13.0.1-win64\\lib\\cmake\\llvm"
           $Env:CC = "clang-cl"
           $Env:CXX = "clang-cl"
 
           curl -sLO https://github.com/abhinandanudupa/IWYU-windows-binary/blob/main/include-what-you-use.zip -o include-what-you-use.zip
-          Expand-Archive -Path $llvm
+          Expand-Archive -Path include-what-you-use.zip
 
           cd D:/a/WasmEdge/WasmEdge
           cmake -Bbuild -GNinja -DCMAKE_SYSTEM_VERSION="10.0.19041.0" -DCMAKE_MSVC_RUNTIME_LIBRARY=MultiThreadedDLL "-DLLVM_DIR=$llvm_dir" -DCMAKE_CXX_INCLUDE_WHAT_YOU_USE="D:/include-what-you-use/include-what-you-use.exe" -DWASMEDGE_BUILD_TESTS=ON -DWASMEDGE_BUILD_PACKAGE="ZIP" .
