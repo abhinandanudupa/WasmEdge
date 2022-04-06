@@ -4,24 +4,8 @@ concurrency:
   group: build-${{ github.head_ref }}
   cancel-in-progress: true
 
-on:
-  push:
-    branches:
-      - master
-    paths-ignore:
-      - "docs/**"
-      - "bindings/**"
-      - "rpm/**"
-      - "**/*.md"
-  pull_request:
-    branches:
-      - master
-      - "proposal/**"
-    paths-ignore:
-      - "docs/**"
-      - "bindings/**"
-      - "rpm/**"
-      - "**/*.md"
+on: [workflow_dispatch]
+  
 
 jobs:
   # get_version_v2:
