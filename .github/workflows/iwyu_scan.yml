@@ -120,7 +120,7 @@ jobs:
           $llvm = "LLVM-13.0.1-win64.zip"
           curl -sLO https://github.com/abhinandanudupa/llvm-windows/releases/download/llvmorg-13.0.1/LLVM-13.0.1-win64.zip -o $llvm
           Expand-Archive -Path $llvm
-          $llvm_dir = "\\LLVM-13.0.1-win64\\LLVM-13.0.1-win64\\lib\\cmake\\llvm"
+          $llvm_dir = "$pwd\\LLVM-13.0.1-win64\\LLVM-13.0.1-win64\\lib\\cmake\\llvm"
           $Env:CC = "clang-cl"
           $Env:CXX = "clang-cl"
 
