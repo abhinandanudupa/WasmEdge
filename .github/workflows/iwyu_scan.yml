@@ -120,18 +120,22 @@ jobs:
           $llvm = "LLVM-13.0.1-win64.zip"
           curl -sLO https://github.com/abhinandanudupa/llvm-windows/releases/download/llvmorg-13.0.1/LLVM-13.0.1-win64.zip -o $llvm
           Expand-Archive -Path $llvm
-          $llvm_dir = "$pwd\\LLVM-13.0.1-win64\\LLVM-13.0.1-win64\\lib\\cmake\\llvm"
-          $clang_dir = "$pwd\\LLVM-13.0.1-win64\\LLVM-13.0.1-win64\\lib\\cmake\\clang"
+          $llvm_dir = "$pwd/LLVM-13.0.1-win64/LLVM-13.0.1-win64/lib/cmake/llvm"
+          $clang_dir = "$pwd/LLVM-13.0.1-win64/LLVM-13.0.1-win64/lib/cmake/clang"
           $Env:CC = "clang-cl"
           $Env:CXX = "clang-cl"
 
+          echo 'Building-IWYU'
+          echo
           git clone -b 0.17 https://github.com/include-what-you-use/include-what-you-use.git
           cd include-what-you-use
           mkdir build
+          echo 'Configuring-IWYU'
           cmake -Thost=x64 -DCMAKE_BUILD_TYPE=Release "-DLLVM_DIR=$llvm_dir" "-DClang_DIR=$clang_dir" .
           cmake --build build --target INSTALL --config Release
 
-
+          echo 'Building-WasmEdge'
+          echo
           cd D:/a/WasmEdge/WasmEdge/
           cmake -Bbuild -GNinja -DCMAKE_SYSTEM_VERSION="10.0.19041.0" -DCMAKE_MSVC_RUNTIME_LIBRARY=MultiThreadedDLL "-DLLVM_DIR=$llvm_dir" "-DClang_DIR=$clang_dir" -DCMAKE_CXX_INCLUDE_WHAT_YOU_USE=include-what-you-use -DWASMEDGE_BUILD_TESTS=ON -DWASMEDGE_BUILD_PACKAGE="ZIP" .
           cmake --build build > iwyu_Windows.log
