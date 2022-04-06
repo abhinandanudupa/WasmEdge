@@ -130,7 +130,7 @@ jobs:
           Expand-Archive -Path $llvm
 
           cd D:/a/WasmEdge/WasmEdge
-          cmake -Bbuild -GNinja -DCMAKE_SYSTEM_VERSION="10.0.19041.0" -DCMAKE_MSVC_RUNTIME_LIBRARY=MultiThreadedDLL "-DLLVM_DIR=$llvm_dir" -DCMAKE_CXX_INCLUDE_WHAT_YOU_USE="./include-what-you-use/include-what-you-use.exe" -DWASMEDGE_BUILD_TESTS=ON -DWASMEDGE_BUILD_PACKAGE="ZIP" .
+          cmake -Bbuild -GNinja -DCMAKE_SYSTEM_VERSION="10.0.19041.0" -DCMAKE_MSVC_RUNTIME_LIBRARY=MultiThreadedDLL "-DLLVM_DIR=$llvm_dir" -DCMAKE_CXX_INCLUDE_WHAT_YOU_USE="D:/include-what-you-use/include-what-you-use.exe" -DWASMEDGE_BUILD_TESTS=ON -DWASMEDGE_BUILD_PACKAGE="ZIP" .
           echo 'Building-WasmEdge'
           cmake --build build > iwyu_Windows.log
 
