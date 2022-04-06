@@ -127,6 +127,7 @@ jobs:
 
           git clone -b 0.17 https://github.com/include-what-you-use/include-what-you-use.git
           cd include-what-you-use
+          mkdir build
           cmake -Thost=x64 -DCMAKE_BUILD_TYPE=Release "-DLLVM_DIR=$llvm_dir" "-DClang_DIR=$clang_dir" .
           cmake --build build --target INSTALL --config Release
 
