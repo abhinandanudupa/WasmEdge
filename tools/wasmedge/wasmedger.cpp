@@ -6,6 +6,7 @@
 #include "common/types.h"
 #include "common/version.h"
 #include "host/host_function_example/examplemodule.h"
+#include "host/insertion_sort_example/examplemodule.h"
 #include "host/wasi/wasimodule.h"
 #include "host/wasmedge_process/processmodule.h"
 #include "po/argument_parser.h"
@@ -188,8 +189,10 @@ int main(int Argc, const char *Argv[]) {
   WasmEdge::VM::VM VM(Conf);
 
   // Register your module in VM.
-  WasmEdge::Host::HostFuncExampleModule ExampleMod;
-  VM.registerModule(ExampleMod);
+  // WasmEdge::Host::HostFuncExampleModule ExampleMod;
+  // VM.registerModule(ExampleMod);
+  WasmEdge::Host::InsertionSortExampleModule IS_ExampleMod;
+  VM.registerModule(IS_ExampleMod);
 
   WasmEdge::Host::WasiModule *WasiMod =
       dynamic_cast<WasmEdge::Host::WasiModule *>(
