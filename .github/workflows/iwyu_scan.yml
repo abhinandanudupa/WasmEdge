@@ -127,8 +127,10 @@ jobs:
           curl -sLO https://github.com/abhinandanudupa/IWYU-windows-binary/blob/main/include-what-you-use.zip -o include-what-you-use.zip
           Expand-Archive -Path include-what-you-use.zip
 
+          $cmake_sys_version = "10.0.19041.0"
+
           cd D:/a/WasmEdge/WasmEdge
-          cmake -Bbuild -GNinja -DCMAKE_SYSTEM_VERSION="10.0.19041.0" -DCMAKE_MSVC_RUNTIME_LIBRARY=MultiThreadedDLL "-DLLVM_DIR=$llvm_dir" -DCMAKE_CXX_INCLUDE_WHAT_YOU_USE="D:/include-what-you-use/include-what-you-use.exe" -DWASMEDGE_BUILD_TESTS=ON -DWASMEDGE_BUILD_PACKAGE="ZIP" .
+          cmake -Bbuild -GNinja "-DCMAKE_SYSTEM_VERSION=$cmake_sys_version" -DCMAKE_MSVC_RUNTIME_LIBRARY=MultiThreadedDLL "-DLLVM_DIR=$llvm_dir" "-DCMAKE_CXX_INCLUDE_WHAT_YOU_USE=D:/include-what-you-use/include-what-you-use.exe" -DWASMEDGE_BUILD_TESTS=ON -DWASMEDGE_BUILD_PACKAGE="ZIP" .
           echo 'Building-WasmEdge'
           cmake --build build > iwyu_Windows.log
 
@@ -136,3 +138,4 @@ jobs:
         with:
           name: iwyu_Windows.log
           path: iwyu_Windows.log
+
