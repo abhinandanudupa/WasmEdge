@@ -20,13 +20,18 @@
 
 #elif WASMEDGE_OS_WINDOWS
 
-#include <Windows.h>
+#define BUFSIZE 4096
+// #define WIN32_LEAN_AND_MEAN
+#include <windows.h>
+// #include <ProcessEnv.h>
+// #include <Windows.h>
+// #include <Winbase.h>
+// #include <threadingapi.h>
+// #include <processapi.h>
+
 #include <stdio.h>
 #include <strsafe.h>
 #include <tchar.h>
-#include <processenv.h>
-
-#define BUFSIZE 4096
 
 #endif
 
@@ -335,43 +340,6 @@ Expect<uint32_t> WasmEdgeProcessRun::body(const Runtime::CallingFrame &) {
     return Env.ExitCode;
   }
 
-  HANDLE g_hChildStd_IN_Rd = NULL;
-  HANDLE g_hChildStd_IN_Wr = NULL;
-  HANDLE g_hChildStd_OUT_Rd = NULL;
-  HANDLE g_hChildStd_OUT_Wr = NULL;
-
-  HANDLE g_hInputFile = NULL;
-
-  SECURITY_ATTRIBUTES saAttr;
-
-  printf("\n->Start of parent execution.\n");
-
-  // Set the bInheritHandle flag so pipe handles are inherited.
-
-  saAttr.nLength = sizeof(SECURITY_ATTRIBUTES);
-  saAttr.bInheritHandle = TRUE;
-  saAttr.lpSecurityDescriptor = NULL;
-
-  // Create a pipe for the child process's STDOUT.
-
-  if (!CreatePipe(&g_hChildStd_OUT_Rd, &g_hChildStd_OUT_Wr, &saAttr, 0))
-    return Env.ExitCode;
-
-  // Ensure the read handle to the pipe for STDOUT is not inherited.
-
-  if (!SetHandleInformation(g_hChildStd_OUT_Rd, HANDLE_FLAG_INHERIT, 0))
-    return Env.ExitCode;
-
-  // Create a pipe for the child process's STDIN.
-
-  if (!CreatePipe(&g_hChildStd_IN_Rd, &g_hChildStd_IN_Wr, &saAttr, 0))
-    return Env.ExitCode;
-
-  // Ensure the write handle to the pipe for STDIN is not inherited.
-
-  if (!SetHandleInformation(g_hChildStd_IN_Wr, HANDLE_FLAG_INHERIT, 0))
-    return Env.ExitCode;
-
   // Prepare arguments and environment variables.
   std::vector<std::string> EnvStr;
   for (auto &It : Env.Envs) {
@@ -389,158 +357,68 @@ Expect<uint32_t> WasmEdgeProcessRun::body(const Runtime::CallingFrame &) {
   Argv.push_back(nullptr);
   Envp.push_back(nullptr);
 
-  PROCESS_INFORMATION piProcInfo;
-  STARTUPINFO siStartInfo;
-  BOOL bSuccess = FALSE;
+  SECURITY_ATTRIBUTES sa;
+  ZeroMemory(&sa, sizeof(SECURITY_ATTRIBUTES));
+  sa.nLength = sizeof(sa);
+  sa.lpSecurityDescriptor = NULL;
+  sa.bInheritHandle = TRUE;
 
-  // Set up members of the PROCESS_INFORMATION structure.
+  HANDLE hStdOutRd, hStdOutWr;
+  HANDLE hStdErrRd, hStdErrWr;
 
-  ZeroMemory(&piProcInfo, sizeof(PROCESS_INFORMATION));
-
-  // Set up members of the STARTUPINFO structure.
-  // This structure specifies the STDIN and STDOUT handles for redirection.
-
-  ZeroMemory(&siStartInfo, sizeof(STARTUPINFO));
-  siStartInfo.cb = sizeof(STARTUPINFO);
-  siStartInfo.hStdError = g_hChildStd_OUT_Wr;
-  siStartInfo.hStdOutput = g_hChildStd_OUT_Wr;
-  siStartInfo.hStdInput = g_hChildStd_IN_Rd;
-  siStartInfo.dwFlags |= STARTF_USESTDHANDLES;
-
-  // Create the child process.
-
-  bSuccess = CreateProcess(Env.Name.c_str(),
-                           Argv[0],      // command line
-                           NULL,         // process security attributes
-                           NULL,         // primary thread security attributes
-                           TRUE,         // handles are inherited
-                           0,            // creation flags
-                           &Envp[0],     // use parent's environment
-                           NULL,         // use parent's current directory
-                           &siStartInfo, // STARTUPINFO pointer
-                           &piProcInfo); // receives PROCESS_INFORMATION
-
-  // If an error occurs, exit the application.
-  if (!bSuccess) {
+  if (!CreatePipe(&hStdOutRd, &hStdOutWr, &sa, 0)) {
+    // error handling...
     return Env.ExitCode;
   }
 
-  else {
-    // Close handles to the child process and its primary thread.
-    // Some applications might keep these handles to monitor the status
-    // of the child process, for example.
-
-    CloseHandle(piProcInfo.hProcess);
-    CloseHandle(piProcInfo.hThread);
-
-    // Close handles to the stdin and stdout pipes no longer needed by the child
-    // process. If they are not explicitly closed, there is no way to recognize
-    // that the child process has ended.
-
-    CloseHandle(g_hChildStd_OUT_Wr);
-    CloseHandle(g_hChildStd_IN_Rd);
-  }
-
-  // Get a handle to an input file for the parent.
-  // This example assumes a plain text file and uses string output to verify
-  // data flow.
-
-  /*
-  HANDLE hTimer = NULL;
-  LARGE_INTEGER liDueTime;
-
-  liDueTime.QuadPart = - static_cast<int64_t>(Env.TimeOut);
-
-  // Create an unnamed waitable timer.
-  hTimer = CreateWaitableTimer(NULL, TRUE, NULL);
-  if (NULL == hTimer) {
-    printf("CreateWaitableTimer failed (%d)\n", GetLastError());
+  if (!CreatePipe(&hStdErrRd, &hStdErrWr, &sa, 0)) {
+    // error handling...
     return Env.ExitCode;
   }
 
-  printf("Waiting for 10 seconds...\n");
+  SetHandleInformation(hStdOutRd, HANDLE_FLAG_INHERIT, 0);
+  SetHandleInformation(hStdErrRd, HANDLE_FLAG_INHERIT, 0);
 
-  // Set a timer to wait for 10 seconds.
-  if (!SetWaitableTimer(hTimer, &liDueTime, 0, NULL, NULL, 0)) {
-    printf("SetWaitableTimer failed (%d)\n", GetLastError());
-    return 2;
+  STARTUPINFO si;
+  ZeroMemory(&si, sizeof(STARTUPINFO));
+  si.cb = sizeof(si);
+  si.dwFlags = STARTF_USESTDHANDLES;
+  si.hStdInput = GetStdHandle(STD_INPUT_HANDLE);
+  si.hStdOutput = hStdOutWr;
+  si.hStdError = hStdErrWr;
+
+  PROCESS_INFORMATION pi;
+  ZeroMemory(&pi, sizeof(PROCESS_INFORMATION));
+
+  if (!CreateProcessA(Env.Name.c_str(), Argv[0], NULL, NULL, TRUE, 0, NULL,
+                      NULL, &si, &pi)) {
+    // error handling...
+  } else {
+    // read from hStdOutRd and hStdErrRd as needed until the process is
+    // terminated...
+
+    CloseHandle(pi.hThread);
+    CloseHandle(pi.hProcess);
   }
 
-  // Wait for the timer.
+  CloseHandle(hStdOutRd);
+  CloseHandle(hStdOutWr);
+  CloseHandle(hStdErrRd);
+  CloseHandle(hStdErrWr);
 
-  if (WaitForSingleObject(hTimer, INFINITE) != WAIT_OBJECT_0)
-    printf("WaitForSingleObject failed (%d)\n", GetLastError());
-  else
-    printf("Timer was signaled.\n");
+  // Reset inputs.
+  Env.Name.clear();
+  Env.Args.clear();
+  Env.Envs.clear();
+  Env.StdIn.clear();
+  Env.TimeOut = Env.DEFAULT_TIMEOUT;
+  return Env.ExitCode;
 
-  */
+  // The remaining open handles are cleaned up when this process terminates.
+  // To avoid resource leaks in a larger application, close handles
+  // explicitly.
+  //
 
-  // Write to the pipe that is the standard input for a child process.
-  // Data is written to the pipe's buffers, so it is not necessary to wait
-  // until the child process is running before writing data.
-
-  // Read from a file and write its contents to the pipe for the child's STDIN.
-  // Stop when there is no more data.
-  {
-    DWORD dwRead, dwWritten;
-    CHAR chBuf[BUFSIZE];
-    bSuccess = FALSE;
-
-    //    for (;;) {
-    //      bSuccess = ReadFile(g_hInputFile, chBuf, BUFSIZE, &dwRead, NULL);
-    //      if (!bSuccess || dwRead == 0) {
-    //        break;
-    //      }
-
-    uint32_t WBytes = 0;
-    while (WBytes < Env.StdIn.size()) {
-      uint32_t WriteNum =
-          static_cast<uint32_t>(std::min(static_cast<size_t>(BUFSIZE), Env.StdIn.size() - WBytes));
-      bSuccess =
-          WriteFile(g_hChildStd_IN_Wr, chBuf, WriteNum, &dwWritten, NULL);
-      if (!bSuccess) {
-        break;
-      }
-      WBytes += dwWritten;
-    }
-
-    //    }
-
-    // Close the pipe handle so the child process stops reading.
-
-    if (!CloseHandle(g_hChildStd_IN_Wr)) {
-      return Env.ExitCode;
-    }
-
-    // Read from pipe that is the standard output for child process.
-
-    bSuccess = FALSE;
-    HANDLE hParentStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
-
-    for (;;) {
-      bSuccess = ReadFile(g_hChildStd_OUT_Rd, chBuf, BUFSIZE, &dwRead, NULL);
-      if (!bSuccess || dwRead == 0)
-        break;
-
-      bSuccess = WriteFile(hParentStdOut, chBuf, dwRead, &dwWritten, NULL);
-      if (!bSuccess) {
-        break;
-      }
-    }
-
-    // Reset inputs.
-    Env.Name.clear();
-    Env.Args.clear();
-    Env.Envs.clear();
-    Env.StdIn.clear();
-    Env.TimeOut = Env.DEFAULT_TIMEOUT;
-    return Env.ExitCode;
-
-    // The remaining open handles are cleaned up when this process terminates.
-    // To avoid resource leaks in a larger application, close handles
-    // explicitly.
-    //
-  }
   // spdlog::error("wasmedge_process doesn't support windows now.");
   // return Unexpect(ErrCode::Value::HostFuncError);
 #endif
