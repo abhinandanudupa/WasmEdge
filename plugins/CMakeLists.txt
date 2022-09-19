@@ -2,9 +2,11 @@
 # SPDX-FileCopyrightText: 2019-2022 Second State INC
 
 # Only Linux systems support wasmedge_process now.
-if (CMAKE_SYSTEM_NAME MATCHES "Linux")
-  add_subdirectory(wasmedge_process)
-endif()
+# if (CMAKE_SYSTEM_NAME MATCHES "Linux")
+#   add_subdirectory(wasmedge_process)
+# endif()
+
+add_subdirectory(wasmedge_process)
 
 if (WASMEDGE_PLUGIN_WASI_NN_BACKEND)
   add_subdirectory(wasi_nn)
