@@ -24,15 +24,11 @@
 #include <stdio.h>
 #include <strsafe.h>
 #include <tchar.h>
-#include <ProcessEnv.h> 
+#include <processenv.h>
 
 #define BUFSIZE 4096
 
 #endif
-
-
-
-
 
 namespace WasmEdge {
 namespace Host {
