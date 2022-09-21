@@ -5,6 +5,7 @@
 #include "common/errcode.h"
 #include "common/version.h"
 #include <type_traits>
+#include <iostream>
 
 #if WASMEDGE_OS_LINUX || WASMEDGE_OS_MACOS
 #include <pwd.h>
@@ -37,6 +38,9 @@ std::unordered_map<std::string_view, std::size_t> &Plugin::PluginNameLookup =
         PluginNameLookupStorage);
 
 std::vector<std::filesystem::path> Plugin::getDefaultPluginPaths() noexcept {
+  std::cout << "==================================================DEBUG========"
+               "=========================================="
+            << std::endl;
   using namespace std::literals::string_view_literals;
   std::vector<std::filesystem::path> Result;
   std::error_code Error;
@@ -44,6 +48,10 @@ std::vector<std::filesystem::path> Plugin::getDefaultPluginPaths() noexcept {
   // Extra directories from environ variable
   if (const auto ExtraEnv = ::getenv("WASMEDGE_PLUGIN_PATH")) {
     std::string_view ExtraEnvStr = ExtraEnv;
+    std::cout << "=================================================="
+              << ExtraEnvStr << "========"
+           "=========================================="
+        << std::endl;
     for (auto Sep = ExtraEnvStr.find(':'); Sep != std::string_view::npos;
          Sep = ExtraEnvStr.find(':')) {
       Result.push_back(std::filesystem::u8path(ExtraEnvStr.substr(0, Sep)));
@@ -55,6 +63,12 @@ std::vector<std::filesystem::path> Plugin::getDefaultPluginPaths() noexcept {
 
   // Global plugin directory
   Result.push_back(std::filesystem::u8path(kGlobalPluginDir));
+
+  std::cout << "Result (before setting home):" << std::endl;
+  for (auto Variable : Result) {
+    std::cout << Variable<< std::endl;
+  }
+  std::cout << std::endl;
 
   // Local home plugin directory
   std::filesystem::path Home;
@@ -73,13 +87,22 @@ std::vector<std::filesystem::path> Plugin::getDefaultPluginPaths() noexcept {
     if (HRESULT Res =
             ::SHGetKnownFolderPath(FOLDERID_Profile, 0, nullptr, &Path);
         SUCCEEDED(Res)) {
+      std::cout << "Path: " << Path << std::endl;
       Home = std::filesystem::path(Path);
       ::CoTaskMemFree(Path);
     }
   }
+  
+  std::cout << "Home: " << Home << std::endl;
 #endif
   Result.push_back(Home / std::filesystem::u8path(".wasmedge"sv) /
                    std::filesystem::u8path("plugin"sv));
+
+  std::cout << "Result (after setting home):" << std::endl;
+  for (auto Variable : Result) {
+    std::cout << Variable << std::endl;
+  }
+  std::cout << std::endl;
 
   return Result;
 }
@@ -91,10 +114,12 @@ bool Plugin::load(const std::filesystem::path &Path) noexcept {
     if (std::filesystem::is_directory(Status)) {
 
       bool Result = false;
+      std::cout << "Path in load: " << Path << std::endl;
       for (const auto &Entry : std::filesystem::recursive_directory_iterator(
                Path, std::filesystem::directory_options::skip_permission_denied,
                Error)) {
         const auto &EntryPath = Entry.path();
+        std::cout << "Entry: " << EntryPath << std::endl;
         if (Entry.is_regular_file(Error) &&
             EntryPath.extension().u8string() == WASMEDGE_LIB_EXTENSION) {
           Result |= loadFile(EntryPath);
@@ -111,18 +136,25 @@ bool Plugin::load(const std::filesystem::path &Path) noexcept {
 
 bool Plugin::loadFile(const std::filesystem::path &Path) noexcept {
   const auto Index = PluginRegistory.size();
+  std::cout << "Index, before: " << Index << std::endl;
+
+  std::cout << "Path in load file: " << Path << std::endl;
 
   auto Lib = std::make_shared<Loader::SharedLibrary>();
   if (auto Res = Lib->load(Path); unlikely(!Res)) {
+    std::cout << "Could not load the plugin." << std::endl;
     return false;
   }
 
   if (PluginRegistory.size() != Index + 1) {
+    std::cout << "Index, after: " << Index + 1 << std::endl;
+    std::cout << "Index issue." << std::endl;
     return false;
   }
 
   auto &Plugin = PluginRegistory.back();
   Plugin.Path = Path;
+  std::cout << "Path after successful load: " << Path << std::endl;
   Plugin.Lib = std::move(Lib);
   return true;
 }
