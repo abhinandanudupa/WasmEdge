@@ -36,6 +36,7 @@ else()
   target_link_libraries(wasmedgePluginWasmEdgeProcess
     PRIVATE
     wasmedge_shared
+    wasmedgePlugin
   )
 endif()
 

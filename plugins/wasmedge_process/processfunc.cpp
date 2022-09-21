@@ -21,19 +21,16 @@
 #elif WASMEDGE_OS_WINDOWS
 
 #define BUFSIZE 4096
-// #define WIN32_LEAN_AND_MEAN
+#define WIN32_LEAN_AND_MEAN
 #include <windows.h>
-// #include <ProcessEnv.h>
-// #include <Windows.h>
-// #include <Winbase.h>
-// #include <threadingapi.h>
-// #include <processapi.h>
 
+#include <chrono>
 #include <stdio.h>
 #include <strsafe.h>
 #include <tchar.h>
 
 #endif
+
 
 namespace WasmEdge {
 namespace Host {
@@ -319,6 +316,7 @@ Expect<uint32_t> WasmEdgeProcessRun::body(const Runtime::CallingFrame &) {
   Env.StdErr.clear();
   Env.ExitCode = static_cast<uint32_t>(-1);
 
+  /*
   // Check white list of commands.
   if (!Env.AllowedAll &&
       Env.AllowedCmd.find(Env.Name) == Env.AllowedCmd.end()) {
@@ -339,6 +337,7 @@ Expect<uint32_t> WasmEdgeProcessRun::body(const Runtime::CallingFrame &) {
     Env.TimeOut = Env.DEFAULT_TIMEOUT;
     return Env.ExitCode;
   }
+  */
 
   // Prepare arguments and environment variables.
   std::vector<std::string> EnvStr;
@@ -363,8 +362,16 @@ Expect<uint32_t> WasmEdgeProcessRun::body(const Runtime::CallingFrame &) {
   sa.lpSecurityDescriptor = NULL;
   sa.bInheritHandle = TRUE;
 
+  // HANDLE hStdInRd, hStdInWr;
   HANDLE hStdOutRd, hStdOutWr;
   HANDLE hStdErrRd, hStdErrWr;
+
+  /*
+  if (!CreatePipe(&hStdInRd, &hStdInWr, &sa, 0)) {
+    // error handling...
+    return Env.ExitCode;
+  }
+  */
 
   if (!CreatePipe(&hStdOutRd, &hStdOutWr, &sa, 0)) {
     // error handling...
@@ -376,6 +383,8 @@ Expect<uint32_t> WasmEdgeProcessRun::body(const Runtime::CallingFrame &) {
     return Env.ExitCode;
   }
 
+  // SetHandleInformation(hStdInRd, HANDLE_FLAG_INHERIT, 0);
+  // SetHandleInformation(hStdInWr, HANDLE_FLAG_INHERIT, 0);
   SetHandleInformation(hStdOutRd, HANDLE_FLAG_INHERIT, 0);
   SetHandleInformation(hStdErrRd, HANDLE_FLAG_INHERIT, 0);
 
@@ -393,31 +402,108 @@ Expect<uint32_t> WasmEdgeProcessRun::body(const Runtime::CallingFrame &) {
   if (!CreateProcessA(Env.Name.c_str(), Argv[0], NULL, NULL, TRUE, 0, NULL,
                       NULL, &si, &pi)) {
     // error handling...
+    spdlog::error("Unknown error.");
+    return static_cast<uint32_t>(-1);
   } else {
+
+    // HERE
+    uint64_t NumberOfBytesWritten = 0;
+    while (NumberOfBytesWritten < Env.StdIn.size()) {
+      DWORD BytesToWrite = 0;
+      DWORD BytesWritten = 0;
+      BytesToWrite =
+          static_cast<DWORD>(std::min(static_cast<size_t>(BUFSIZE), Env.StdIn.size() - NumberOfBytesWritten));
+      if (WriteFile(GetStdHandle(STD_INPUT_HANDLE), &Env.StdIn[BytesToWrite],
+                    BytesToWrite, &BytesToWrite, nullptr) == FALSE) {
+        break;
+      }
+      NumberOfBytesWritten += BytesWritten;
+    }
+    // HERE
+
+
     // read from hStdOutRd and hStdErrRd as needed until the process is
     // terminated...
+    std::chrono::steady_clock::time_point begin =
+        std::chrono::steady_clock::now();
+
+    DWORD NumberOfBytesRead = 0;
+    char Buf[BUFSIZE];
+
+    while (true) {
+      std::chrono::steady_clock::time_point now =
+          std::chrono::steady_clock::now();
+      if (std::chrono::duration_cast<std::chrono::microseconds>(now - begin)
+                  .count() /
+              1000U >
+          Env.TimeOut) {
+        // Over timeout. Interrupt child process.
+        TerminateProcess(pi.hProcess, static_cast<UINT>(-1));
+        Env.ExitCode = static_cast<uint32_t>(ETIMEDOUT);
+        break;
+      }
+
+      // Wait for child process.
+      DWORD HasTerminated = 0;
+      if (GetExitCodeProcess(pi.hProcess, &HasTerminated) == FALSE) {
+        Env.ExitCode = static_cast<uint32_t>(EINVAL);
+        break;
+      }
+      if (HasTerminated != STATUS_PENDING) {
+        break;
+      }
+
+      // Read stdout and stderr.
+      // read from hStdOutRd and hStdErrRd as needed until the process is
+      // terminated...
+      NumberOfBytesRead = 0;
+      if (ReadFile(hStdOutRd, Buf, BUFSIZE, &NumberOfBytesRead, nullptr) !=
+          FALSE) {
+        Env.StdOut.reserve(Env.StdOut.size() + NumberOfBytesRead);
+        std::copy_n(Buf, NumberOfBytesRead, std::back_inserter(Env.StdOut));
+      }
+
+      NumberOfBytesRead = 0;
+      if (WriteFile(hStdErrRd, Buf, BUFSIZE, &NumberOfBytesRead, nullptr) !=
+          FALSE) {
+        Env.StdErr.reserve(Env.StdErr.size() + NumberOfBytesRead);
+        std::copy_n(Buf, NumberOfBytesRead, std::back_inserter(Env.StdErr));
+      }
+      // TODO: Wait for (Env.DEFAULT_POLLTIME * 1000) microseconds
+      // (Env.DEFAULT_POLLTIME * 1000);
+    }
+
+    // Read remained stdout and stderr.
+    do {
+      NumberOfBytesRead = 0;
+      if (ReadFile(hStdOutRd, Buf, BUFSIZE, &NumberOfBytesRead, nullptr) !=
+          FALSE) {
+        Env.StdOut.reserve(Env.StdOut.size() + NumberOfBytesRead);
+        std::copy_n(Buf, NumberOfBytesRead, std::back_inserter(Env.StdOut));
+      }
+    } while (NumberOfBytesRead > 0);
+
+    do {
+      NumberOfBytesRead = 0;
+      if (ReadFile(hStdErrRd, Buf, BUFSIZE, &NumberOfBytesRead, nullptr) !=
+          FALSE) {
+        Env.StdErr.reserve(Env.StdErr.size() + NumberOfBytesRead);
+        std::copy_n(Buf, NumberOfBytesRead, std::back_inserter(Env.StdErr));
+      }
+    } while (NumberOfBytesRead > 0);
+
+  }
 
     CloseHandle(pi.hThread);
     CloseHandle(pi.hProcess);
-  }
 
-  CloseHandle(hStdOutRd);
-  CloseHandle(hStdOutWr);
-  CloseHandle(hStdErrRd);
-  CloseHandle(hStdErrWr);
-
-  // Reset inputs.
-  Env.Name.clear();
-  Env.Args.clear();
-  Env.Envs.clear();
-  Env.StdIn.clear();
-  Env.TimeOut = Env.DEFAULT_TIMEOUT;
-  return Env.ExitCode;
-
-  // The remaining open handles are cleaned up when this process terminates.
-  // To avoid resource leaks in a larger application, close handles
-  // explicitly.
-  //
+    // Reset inputs.
+    Env.Name.clear();
+    Env.Args.clear();
+    Env.Envs.clear();
+    Env.StdIn.clear();
+    Env.TimeOut = Env.DEFAULT_TIMEOUT;
+    return Env.ExitCode;
 
   // spdlog::error("wasmedge_process doesn't support windows now.");
   // return Unexpect(ErrCode::Value::HostFuncError);
