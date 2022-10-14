@@ -43,7 +43,7 @@ void writeAddress(WasmEdge::Runtime::Instance::MemoryInstance &MemInst,
 
   __wasi_address_t WasiAddress;
   WasiAddress.buf = BufPtr;
-  WasiAddress.buf_len = Address.size();
+  WasiAddress.buf_len = static_cast<uint32_t>(Address.size());
 
   std::memcpy(
       MemInst.getPointer<__wasi_address_t *>(Ptr, sizeof(__wasi_address_t)),
@@ -90,8 +90,10 @@ __wasi_errno_t convertErrno(int SysErrno) noexcept {
     return __WASI_ERRNO_DESTADDRREQ;
   case EDOM:
     return __WASI_ERRNO_DOM;
+#if !WASMEDGE_OS_WINDOWS
   case EDQUOT:
     return __WASI_ERRNO_DQUOT;
+#endif
   case EEXIST:
     return __WASI_ERRNO_EXIST;
   case EFAULT:
@@ -124,8 +126,10 @@ __wasi_errno_t convertErrno(int SysErrno) noexcept {
     return __WASI_ERRNO_MLINK;
   case EMSGSIZE:
     return __WASI_ERRNO_MSGSIZE;
+#if !WASMEDGE_OS_WINDOWS
   case EMULTIHOP:
     return __WASI_ERRNO_MULTIHOP;
+#endif
   case ENAMETOOLONG:
     return __WASI_ERRNO_NAMETOOLONG;
   case ENETDOWN:
@@ -196,8 +200,10 @@ __wasi_errno_t convertErrno(int SysErrno) noexcept {
     return __WASI_ERRNO_SPIPE;
   case ESRCH:
     return __WASI_ERRNO_SRCH;
+#if !WASMEDGE_OS_WINDOWS
   case ESTALE:
     return __WASI_ERRNO_STALE;
+#endif
   case ETIMEDOUT:
     return __WASI_ERRNO_TIMEDOUT;
   case ETXTBSY:
@@ -210,7 +216,8 @@ __wasi_errno_t convertErrno(int SysErrno) noexcept {
 }
 
 uint64_t convertTimespec(const timespec &Timespec) noexcept {
-  return Timespec.tv_sec * UINT64_C(1000000000) + Timespec.tv_nsec;
+  return static_cast<uint64_t>(Timespec.tv_sec) * UINT64_C(1000000000) +
+         static_cast<uint64_t>(Timespec.tv_nsec);
 }
 
 } // namespace
@@ -1845,7 +1852,8 @@ TEST(WasiTest, ClockTimeGet) {
     EXPECT_EQ(Errno[0].get<int32_t>(), convertErrno(SysErrno));
     if (SysErrno == 0) {
       const uint64_t Time = convertTimespec(Timespec);
-      EXPECT_NEAR(*MemInst.getPointer<const uint64_t *>(0), Time, 1000000);
+      EXPECT_NEAR(*MemInst.getPointer<const double *>(0),
+                  static_cast<double>(Time), 1000000);
     }
   }
 
@@ -1866,7 +1874,7 @@ TEST(WasiTest, ClockTimeGet) {
     EXPECT_EQ(Errno[0].get<int32_t>(), convertErrno(SysErrno));
     if (SysErrno == 0) {
       const uint64_t Time = convertTimespec(Timespec);
-      EXPECT_NEAR(*MemInst.getPointer<const uint64_t *>(0), Time, 1000000);
+      EXPECT_NEAR(*MemInst.getPointer<const double *>(0), static_cast<double>(Time), 1000000);
     }
   }
 
@@ -1887,7 +1895,7 @@ TEST(WasiTest, ClockTimeGet) {
     EXPECT_EQ(Errno[0].get<int32_t>(), convertErrno(SysErrno));
     if (SysErrno == 0) {
       const uint64_t Time = convertTimespec(Timespec);
-      EXPECT_NEAR(*MemInst.getPointer<const uint64_t *>(0), Time, 1000000);
+      EXPECT_NEAR(*MemInst.getPointer<const double *>(0), static_cast<double>(Time), 1000000);
     }
   }
 
@@ -1908,7 +1916,7 @@ TEST(WasiTest, ClockTimeGet) {
     EXPECT_EQ(Errno[0].get<int32_t>(), convertErrno(SysErrno));
     if (SysErrno == 0) {
       const uint64_t Time = convertTimespec(Timespec);
-      EXPECT_NEAR(*MemInst.getPointer<const uint64_t *>(0), Time, 1000000);
+      EXPECT_NEAR(*MemInst.getPointer<const double *>(0), static_cast<double>(Time), 1000000);
     }
   }
 
