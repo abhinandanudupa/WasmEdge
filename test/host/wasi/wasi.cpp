@@ -4,7 +4,7 @@
 #include "common/defines.h"
 #include <gtest/gtest.h>
 
-#if WASMEDGE_OS_LINUX || WASMEDGE_OS_MACOS
+#if WASMEDGE_OS_LINUX || WASMEDGE_OS_MACOS || WASMEDGE_OS_WINDOWS
 
 #include "host/wasi/wasibase.h"
 #include "host/wasi/wasifunc.h"
