@@ -727,7 +727,7 @@ INode::fdFilestatSetSize(__wasi_filesize_t Size) const noexcept {
       } else if (unlikely(WriteResult == FALSE)) {
         return WasiUnexpect(fromWinError(GetLastError()));
       }
-      Count++;
+      Count--;
     }
 
     // Restore pointer
@@ -1002,7 +1002,7 @@ WasiExpect<void> INode::fdReaddir(Span<uint8_t> Buffer,
               LocalBuffer.begin() + sizeof(__wasi_dirent_t));
     // Check if there no more files left or if an error has been encountered
     FindNextResult = FindNextFileW(LocalFindHandle, &FindData);
-  } while (FindNextResult != ERROR_NO_MORE_FILES || FindNextResult != FALSE);
+  } while (FindNextResult != FALSE);
 
   FindClose(LocalFindHandle);
 
