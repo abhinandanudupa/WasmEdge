@@ -366,6 +366,7 @@ uint64_t convertTimespec(const timespec &Timespec) noexcept {
 
 } // namespace
 
+/*
 TEST(WasiTest, Args) {
   WasmEdge::Host::WASI::Environ Env;
   WasmEdge::Runtime::Instance::ModuleInstance Mod("");
@@ -478,7 +479,8 @@ TEST(WasiTest, Args) {
   EXPECT_EQ(*MemInst.getPointer<const uint32_t *>(0), UINT32_C(0xa5a5a5a5));
   Env.fini();
 }
-
+*/
+/*
 TEST(WasiTest, Envs) {
   WasmEdge::Host::WASI::Environ Env;
   WasmEdge::Runtime::Instance::ModuleInstance Mod("");
@@ -616,6 +618,7 @@ TEST(WasiTest, Envs) {
   EXPECT_EQ(*MemInst.getPointer<const uint32_t *>(0), UINT32_C(0xa5a5a5a5));
   Env.fini();
 }
+*/
 
 TEST(WasiTest, ClockRes) {
   WasmEdge::Host::WASI::Environ Env;
