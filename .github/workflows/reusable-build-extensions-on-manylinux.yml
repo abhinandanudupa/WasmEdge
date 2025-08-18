@@ -54,7 +54,7 @@ jobs:
           echo "cache_path1=${{ github.workspace }}" >> $GITHUB_OUTPUT
           echo "cache_key2=${{ github.workflow }}-${{ github.head_ref || github.ref }}-${{ inputs.docker_tag }}-2-${{ github.run_id }}" >> $GITHUB_OUTPUT
           echo "cache_path2=$HOME" >> $GITHUB_OUTPUT
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v5
         with:
           fetch-depth: 0
       - name: Ensure git safe directory

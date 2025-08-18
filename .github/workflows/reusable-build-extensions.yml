@@ -17,7 +17,7 @@ jobs:
     outputs:
       matrix: ${{ steps.prep.outputs.matrix }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v5
         with:
           fetch-depth: 0
       - id: prep
