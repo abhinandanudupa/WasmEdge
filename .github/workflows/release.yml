@@ -607,7 +607,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
       - name: Prepare tarball
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v6
         with:
           name: ${{ matrix.artifact_name }}
           path: utils/docker
