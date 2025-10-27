@@ -143,7 +143,7 @@ jobs:
           cd -
       - name: Upload artifact ${{ matrix.plugin }}
         if: ${{ !inputs.release }}
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v5
         with:
           name: ${{ steps.prep.outputs.artifact }}
           path: ${{ steps.prep.outputs.filename }}
